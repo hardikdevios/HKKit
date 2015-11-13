@@ -9,21 +9,20 @@
 Pod::Spec.new do |s|
   s.name             = "HKKit"
   s.version          = "0.1.0"
-  s.summary          = "A short description of HKKit."
+  s.summary          = "Perosnal repo"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = <<-DESC
-                       DESC
+  s.description      = "Faster app development use for my personal use only in order to import and maintain my gloabal funcations"
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/HKKit"
+  s.homepage         = "https://github.com/hardikdevios/HKCustomization"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Hardik" => "hardik.webatease@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/HKKit.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/hardikdevios/HKKit.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '8.0'
