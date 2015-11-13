@@ -1,0 +1,14 @@
+PODS:
+  - HKKit (0.1.0)
+
+DEPENDENCIES:
+  - HKKit (from `../`)
+
+EXTERNAL SOURCES:
+  HKKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  HKKit: 672f0021e638a6d30674d1f54f01f2d3268eac45
+
+COCOAPODS: 0.39.0
