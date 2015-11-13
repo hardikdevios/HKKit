@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "HKKit"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "Perosnal repo"
   s.description      = "Faster app development use for my personal use only in order to import and maintain my gloabal funcations"
 
@@ -17,8 +17,5 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'HKKit' => ['Pod/Assets/*.png']
   }
-  s.subspec 'HKExtensions' do |hke|
-    hke.source_files = 'HKExtensions/**/**.swift'
-  end
 
 end

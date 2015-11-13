@@ -17,5 +17,5 @@ import UIKit
 //        return Singleton.sharedInstance
 //    }
 
-    public var APP_COLOR_COMPUTED:UIColor!
+    public var COLOR_COMPUTED:UIColor!
 //}

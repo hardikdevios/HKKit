@@ -10,7 +10,7 @@ import UIKit
 
 extension UIButton{
     public func setAppBackGroundColor()->Void{
-        self.backgroundColor = APP_COLOR_COMPUTED
+        self.backgroundColor = COLOR_COMPUTED
     }
     public func setAppDisableColor()->Void{
         self.backgroundColor = UIColor.lightGrayColor()

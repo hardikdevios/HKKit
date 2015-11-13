@@ -10,7 +10,7 @@ import UIKit
 
 extension UILabel{
         public func setAppTextColor()->Void{
-            self.textColor = APP_COLOR_COMPUTED
+            self.textColor = COLOR_COMPUTED
         }
     
         public func setDefaultText(defaultText:String!)->Void{

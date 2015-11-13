@@ -8,23 +8,23 @@
 
 import UIKit
 
-class HKTextField: UITextField {
+public class HKTextField: UITextField {
 
     let padding = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 5);
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         self.keyboardAppearance = .Default
     }
     
 
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
     
-    override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+    override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
     
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         return self.newBounds(bounds)
     }
     

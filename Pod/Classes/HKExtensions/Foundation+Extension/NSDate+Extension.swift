@@ -182,7 +182,7 @@ extension NSDate{
     }
     
     
-    func getNextDay()->String{
+    public func getNextDay()->String{
         return NSCalendar.currentCalendar().dateByAddingUnit(
             .Day,
             value: 1,
@@ -193,7 +193,7 @@ extension NSDate{
 
     
     
-    func isGreaterThanDate(dateToCompare : NSDate) -> Bool
+    public func isGreaterThanDate(dateToCompare : NSDate) -> Bool
     {
         var isGreater = false
         if self.compare(dateToCompare) == NSComparisonResult.OrderedDescending
