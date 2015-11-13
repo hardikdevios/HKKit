@@ -3,7 +3,7 @@
 //  Doctodoor
 //
 //  Created by Hardik on 19/09/15.
-//  Copyright (c) 2015 PRAXINFO. All rights reserved.
+//  Copyright (c) 2015 . All rights reserved.
 //
 
 import UIKit

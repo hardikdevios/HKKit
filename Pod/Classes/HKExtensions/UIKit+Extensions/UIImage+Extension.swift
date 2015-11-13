@@ -3,7 +3,7 @@
 //  HKCustomization
 //
 //  Created by Hardik on 10/18/15.
-//  Copyright © 2015 Vivacious. All rights reserved.
+//  Copyright © 2015 . All rights reserved.
 //
 
 import UIKit
@@ -17,7 +17,7 @@ extension UIImage {
 }
 extension UIImage {
     
-    func resize(width:CGFloat,height:CGFloat)->UIImage?{
+    public func resize(width:CGFloat,height:CGFloat)->UIImage?{
                 
         var newSize:CGSize = CGSizeMake(width, height)
         let widthRatio:CGFloat = newSize.width/self.size.width

@@ -3,7 +3,7 @@
 //  HKCustomization
 //
 //  Created by Hardik on 10/18/15.
-//  Copyright © 2015 Vivacious. All rights reserved.
+//  Copyright © 2015 . All rights reserved.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ extension UIViewController {
     
     
     
-    func setAppLogo(){
+    public func setAppLogo(){
         
         let imgView:UIImageView = UIImageView(image: UIImage(named: "logo"))
         imgView.contentMode = .Center
@@ -19,22 +19,22 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = barbutton
     }
     
-    func setMainTitle(navigationTitle:String!)->Void{
+    public func setMainTitle(navigationTitle:String!)->Void{
         self.navigationItem.title = navigationTitle
     }
-    func remvoeAllObserver(isForcefully:Bool = false){
+    public func remvoeAllObserver(isForcefully:Bool = false){
         
         if self.isMovingFromParentViewController() || isForcefully{
             NSNotificationCenter.defaultCenter().removeObserver(self)
         }
     }
     
-    func setObserver(methodname:Selector,observername:String){
+    public func setObserver(methodname:Selector,observername:String){
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: methodname, name: observername, object: nil)
         
     }
-    func setCustomeTitleView(navigationTitle:String!,let font:UIFont = UIFont.systemFontOfSize(UIFont.smallSystemFontSize()))->Void{
+    public func setCustomeTitleView(navigationTitle:String!,let font:UIFont = UIFont.systemFontOfSize(UIFont.smallSystemFontSize()))->Void{
         
         let label = UILabel()
         label.numberOfLines = 2
@@ -48,18 +48,18 @@ extension UIViewController {
         self.navigationItem.titleView = label
     }
   
-    func setCancelButton()->Void{
+    public func setCancelButton()->Void{
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action:"cancelClick:")
     }
-    func setSaveButton(action:Selector)->Void{
+    public func setSaveButton(action:Selector)->Void{
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: action)
     }
-    func cancelClick(sender:AnyObject?){
+    public func cancelClick(sender:AnyObject?){
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             
         })
     }
-    func setBlurryBackground(){
+    public func setBlurryBackground(){
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
         visualEffectView.frame = self.view.bounds
         visualEffectView.tag = 999
@@ -67,7 +67,7 @@ extension UIViewController {
         self.view.insertSubview(visualEffectView, atIndex: 0)
         visualEffectView.hidden=false;
     }
-    func isBlurVisible(ishidden:Bool){
+    public func isBlurVisible(ishidden:Bool){
         //        var visualEffect:UIVisualEffectView? = (self.revealViewController().frontViewController as! UINavigationController).topViewController.view.viewWithTag(999) as? UIVisualEffectView
         //        if visualEffect == nil{
         //            return
@@ -76,7 +76,7 @@ extension UIViewController {
         
     }
     
-    func setEmptyView(text:String!){
+    public func setEmptyView(text:String!){
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
@@ -96,7 +96,7 @@ extension UIViewController {
         blurEffectView.contentView.addSubview(vibrantLabel)
     }
     
-    func isViewEmpty(isempty:Bool){
+    public func isViewEmpty(isempty:Bool){
         let visualEffect:UIVisualEffectView? = view.viewWithTag(9999) as? UIVisualEffectView
         if visualEffect == nil{
             return
@@ -105,7 +105,7 @@ extension UIViewController {
         
     }
     
-    func setToolbarWithActivity(){
+    public func setToolbarWithActivity(){
         
         let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
         activity.hidden = false
@@ -115,7 +115,7 @@ extension UIViewController {
         self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil),barbuttonActivity,UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)]
         
     }
-    func removeWithAnimation(){
+    public func removeWithAnimation(){
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.view.alpha = 0
             }, completion: { (sucess) -> Void in
@@ -124,14 +124,14 @@ extension UIViewController {
                 
         })
     }
-    func setBlankBackButton(){
+    public func setBlankBackButton(){
         
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = backItem
         
     }
     
-    func setCustomBackbutton(methodName:Selector){
+    public func setCustomBackbutton(methodName:Selector){
         let myBackButton:UIButton = UIButton(type: UIButtonType.Custom)
         myBackButton.addTarget(self, action: methodName, forControlEvents: UIControlEvents.TouchUpInside)
         myBackButton.setTitle(" ", forState: UIControlState.Normal)
@@ -149,7 +149,7 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem  = myCustomBackButtonItem
     }
     
-    func setUpActivityIndicator(){
+    public func setUpActivityIndicator(){
         
         let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
         activity.hidesWhenStopped = true
@@ -162,7 +162,7 @@ extension UIViewController {
 
         }
     }
-    func startIndicator(){
+    public func startIndicator(){
         
         
         if let activity = self.navigationItem.rightBarButtonItems?.last?.customView as? UIActivityIndicatorView {
@@ -173,7 +173,7 @@ extension UIViewController {
         }
     }
     
-    func stopIndicator(){
+    public func stopIndicator(){
         if let activity = self.navigationItem.rightBarButtonItems?.last?.customView as? UIActivityIndicatorView {
             activity.stopAnimating()
         }
@@ -184,7 +184,7 @@ extension UIViewController {
     
 }
 //extension UIViewController {
-//    class func currentViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
+//    class public func currentViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
 //        if let nav = base as? UINavigationController {
 //            return currentViewController(nav.visibleViewController)
 //        }

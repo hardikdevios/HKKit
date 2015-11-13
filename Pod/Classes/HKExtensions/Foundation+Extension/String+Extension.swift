@@ -3,13 +3,13 @@
 //  HKCustomization
 //
 //  Created by Hardik on 10/18/15.
-//  Copyright © 2015 Vivacious. All rights reserved.
+//  Copyright © 2015 . All rights reserved.
 //
 
 import UIKit
 
 extension String {
-    func toBool() -> Bool {
+    public func toBool() -> Bool {
         switch self {
         case "True", "true", "yes", "1":
             return true
@@ -20,7 +20,7 @@ extension String {
         }
     }
     
-    var floatValue: Float {
+    public var floatValue: Float {
         return (self as NSString).floatValue
     }
     
@@ -30,7 +30,7 @@ extension String {
         }
     }
     
-    var toJsonDict: Dictionary<String,AnyObject>?{
+    public var toJsonDict: Dictionary<String,AnyObject>?{
         return (try? NSJSONSerialization.JSONObjectWithData(self.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, options: NSJSONReadingOptions.AllowFragments)) as? Dictionary<String,AnyObject>
         
     }

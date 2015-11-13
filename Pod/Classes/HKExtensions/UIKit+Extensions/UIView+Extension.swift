@@ -3,25 +3,25 @@
 //  HKCustomization
 //
 //  Created by Hardik on 10/18/15.
-//  Copyright © 2015 Vivacious. All rights reserved.
+//  Copyright © 2015 . All rights reserved.
 //
 
 import UIKit
 
 extension UIView{
-    func setAppBackGround()->Void{
+    public func setAppBackGround()->Void{
         self.backgroundColor = APP_COLOR_COMPUTED
     }
-    func setAppBackGroundWithAlpha(alpha:CGFloat)->Void{
+    public func setAppBackGroundWithAlpha(alpha:CGFloat)->Void{
         self.backgroundColor = APP_COLOR_COMPUTED.colorWithAlphaComponent(alpha)
     }
-    func setAppRadius()->Void{
+    public func setAppRadius()->Void{
         self.layer.cornerRadius = 3.0
     }
-    func setAppRadius(radius:CGFloat)->Void{
+    public func setAppRadius(radius:CGFloat)->Void{
         self.layer.cornerRadius = radius
     }
-    func setEmptyView(text:String!){
+    public func setEmptyView(text:String!){
         let visualEffect:UIVisualEffectView? = self.viewWithTag(9999) as? UIVisualEffectView
         if visualEffect != nil{
             self.isViewEmpty(false)
@@ -49,7 +49,7 @@ extension UIView{
         blurEffectView.contentView.addSubview(vibrantLabel)
     }
     
-    func isViewEmpty(isempty:Bool){
+    public func isViewEmpty(isempty:Bool){
         let visualEffect:UIVisualEffectView? = self.viewWithTag(9999) as? UIVisualEffectView
         if visualEffect == nil{
             return
@@ -57,7 +57,7 @@ extension UIView{
         visualEffect?.hidden = isempty
     }
     
-    func setAppShadow(color:UIColor,size:CGSize){
+    public func setAppShadow(color:UIColor,size:CGSize){
         
         self.layer.shadowColor = color.CGColor;
         self.layer.shadowOffset = size;
@@ -66,7 +66,7 @@ extension UIView{
         self.clipsToBounds = false
     }
     
-    func setCardlayout(){
+    public func setCardlayout(){
         self.clipsToBounds = false
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.blackColor().CGColor
@@ -76,7 +76,7 @@ extension UIView{
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).CGPath
     }
     
-    func addDashedBorder() {
+    public func addDashedBorder() {
         
         // self.layoutIfNeeded()
         let color = UIColor.lightGrayColor().CGColor
@@ -100,7 +100,7 @@ extension UIView{
         
     }
     
-    func findSuperViewWithClass<T>(superViewClass : T.Type) -> UIView? {
+    public func findSuperViewWithClass<T>(superViewClass : T.Type) -> UIView? {
         
         var xsuperView : UIView!  = self.superview!
         var foundSuperView : UIView!

@@ -3,23 +3,23 @@
 //  HKCustomization
 //
 //  Created by Hardik on 10/18/15.
-//  Copyright © 2015 Vivacious. All rights reserved.
+//  Copyright © 2015 . All rights reserved.
 //
 
 import UIKit
 
 extension UIButton{
-    func setAppBackGroundColor()->Void{
+    public func setAppBackGroundColor()->Void{
         self.backgroundColor = APP_COLOR_COMPUTED
     }
-    func setAppDisableColor()->Void{
+    public func setAppDisableColor()->Void{
         self.backgroundColor = UIColor.lightGrayColor()
     }
     
-    func toggleOnOff()->Void{
+    public func toggleOnOff()->Void{
         self.selected = !self.selected;
     }
-    func setDisableWithAlpha(isDisable:Bool){
+    public func setDisableWithAlpha(isDisable:Bool){
         if isDisable {
             self.enabled = false
             self.alpha = 0.5

@@ -3,13 +3,13 @@
 //  HKCustomization
 //
 //  Created by Hardik on 10/18/15.
-//  Copyright © 2015 Vivacious. All rights reserved.
+//  Copyright © 2015 . All rights reserved.
 //
 
 import UIKit
 extension UITextField{
     
-    func setDefaultBottomBorder()->Void{
+    public func setDefaultBottomBorder()->Void{
         
         let border = CALayer()
         
@@ -21,7 +21,7 @@ extension UITextField{
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
     }
-    func setSelectedBottomBorder()->Void{
+    public func setSelectedBottomBorder()->Void{
         
         let border = CALayer()
         
@@ -33,14 +33,14 @@ extension UITextField{
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
     }
-    func setDefaultText(defaultText:String!)->Void{
+   public func setDefaultText(defaultText:String!)->Void{
         if self.text == "" ||  self.text == " " ||  self.text == nil{
             self.text = defaultText
         }
         
     }
     
-    func setLeftImgView(imgName:String!)->Void{
+   public func setLeftImgView(imgName:String!)->Void{
         
         self.layoutIfNeeded()
         let leftViewForImg = UIView(frame: CGRectMake(0, 0, 50, self.frame.size.height))
@@ -54,7 +54,7 @@ extension UITextField{
         
     }
     
-    func setPlaceHolderColor(color:UIColor){
+    public func setPlaceHolderColor(color:UIColor){
         
         self.attributedPlaceholder = NSAttributedString(string:self.placeholder ?? "",
             attributes:[NSForegroundColorAttributeName:color])
@@ -67,7 +67,7 @@ extension UITextField{
 extension UITextField{
     
     
-    func isEmpty()->Int{
+    public func isEmpty()->Int{
         let whitespaceSet = NSCharacterSet.whitespaceCharacterSet()
         if self.text!.stringByTrimmingCharactersInSet(whitespaceSet) != "" {
             return 0
@@ -76,12 +76,12 @@ extension UITextField{
         return 1
     }
     
-    func isEmail() -> Bool {
+    public func isEmail() -> Bool {
         let regex = try? NSRegularExpression(pattern: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", options: .CaseInsensitive)
         return regex?.firstMatchInString(self.text!, options: [], range: NSMakeRange(0, self.text!.characters.count)) != nil
     }
     
-    func shake(){
+    public func shake(){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.10
         animation.autoreverses = true
@@ -89,7 +89,7 @@ extension UITextField{
         animation.toValue = NSValue(CGPoint: CGPointMake(self.center.x + 10, self.center.y))
         self.layer.addAnimation(animation, forKey: "position")
     }
-    func setLockViewAndDisabled(isLeft:Bool = false){
+    public func setLockViewAndDisabled(isLeft:Bool = false){
         
         let view:UIView = UIView(frame: CGRectMake(0, 0, 30 , 30))
         let label = UILabel(frame: CGRectMake(0, 0, 25 ,25))

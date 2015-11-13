@@ -3,14 +3,14 @@
 //  HKCustomization
 //
 //  Created by Hardik on 10/18/15.
-//  Copyright © 2015 Vivacious. All rights reserved.
+//  Copyright © 2015 . All rights reserved.
 //
 
 import UIKit
 
 extension Dictionary {
     
-    func removeNilFromDict(var dict:Dictionary<NSObject,AnyObject!>) -> Dictionary<NSObject,AnyObject!>{
+    public func removeNilFromDict(var dict:Dictionary<NSObject,AnyObject!>) -> Dictionary<NSObject,AnyObject!>{
         
         
         for (key,name) in dict{

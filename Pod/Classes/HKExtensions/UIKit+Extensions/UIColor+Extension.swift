@@ -3,7 +3,7 @@
 //  HKCustomization
 //
 //  Created by Hardik on 10/18/15.
-//  Copyright © 2015 Vivacious. All rights reserved.
+//  Copyright © 2015 . All rights reserved.
 //
 
 import UIKit
@@ -61,7 +61,7 @@ extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
     
-    class func getRandomColor() -> UIColor{
+    public class func getRandomColor() -> UIColor{
         
         let randomRed:CGFloat = CGFloat(drand48())
         

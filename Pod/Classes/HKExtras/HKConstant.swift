@@ -8,5 +8,14 @@
 
 import Foundation
 import UIKit
+//class HKConstant {
+//    struct Singleton {
+//        static let sharedInstance = HKConstant()
+//
+//    }
+//    class var sharedInstance: HKConstant {
+//        return Singleton.sharedInstance
+//    }
 
-let APP_COLOR_COMPUTED  = UIColor.blueColor()
+    public var APP_COLOR_COMPUTED:UIColor!
+//}
