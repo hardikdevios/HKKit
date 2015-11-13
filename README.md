@@ -1,6 +1,6 @@
 # HKKit
 
-[![CI Status](http://img.shields.io/travis/Hardik/HKKit.svg?style=flat)](https://travis-ci.org/Hardik/HKKit)
+[![CI Status](http://img.shields.io/travis/hardikdevios/HKKit.svg?style=flat)](https://travis-ci.org/Hardik/HKKit)
 [![Version](https://img.shields.io/cocoapods/v/HKKit.svg?style=flat)](http://cocoapods.org/pods/HKKit)
 [![License](https://img.shields.io/cocoapods/l/HKKit.svg?style=flat)](http://cocoapods.org/pods/HKKit)
 [![Platform](https://img.shields.io/cocoapods/p/HKKit.svg?style=flat)](http://cocoapods.org/pods/HKKit)
