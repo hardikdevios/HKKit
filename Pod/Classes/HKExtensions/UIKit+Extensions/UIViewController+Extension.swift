@@ -111,7 +111,7 @@ extension UIViewController {
         activity.hidden = false
         let barbuttonActivity = UIBarButtonItem(customView: activity)
         activity.startAnimating()
-        activity.color = COLOR_COMPUTED
+        activity.color = MAIN_COLOR
         self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil),barbuttonActivity,UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)]
         
     }

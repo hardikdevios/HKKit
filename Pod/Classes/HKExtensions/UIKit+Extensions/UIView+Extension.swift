@@ -10,10 +10,10 @@ import UIKit
 
 extension UIView{
     public func setAppBackGround()->Void{
-        self.backgroundColor = COLOR_COMPUTED
+        self.backgroundColor = MAIN_COLOR
     }
     public func setAppBackGroundWithAlpha(alpha:CGFloat)->Void{
-        self.backgroundColor = COLOR_COMPUTED.colorWithAlphaComponent(alpha)
+        self.backgroundColor = MAIN_COLOR.colorWithAlphaComponent(alpha)
     }
     public func setAppRadius()->Void{
         self.layer.cornerRadius = 3.0
