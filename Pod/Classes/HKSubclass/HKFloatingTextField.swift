@@ -8,11 +8,11 @@
 
 import UIKit
 
-class HKFloatingTextField: UITextField {
+public class HKFloatingTextField: UITextField {
 
     let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5);
     var bottomBorder:CALayer?
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
     }
     
     
@@ -21,7 +21,7 @@ class HKFloatingTextField: UITextField {
     var title = UILabel()
     
     // MARK:- Properties
-    override var accessibilityLabel:String! {
+    override public var accessibilityLabel:String! {
         get {
             if text!.isEmpty {
                 return title.text
@@ -34,14 +34,14 @@ class HKFloatingTextField: UITextField {
         }
     }
     
-    override var placeholder:String? {
+    override public var placeholder:String? {
         didSet {
             title.text = placeholder
             title.sizeToFit()
         }
     }
     
-    override var attributedPlaceholder:NSAttributedString? {
+    override public var attributedPlaceholder:NSAttributedString? {
         didSet {
             title.text = attributedPlaceholder?.string
             title.sizeToFit()
@@ -81,7 +81,7 @@ class HKFloatingTextField: UITextField {
     }
     
     // MARK:- Init
-    required init?(coder aDecoder:NSCoder) {
+    required public init?(coder aDecoder:NSCoder) {
         super.init(coder:aDecoder)
         setup()
     }
@@ -92,7 +92,7 @@ class HKFloatingTextField: UITextField {
     }
     
     // MARK:- Overrides
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         setTitlePositionForTextAlignment()
         let isResp = isFirstResponder()
@@ -111,7 +111,7 @@ class HKFloatingTextField: UITextField {
         }
     }
     
-    override func textRectForBounds(bounds:CGRect) -> CGRect {
+    override public func textRectForBounds(bounds:CGRect) -> CGRect {
         var r = super.textRectForBounds(bounds)
         if !text!.isEmpty {
             var top = ceil(title.font.lineHeight + hintYPadding)
@@ -121,7 +121,7 @@ class HKFloatingTextField: UITextField {
         return CGRectIntegral(r)
     }
     
-    override func editingRectForBounds(bounds:CGRect) -> CGRect {
+    override public func editingRectForBounds(bounds:CGRect) -> CGRect {
         var r = super.editingRectForBounds(bounds)
         if !text!.isEmpty {
             var top = ceil(title.font.lineHeight + hintYPadding)
@@ -131,7 +131,7 @@ class HKFloatingTextField: UITextField {
         return CGRectIntegral(r)
     }
     
-    override func clearButtonRectForBounds(bounds:CGRect) -> CGRect {
+    override public func clearButtonRectForBounds(bounds:CGRect) -> CGRect {
         var r = super.clearButtonRectForBounds(bounds)
         if !text!.isEmpty {
             var top = ceil(title.font.lineHeight + hintYPadding)

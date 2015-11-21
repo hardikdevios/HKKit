@@ -8,11 +8,11 @@
 
 import UIKit
 
-class HKCardView: UIView {
+public class HKCardView: UIView {
 
-    var radius: CGFloat = 2
+    public var radius: CGFloat = 2
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         layer.cornerRadius = radius
         let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radius)
         
@@ -23,7 +23,7 @@ class HKCardView: UIView {
         layer.shadowPath = shadowPath.CGPath
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
 
