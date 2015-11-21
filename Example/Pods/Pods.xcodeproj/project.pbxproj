@@ -12,6 +12,8 @@
 		2118BD99881B395F79561446171A397B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD24EBEC5E7A866E99DF26E5AA5AD15 /* UIViewController+Extension.swift */; };
 		253771A1C500666E2DF7B51B0C2C47FD /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C19AEA129C4D5EBA407D378BDA20C98 /* UITextField+Extension.swift */; };
 		3A9B4C7D8CEBD2D759C9ED9011A51B20 /* HKKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6F0DBAAF9C9F35DCEE6550F0D962 /* HKKit-dummy.m */; };
+		566532BF1C010A660000215A /* HKCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566532BD1C010A660000215A /* HKCardView.swift */; };
+		566532C01C010A660000215A /* HKFloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566532BE1C010A660000215A /* HKFloatingTextField.swift */; };
 		5A8B3C4D3DDA1C8495BE9EFBE1F2A851 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB4746C419454C3A8386126A221DFC0 /* UIImage+Extension.swift */; };
 		60F1509E6D2C547F127CE42A3BCA1E42 /* Pods-HKKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9622CA7770EB201241B0041861B4CC /* Pods-HKKit_Tests-dummy.m */; };
 		62E5E3F55DAC4E1EC73867B92E0E6CB9 /* UISwitch+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F93DE05F1D91D81DDE02A92BC2601CB /* UISwitch+Extension.swift */; };
@@ -67,6 +69,8 @@
 		4A9E6F0DBAAF9C9F35DCEE6550F0D962 /* HKKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HKKit-dummy.m"; sourceTree = "<group>"; };
 		506594D808E9ADA5EDFA06118564195F /* Dictionary+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		54EDB300AB84272539F346CD513D5A8D /* Pods-HKKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HKKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		566532BD1C010A660000215A /* HKCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKCardView.swift; sourceTree = "<group>"; };
+		566532BE1C010A660000215A /* HKFloatingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKFloatingTextField.swift; sourceTree = "<group>"; };
 		58AACE668916065C89A0077E08BF43E2 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		63B39691F7AA700DB789A9CF44DB6727 /* Pods-HKKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HKKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6636F97974EBEE03AD719959BFCE247C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 		94E6D26B9D3D47336BE94F3DAC1D570A /* HKSubclass */ = {
 			isa = PBXGroup;
 			children = (
+				566532BD1C010A660000215A /* HKCardView.swift */,
+				566532BE1C010A660000215A /* HKFloatingTextField.swift */,
 				BCBFFA442126A61C8A5EEF7E2322379C /* HKTextField.swift */,
 			);
 			path = HKSubclass;
@@ -435,10 +441,12 @@
 				3A9B4C7D8CEBD2D759C9ED9011A51B20 /* HKKit-dummy.m in Sources */,
 				DF8311A5B9B283926B4C497ECC702519 /* HKTextField.swift in Sources */,
 				D1BCB989103359CAD44432F1CFF5B966 /* NSDate+Extension.swift in Sources */,
+				566532BF1C010A660000215A /* HKCardView.swift in Sources */,
 				F6CC47B07872E0776D43566D869FC208 /* NSRange+Extension.swift in Sources */,
 				B5FFF9CF4C88D960F385B3A347106236 /* String+Extension.swift in Sources */,
 				FEDAAFCAEB854EE1438A2FB556F689CE /* UIButton+Extension.swift in Sources */,
 				84BE2F870A512097886806DFAF92068F /* UIColor+Extension.swift in Sources */,
+				566532C01C010A660000215A /* HKFloatingTextField.swift in Sources */,
 				5A8B3C4D3DDA1C8495BE9EFBE1F2A851 /* UIImage+Extension.swift in Sources */,
 				8A12E4438C71D9A810163696BED2440A /* UIImageView+Extension.swift in Sources */,
 				89710AD216ECF852E0AC9F51EB57A289 /* UILabel+Extension.swift in Sources */,

@@ -11,13 +11,24 @@ extension UIViewController {
     
     
     
-    public func setAppLogo(){
+    
+    func setAppLogo(){
         
-        let imgView:UIImageView = UIImageView(image: UIImage(named: "logo"))
+        let imgView:UIImageView = UIImageView(image: UIImage(named: MAIN_LOGO))
+        imgView.contentMode = .ScaleAspectFit
+        // let barbutton:UIBarButtonItem = UIBarButtonItem(customView: imgView)
+        self.navigationItem.titleView = imgView
+    }
+    
+    public func setAppLogoLeft(){
+        
+        let imgView:UIImageView = UIImageView(image: UIImage(named: MAIN_LOGO))
         imgView.contentMode = .Center
         let barbutton:UIBarButtonItem = UIBarButtonItem(customView: imgView)
         self.navigationItem.leftBarButtonItem = barbutton
     }
+    
+    
     
     public func setMainTitle(navigationTitle:String!)->Void{
         self.navigationItem.title = navigationTitle
@@ -182,7 +193,24 @@ extension UIViewController {
         }
     }
     
+    
+    
 }
+
+extension UIViewController{
+
+    
+ 
+    
+    func segue(identifire:String){
+        self.performSegueWithIdentifier(identifire, sender: self)
+    }
+    
+    func segue(identifire:String,sender:AnyObject?){
+        self.performSegueWithIdentifier(identifire, sender: sender)
+    }
+}
+
 //extension UIViewController {
 //    class public func currentViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
 //        if let nav = base as? UINavigationController {

@@ -35,4 +35,14 @@ extension String {
         
     }
     
+    
+}
+extension String {
+    
+    
+    func trimWhiteSpace()->String?{
+        
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+    }
 }
