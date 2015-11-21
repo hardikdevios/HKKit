@@ -193,6 +193,11 @@ extension UIViewController {
         }
     }
     
+    public func setNavigationBarVisiblity(isVisible:Bool = true){
+        self.navigationController?.navigationBarHidden = !isVisible
+        
+    }
+    
     
     
 }
@@ -202,11 +207,11 @@ extension UIViewController{
     
  
     
-    func segue(identifire:String){
+    public func segue(identifire:String){
         self.performSegueWithIdentifier(identifire, sender: self)
     }
     
-    func segue(identifire:String,sender:AnyObject?){
+    public func segue(identifire:String,sender:AnyObject?){
         self.performSegueWithIdentifier(identifire, sender: sender)
     }
 }

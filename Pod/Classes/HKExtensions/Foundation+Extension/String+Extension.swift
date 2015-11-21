@@ -40,7 +40,7 @@ extension String {
 extension String {
     
     
-    func trimWhiteSpace()->String?{
+    public func trimWhiteSpace()->String?{
         
         return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
