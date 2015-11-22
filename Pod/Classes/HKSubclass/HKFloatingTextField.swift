@@ -10,8 +10,8 @@ import UIKit
 
 public class HKFloatingTextField: UITextField {
 
-    let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5);
-    var bottomBorder:CALayer?
+    public let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5);
+    public var bottomBorder:CALayer?
     override public func awakeFromNib() {
     }
     
@@ -157,6 +157,7 @@ public class HKFloatingTextField: UITextField {
                 title.sizeToFit()
             }
         }
+        
         self.addSubview(title)
     }
     

@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
     
-    convenience init(haxString:String) {
+    convenience public init(haxString:String) {
         
         var red:   CGFloat = 0.0
         var green: CGFloat = 0.0

@@ -12,7 +12,7 @@ extension UIViewController {
     
     
     
-    func setAppLogo(){
+    public func setAppLogo(){
         
         let imgView:UIImageView = UIImageView(image: UIImage(named: MAIN_LOGO))
         imgView.contentMode = .ScaleAspectFit
@@ -216,19 +216,19 @@ extension UIViewController{
     }
 }
 
-//extension UIViewController {
-//    class public func currentViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
-//        if let nav = base as? UINavigationController {
-//            return currentViewController(nav.visibleViewController)
-//        }
-//        if let tab = base as? UITabBarController {
-//            if let selected = tab.selectedViewController {
-//                return currentViewController(selected)
-//            }
-//        }
-//        if let presented = base?.presentedViewController {
-//            return currentViewController(presented)
-//        }
-//        return base
-//    }
-//}
+extension UIViewController {
+    class public func currentViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return currentViewController(nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return currentViewController(selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return currentViewController(presented)
+        }
+        return base
+    }
+}
