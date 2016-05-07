@@ -8,15 +8,16 @@
 
 import Foundation
 import UIKit
-//class HKConstant {
-//    struct Singleton {
-//        static let sharedInstance = HKConstant()
-//
-//    }
-//    class var sharedInstance: HKConstant {
-//        return Singleton.sharedInstance
-//    }
+class HKConstant:NSObject {
+    struct Singleton {
+        static let sharedInstance = HKConstant()
 
+    }
+    class var sharedInstance: HKConstant {
+        return Singleton.sharedInstance
+    }
+    
+}
 public var MAIN_COLOR:UIColor!
 public var MAIN_LOGO:String!
 

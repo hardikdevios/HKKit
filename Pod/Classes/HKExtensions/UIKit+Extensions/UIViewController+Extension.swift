@@ -28,11 +28,10 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = barbutton
     }
     
-    
-    
     public func setMainTitle(navigationTitle:String!)->Void{
         self.navigationItem.title = navigationTitle
     }
+    
     public func remvoeAllObserver(isForcefully:Bool = false){
         
         if self.isMovingFromParentViewController() || isForcefully{
@@ -53,23 +52,26 @@ extension UIViewController {
         label.text = navigationTitle
         label.font = font
         label.sizeToFit()
-        //label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.whiteColor()
         
         
         self.navigationItem.titleView = label
     }
   
     public func setCancelButton()->Void{
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action:"cancelClick:")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action:#selector(UIViewController.cancelClick(_:)))
     }
+    
     public func setSaveButton(action:Selector)->Void{
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: action)
     }
+    
     public func cancelClick(sender:AnyObject?){
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             
         })
     }
+    
     public func setBlurryBackground(){
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
         visualEffectView.frame = self.view.bounds
@@ -78,6 +80,7 @@ extension UIViewController {
         self.view.insertSubview(visualEffectView, atIndex: 0)
         visualEffectView.hidden=false;
     }
+    
     public func isBlurVisible(ishidden:Bool){
         //        var visualEffect:UIVisualEffectView? = (self.revealViewController().frontViewController as! UINavigationController).topViewController.view.viewWithTag(999) as? UIVisualEffectView
         //        if visualEffect == nil{
@@ -173,6 +176,7 @@ extension UIViewController {
 
         }
     }
+
     public func startIndicator(){
         
         
@@ -195,8 +199,7 @@ extension UIViewController {
     
     public func setNavigationBarVisiblity(isVisible:Bool = true){
         self.navigationController?.navigationBarHidden = !isVisible
-        
-    }
+        }
     
     
     

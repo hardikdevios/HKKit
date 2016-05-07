@@ -17,7 +17,6 @@
 		5A8B3C4D3DDA1C8495BE9EFBE1F2A851 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB4746C419454C3A8386126A221DFC0 /* UIImage+Extension.swift */; };
 		60F1509E6D2C547F127CE42A3BCA1E42 /* Pods-HKKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9622CA7770EB201241B0041861B4CC /* Pods-HKKit_Tests-dummy.m */; };
 		62E5E3F55DAC4E1EC73867B92E0E6CB9 /* UISwitch+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F93DE05F1D91D81DDE02A92BC2601CB /* UISwitch+Extension.swift */; };
-		79A73EDD6F82898931E6A509F312FC7B /* HKKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 996DB630CC959DE77372C46BC8CD9C02 /* HKKit.bundle */; };
 		84BE2F870A512097886806DFAF92068F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7576703BCCB0A724B3D91D46EFC72 /* UIColor+Extension.swift */; };
 		89710AD216ECF852E0AC9F51EB57A289 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201EA63D19A1875E3639B55596A18C6E /* UILabel+Extension.swift */; };
 		8A12E4438C71D9A810163696BED2440A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B841E44C296A19C12E5414D4451A0630 /* UIImageView+Extension.swift */; };
@@ -39,13 +38,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5232DFD9DB76DDE89645540918DE6BB0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8C4E51E39AB8497C4DA0AD4D4C9AAC18;
-			remoteInfo = "HKKit-HKKit";
-		};
 		6C8C5249DDC8A6C626B28D5602B1B645 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -84,7 +76,6 @@
 		89E6CE43CF33E22B53F8029B7E4FC68B /* HKConstant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HKConstant.swift; sourceTree = "<group>"; };
 		8C4A270AAC8639D7038FD71E12CC7E05 /* Float+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
 		8CD24EBEC5E7A866E99DF26E5AA5AD15 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		996DB630CC959DE77372C46BC8CD9C02 /* HKKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HKKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CB4746C419454C3A8386126A221DFC0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		9F48C905DAB35F5D85C377F2DA33EE41 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA43784AD389E92C7A752B07B29269D4 /* HKKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HKKit-prefix.pch"; sourceTree = "<group>"; };
@@ -107,13 +98,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				097A992D535CB5A1712FF3B2D0DC2EE5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6FEFD9E312B7D1C9FFFCC93D1DFDA9DB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +179,6 @@
 		6894D47F00BB3390A040C7BEE84C56BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				996DB630CC959DE77372C46BC8CD9C02 /* HKKit.bundle */,
 				871FD5D867D768D113973C20B8A118C8 /* HKKit.framework */,
 				79454475C6C15408F859AC58CDCB190E /* Pods_HKKit_Tests.framework */,
 			);
@@ -352,29 +335,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				357C069F712CA7E8D9F2436ABC27A145 /* PBXTargetDependency */,
 			);
 			name = HKKit;
 			productName = HKKit;
 			productReference = 871FD5D867D768D113973C20B8A118C8 /* HKKit.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		8C4E51E39AB8497C4DA0AD4D4C9AAC18 /* HKKit-HKKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 20580BC37CA32414E5E4821307DF0EF1 /* Build configuration list for PBXNativeTarget "HKKit-HKKit" */;
-			buildPhases = (
-				06EEDAB6615FB9B39662FA5A9FC9F480 /* Sources */,
-				6FEFD9E312B7D1C9FFFCC93D1DFDA9DB /* Frameworks */,
-				8EE768768FB345061AE1C98A7A103625 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "HKKit-HKKit";
-			productName = "HKKit-HKKit";
-			productReference = 996DB630CC959DE77372C46BC8CD9C02 /* HKKit.bundle */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -398,7 +363,6 @@
 			projectRoot = "";
 			targets = (
 				23F983A25C6808582EA793B54E3432DF /* HKKit */,
-				8C4E51E39AB8497C4DA0AD4D4C9AAC18 /* HKKit-HKKit */,
 				1770CB2026B2D8EAB098CBE3682ED9D4 /* Pods-HKKit_Tests */,
 			);
 		};
@@ -409,27 +373,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79A73EDD6F82898931E6A509F312FC7B /* HKKit.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8EE768768FB345061AE1C98A7A103625 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		06EEDAB6615FB9B39662FA5A9FC9F480 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1C2A81E0A2F5508EB4050FC520889CCF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -471,12 +420,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		357C069F712CA7E8D9F2436ABC27A145 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "HKKit-HKKit";
-			target = 8C4E51E39AB8497C4DA0AD4D4C9AAC18 /* HKKit-HKKit */;
-			targetProxy = 5232DFD9DB76DDE89645540918DE6BB0 /* PBXContainerItemProxy */;
-		};
 		CD36B5344EFFB4911EF21CEA67F77AC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HKKit;
@@ -620,30 +563,6 @@
 			};
 			name = Release;
 		};
-		6D4E80AB5C877CEA5A881FCCC09C683A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F0458A18D6DA81B8B41CE6E224AF9CD /* HKKit.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = HKKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		986BAB8B7E7765A1292B6EE851DB6EB8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F0458A18D6DA81B8B41CE6E224AF9CD /* HKKit.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = HKKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		A1457B9981EE0E3C1CA57099B4B48568 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F0458A18D6DA81B8B41CE6E224AF9CD /* HKKit.xcconfig */;
@@ -707,15 +626,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		20580BC37CA32414E5E4821307DF0EF1 /* Build configuration list for PBXNativeTarget "HKKit-HKKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6D4E80AB5C877CEA5A881FCCC09C683A /* Debug */,
-				986BAB8B7E7765A1292B6EE851DB6EB8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

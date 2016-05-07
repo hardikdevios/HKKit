@@ -43,7 +43,7 @@ extension NSDate{
     
     public func getOnlyTime()->String!{
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "hh:mm"
+        dateFormatter.dateFormat = "HH:mm"
         let date = dateFormatter.stringFromDate(self)
         return date
     }

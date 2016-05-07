@@ -68,9 +68,12 @@ extension UITextField{
     
     
     public func isEmpty()->Int{
-        let whitespaceSet = NSCharacterSet.whitespaceCharacterSet()
-        if self.text!.stringByTrimmingCharactersInSet(whitespaceSet) != "" {
+        if self.text!.trimWhiteSpace() != "" {
             return 0
+        }
+        
+        if let textfield = self as? HKFloatingTextField{
+            textfield.setPlaceHolderColor(textfield.validationErrorColor)
         }
         self.shake()
         return 1
@@ -78,7 +81,7 @@ extension UITextField{
     
     public func isEmail() -> Bool {
         let regex = try? NSRegularExpression(pattern: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", options: .CaseInsensitive)
-        return regex?.firstMatchInString(self.text!, options: [], range: NSMakeRange(0, self.text!.characters.count)) != nil
+        return regex?.firstMatchInString(self.text!.trimWhiteSpace()!, options: [], range: NSMakeRange(0, self.text!.trimWhiteSpace()!.characters.count)) != nil
     }
     
     public func shake(){
