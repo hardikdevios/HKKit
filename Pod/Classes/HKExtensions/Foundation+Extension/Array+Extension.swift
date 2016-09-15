@@ -11,7 +11,7 @@ import UIKit
 extension Array {
     
     public var toJsonString: String?{
-        return NSString(data:try! NSJSONSerialization.dataWithJSONObject(self as! AnyObject, options: NSJSONWritingOptions.PrettyPrinted), encoding:NSUTF8StringEncoding) as? String
+        return NSString(data:try! JSONSerialization.data(withJSONObject: self as AnyObject, options: JSONSerialization.WritingOptions.prettyPrinted), encoding:String.Encoding.utf8.rawValue) as? String
         
     }
     

@@ -10,11 +10,11 @@ import UIKit
 public typealias clouser = ((HKTextField,String,String)->Bool?)
 public typealias clouser2 = ((HKTextField)->Bool?)
 
-public class HKTextField: UITextField,UITextFieldDelegate {
+open class HKTextField: UITextField,UITextFieldDelegate {
     let padding = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 5);
-    public var needBottomBorder:Bool = false
+    open var needBottomBorder:Bool = false
     var objDelegate:HKTextFieldDelegate = HKTextFieldDelegate()
-    public var textChanged:clouser?{
+    open var textChanged:clouser?{
         
         didSet{
             
@@ -22,7 +22,7 @@ public class HKTextField: UITextField,UITextFieldDelegate {
 
         }
     }
-    public var textEditigStart:clouser2?{
+    open var textEditigStart:clouser2?{
         
         didSet{
             
@@ -30,7 +30,7 @@ public class HKTextField: UITextField,UITextFieldDelegate {
             
         }
     }
-    public var textEditingEnd:clouser2?{
+    open var textEditingEnd:clouser2?{
         
         didSet{
             
@@ -38,39 +38,39 @@ public class HKTextField: UITextField,UITextFieldDelegate {
             
         }
     }
-    override public func awakeFromNib() {
-        self.keyboardAppearance = .Default
+    override open func awakeFromNib() {
+        self.keyboardAppearance = .default
         objDelegate.delegate = self.delegate
         super.delegate = objDelegate
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         if needBottomBorder == true {
-            self.addBottomBorderWithColor(UIColor.lightGrayColor(), width: 0.5)
+            self.addBottomBorderWithColor(UIColor.lightGray, width: 0.5)
         }
     }
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        if self.text?.isEmpty == true || self.clearButtonMode == .Never{
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        if self.text?.isEmpty == true || self.clearButtonMode == .never{
             return self.newBounds(bounds,extraPadding:0.0)
 
         }
         return self.newBounds(bounds)
     }
     
-    override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         return self.newBounds(bounds,extraPadding:0.0)
     }
     
-    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
-        if self.text?.isEmpty == true || self.clearButtonMode == .Never{
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        if self.text?.isEmpty == true || self.clearButtonMode == .never{
             return self.newBounds(bounds,extraPadding:0.0)
             
         }
         return self.newBounds(bounds)
     }
     
-    private func newBounds(bounds: CGRect,extraPadding:CGFloat = 25.0) -> CGRect {
+    fileprivate func newBounds(_ bounds: CGRect,extraPadding:CGFloat = 25.0) -> CGRect {
         var newBounds = bounds
         newBounds.origin.x += padding.left + (self.leftView?.frame.size.width ?? 0)  + (self.rightView?.frame.size.width ?? 0)
         newBounds.origin.y += padding.top
@@ -89,7 +89,7 @@ public class HKTextField: UITextField,UITextFieldDelegate {
 }
 
 
-public class HKTextFieldDelegate:NSObject,UITextFieldDelegate {
+open class HKTextFieldDelegate:NSObject,UITextFieldDelegate {
     
     var textChangedClouser:clouser?
     var textEditingStartClouser:clouser2?
@@ -97,13 +97,15 @@ public class HKTextFieldDelegate:NSObject,UITextFieldDelegate {
 
     var delegate:UITextFieldDelegate?
     
-    public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-            return textChangedClouser?(textField as! HKTextField,textField.text!.stringByReplacingCharactersInRange(range.toRange(textField.text!),withString: string),string) ??
-            delegate?.textField?(textField, shouldChangeCharactersInRange: range, replacementString: string) ?? true
+    open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+            let r = textField.text!.range(from: range)
+            return textChangedClouser?(textField as! HKTextField,textField.text!.replacingCharacters(in: r!,with: string),string) ??
+            delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) ?? true
        
     }
     
-    public func textFieldDidEndEditing(textField: UITextField) {
+    open func textFieldDidEndEditing(_ textField: UITextField) {
         guard let clouser = textEditingStopClouser else{
             delegate?.textFieldShouldBeginEditing?(textField)
             return
@@ -111,29 +113,29 @@ public class HKTextFieldDelegate:NSObject,UITextFieldDelegate {
         clouser(textField as! HKTextField)
     }
     
-    public func textFieldShouldClear(textField: UITextField) -> Bool {
-        if !textField.isFirstResponder() {
+    open func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if !textField.isFirstResponder {
             textField.text = ""
             return false
         }
         return delegate?.textFieldShouldClear?(textField) ?? true
     }
-    func enableTextField(textField:UITextField){
-        textField.userInteractionEnabled = true
+    func enableTextField(_ textField:UITextField){
+        textField.isUserInteractionEnabled = true
     }
-    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+    open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
       
         return delegate?.textFieldShouldReturn?(textField) ?? true
     }
-    public func textFieldDidBeginEditing(textField: UITextField) {
+    open func textFieldDidBeginEditing(_ textField: UITextField) {
         delegate?.textFieldDidBeginEditing?(textField)
 
     }
-    public func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+    open func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
        return delegate?.textFieldShouldEndEditing?(textField) ?? true
 
     }
-    public func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
         return textEditingStartClouser?(textField as! HKTextField) ?? delegate?.textFieldShouldBeginEditing?(textField) ?? true
     }

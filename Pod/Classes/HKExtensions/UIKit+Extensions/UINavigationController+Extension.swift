@@ -12,7 +12,7 @@ extension UINavigationController {
     
     public func setPlainBackGround(){
         self.navigationBar.shadowImage = UIImage()
-        self.navigationBar.setBackgroundImage(UIImage(), forBarPosition: UIBarPosition.Any,barMetrics: UIBarMetrics.Default)
+        self.navigationBar.setBackgroundImage(UIImage(), for: UIBarPosition.any,barMetrics: UIBarMetrics.default)
     }
     
     public func getNavigationBarHeightWithOutStausBar()->CGFloat{
@@ -20,7 +20,7 @@ extension UINavigationController {
     }
     public func getNavigationBarHeight()->CGFloat{
 
-        return (self.navigationController?.navigationBar.frame.height ?? 0 ) + (UIApplication.sharedApplication().statusBarFrame.height ?? 0)
+        return (self.navigationController?.navigationBar.frame.height ?? 0 ) + (UIApplication.shared.statusBarFrame.height ?? 0)
         
     }
 }

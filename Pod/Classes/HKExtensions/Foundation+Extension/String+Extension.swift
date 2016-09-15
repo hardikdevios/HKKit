@@ -26,13 +26,23 @@ extension String {
     
     static var uniqueGUID:String {
         get {
-            return NSUUID().UUIDString
+            return UUID().uuidString
         }
     }
     
     public var toJsonDict: Dictionary<String,AnyObject>?{
-        return (try? NSJSONSerialization.JSONObjectWithData(self.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, options: NSJSONReadingOptions.AllowFragments)) as? Dictionary<String,AnyObject>
+        return (try? JSONSerialization.jsonObject(with: self.data(using: String.Encoding.utf8, allowLossyConversion: false)!, options: JSONSerialization.ReadingOptions.allowFragments)) as? Dictionary<String,AnyObject>
         
+    }
+    
+    public func range(from nsRange: NSRange) -> Range<String.Index>? {
+        guard
+            let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
+            let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
+            let from = String.Index(from16, within: self),
+            let to = String.Index(to16, within: self)
+            else { return nil }
+        return from ..< to
     }
     
     
@@ -42,7 +52,7 @@ extension String {
     
     public func trimWhiteSpace()->String?{
         
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        return self.trimmingCharacters(in: CharacterSet.whitespaces)
         
     }
 }

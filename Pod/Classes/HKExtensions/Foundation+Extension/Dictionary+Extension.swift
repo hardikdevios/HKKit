@@ -10,12 +10,12 @@ import UIKit
 
 extension Dictionary {
     
-    public func removeNilFromDict(inout dict:Dictionary<NSObject,AnyObject!>) -> Dictionary<NSObject,AnyObject!>{
+    public func removeNilFromDict(_ dict:inout Dictionary<NSObject,AnyObject?>) -> Dictionary<NSObject,AnyObject?>{
         
         
         for (key,name) in dict{
             if name == nil || name as? NSNull != nil{
-                dict.updateValue("", forKey: key)
+                dict.updateValue("" as AnyObject?, forKey: key)
             }
         }
         return dict

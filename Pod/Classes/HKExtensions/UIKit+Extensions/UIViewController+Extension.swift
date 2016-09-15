@@ -15,7 +15,7 @@ extension UIViewController {
     public func setAppLogo(){
         
         let imgView:UIImageView = UIImageView(image: UIImage(named: MAIN_LOGO))
-        imgView.contentMode = .ScaleAspectFit
+        imgView.contentMode = .scaleAspectFit
         // let barbutton:UIBarButtonItem = UIBarButtonItem(customView: imgView)
         self.navigationItem.titleView = imgView
     }
@@ -23,65 +23,65 @@ extension UIViewController {
     public func setAppLogoLeft(){
         
         let imgView:UIImageView = UIImageView(image: UIImage(named: MAIN_LOGO))
-        imgView.contentMode = .Center
+        imgView.contentMode = .center
         let barbutton:UIBarButtonItem = UIBarButtonItem(customView: imgView)
         self.navigationItem.leftBarButtonItem = barbutton
     }
     
-    public func setMainTitle(navigationTitle:String!)->Void{
+    public func setMainTitle(_ navigationTitle:String!)->Void{
         self.navigationItem.title = navigationTitle
     }
     
-    public func remvoeAllObserver(isForcefully:Bool = false){
+    public func remvoeAllObserver(_ isForcefully:Bool = false){
         
-        if self.isMovingFromParentViewController() || isForcefully{
-            NSNotificationCenter.defaultCenter().removeObserver(self)
+        if self.isMovingFromParentViewController || isForcefully{
+            NotificationCenter.default.removeObserver(self)
         }
     }
     
-    public func setObserver(methodname:Selector,observername:String){
+    public func setObserver(_ methodname:Selector,observername:String){
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: methodname, name: observername, object: nil)
+        NotificationCenter.default.addObserver(self, selector: methodname, name: NSNotification.Name(rawValue: observername), object: nil)
         
     }
-    public func setCustomeTitleView(navigationTitle:String!,let font:UIFont = UIFont.systemFontOfSize(UIFont.smallSystemFontSize()))->Void{
+    public func setCustomeTitleView(_ navigationTitle:String!,font:UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize))->Void{
         
         let label = UILabel()
         label.numberOfLines = 2
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.center
         label.text = navigationTitle
         label.font = font
         label.sizeToFit()
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         
         
         self.navigationItem.titleView = label
     }
   
     public func setCancelButton()->Void{
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action:#selector(UIViewController.cancelClick(_:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action:#selector(UIViewController.cancelClick(_:)))
     }
     
-    public func setSaveButton(action:Selector)->Void{
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: action)
+    public func setSaveButton(_ action:Selector)->Void{
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: action)
     }
     
-    public func cancelClick(sender:AnyObject?){
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+    public func cancelClick(_ sender:AnyObject?){
+        self.dismiss(animated: true, completion: { () -> Void in
             
         })
     }
     
     public func setBlurryBackground(){
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light)) as UIVisualEffectView
         visualEffectView.frame = self.view.bounds
         visualEffectView.tag = 999
         
-        self.view.insertSubview(visualEffectView, atIndex: 0)
-        visualEffectView.hidden=false;
+        self.view.insertSubview(visualEffectView, at: 0)
+        visualEffectView.isHidden=false;
     }
     
-    public func isBlurVisible(ishidden:Bool){
+    public func isBlurVisible(_ ishidden:Bool){
         //        var visualEffect:UIVisualEffectView? = (self.revealViewController().frontViewController as! UINavigationController).topViewController.view.viewWithTag(999) as? UIVisualEffectView
         //        if visualEffect == nil{
         //            return
@@ -90,47 +90,47 @@ extension UIViewController {
         
     }
     
-    public func setEmptyView(text:String!){
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
+    public func setEmptyView(_ text:String!){
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.tag = 9999
         view.addSubview(blurEffectView)
         
         let vibrantLabel = UILabel()
-        let ccenter:CGPoint? = self.parentViewController?.view.center
-        vibrantLabel.textColor = UIColor.lightGrayColor()
-        vibrantLabel.backgroundColor = UIColor.clearColor()
-        vibrantLabel.font = UIFont.boldSystemFontOfSize(8 * UIScreen.mainScreen().scale)
-        vibrantLabel.textAlignment = .Center
-        vibrantLabel.frame = CGRectMake(0, 0, self.view.frame.size.width-50, self.view.frame.size.height)
+        let ccenter:CGPoint? = self.parent?.view.center
+        vibrantLabel.textColor = UIColor.lightGray
+        vibrantLabel.backgroundColor = UIColor.clear
+        vibrantLabel.font = UIFont.boldSystemFont(ofSize: 8 * UIScreen.main.scale)
+        vibrantLabel.textAlignment = .center
+        vibrantLabel.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width-50, height: self.view.frame.size.height)
         vibrantLabel.numberOfLines = 0
         vibrantLabel.center = ccenter!
         vibrantLabel.text = text
         blurEffectView.contentView.addSubview(vibrantLabel)
     }
     
-    public func isViewEmpty(isempty:Bool){
+    public func isViewEmpty(_ isempty:Bool){
         let visualEffect:UIVisualEffectView? = view.viewWithTag(9999) as? UIVisualEffectView
         if visualEffect == nil{
             return
         }
-        visualEffect?.hidden = isempty
+        visualEffect?.isHidden = isempty
         
     }
     
     public func setToolbarWithActivity(){
         
-        let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
-        activity.hidden = false
+        let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        activity.isHidden = false
         let barbuttonActivity = UIBarButtonItem(customView: activity)
         activity.startAnimating()
         activity.color = MAIN_COLOR
-        self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil),barbuttonActivity,UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)]
+        self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),barbuttonActivity,UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)]
         
     }
     public func removeWithAnimation(){
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.view.alpha = 0
             }, completion: { (sucess) -> Void in
                 self.removeFromParentViewController()
@@ -140,22 +140,22 @@ extension UIViewController {
     }
     public func setBlankBackButton(){
         
-        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = backItem
         
     }
     
-    public func setCustomBackbutton(methodName:Selector){
-        let myBackButton:UIButton = UIButton(type: UIButtonType.Custom)
-        myBackButton.addTarget(self, action: methodName, forControlEvents: UIControlEvents.TouchUpInside)
-        myBackButton.setTitle(" ", forState: UIControlState.Normal)
-        myBackButton.setImage(UIImage(named: "back"), forState: UIControlState.Normal)
+    public func setCustomBackbutton(_ methodName:Selector){
+        let myBackButton:UIButton = UIButton(type: UIButtonType.custom)
+        myBackButton.addTarget(self, action: methodName, for: UIControlEvents.touchUpInside)
+        myBackButton.setTitle(" ", for: UIControlState())
+        myBackButton.setImage(UIImage(named: "back"), for: UIControlState())
         
         myBackButton.imageEdgeInsets = UIEdgeInsetsMake(0,-20, 0, 0)
         myBackButton.titleEdgeInsets = UIEdgeInsetsMake(0,-30, 0, 0)
-        myBackButton.setTitleColor(UIColor.grayColor(), forState: .Normal)
+        myBackButton.setTitleColor(UIColor.gray, for: UIControlState())
         myBackButton.sizeToFit()
-        myBackButton.tintColor = UIColor.grayColor()
+        myBackButton.tintColor = UIColor.gray
         
         let myCustomBackButtonItem:UIBarButtonItem = UIBarButtonItem(customView: myBackButton)
         
@@ -165,7 +165,7 @@ extension UIViewController {
     
     public func setUpActivityIndicator(){
         
-        let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+        let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         activity.hidesWhenStopped = true
         let barbuttonActivity = UIBarButtonItem(customView: activity)
         if self.navigationItem.rightBarButtonItem != nil {
@@ -197,8 +197,8 @@ extension UIViewController {
         }
     }
     
-    public func setNavigationBarVisiblity(isVisible:Bool = true){
-        self.navigationController?.navigationBarHidden = !isVisible
+    public func setNavigationBarVisiblity(_ isVisible:Bool = true){
+        self.navigationController?.isNavigationBarHidden = !isVisible
         }
     
     
@@ -210,17 +210,17 @@ extension UIViewController{
     
  
     
-    public func segue(identifire:String){
-        self.performSegueWithIdentifier(identifire, sender: self)
+    public func segue(_ identifire:String){
+        self.performSegue(withIdentifier: identifire, sender: self)
     }
     
-    public func segue(identifire:String,sender:AnyObject?){
-        self.performSegueWithIdentifier(identifire, sender: sender)
+    public func segue(_ identifire:String,sender:AnyObject?){
+        self.performSegue(withIdentifier: identifire, sender: sender)
     }
 }
 
 extension UIViewController {
-    class public func currentViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
+    class public func currentViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return currentViewController(nav.visibleViewController)
         }

@@ -9,13 +9,13 @@
 import UIKit
 public typealias clouserFloating = ((HKFloatingTextField,String,String)->Bool?)
 
-public class HKFloatingTextField: UITextField {
+open class HKFloatingTextField: UITextField {
 
-    public let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5);
-    public var bottomBorder:CALayer?
-    public var validationErrorColor:UIColor = UIColor.redColor().colorWithAlphaComponent(0.5)
+    open let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5);
+    open var bottomBorder:CALayer?
+    open var validationErrorColor:UIColor = UIColor.red.withAlphaComponent(0.5)
     var objDelegate:HKFloatingTextFieldDelegate = HKFloatingTextFieldDelegate()
-    public var textChanged:clouserFloating?{
+    open var textChanged:clouserFloating?{
         
         didSet{
             
@@ -23,7 +23,7 @@ public class HKFloatingTextField: UITextField {
             
         }
     }
-    override public func awakeFromNib() {
+    override open func awakeFromNib() {
         
         objDelegate.delegate = self.delegate
         super.delegate = objDelegate
@@ -35,7 +35,7 @@ public class HKFloatingTextField: UITextField {
     var title = UILabel()
     
     // MARK:- Properties
-    override public var accessibilityLabel:String! {
+    override open var accessibilityLabel:String! {
         get {
             if text!.isEmpty {
                 return title.text
@@ -48,14 +48,14 @@ public class HKFloatingTextField: UITextField {
         }
     }
     
-    override public var placeholder:String? {
+    override open var placeholder:String? {
         didSet {
             title.text = placeholder
             title.sizeToFit()
         }
     }
     
-    override public var attributedPlaceholder:NSAttributedString? {
+    override open var attributedPlaceholder:NSAttributedString? {
         didSet {
             title.text = attributedPlaceholder?.string
             title.sizeToFit()
@@ -76,9 +76,9 @@ public class HKFloatingTextField: UITextField {
  
   
     
-    @IBInspectable var titleTextColour:UIColor = UIColor.grayColor() {
+    @IBInspectable var titleTextColour:UIColor = UIColor.gray {
         didSet {
-            if !isFirstResponder() {
+            if !isFirstResponder {
                 title.textColor = titleTextColour
             }
         }
@@ -86,7 +86,7 @@ public class HKFloatingTextField: UITextField {
     
     @IBInspectable var titleActiveTextColour:UIColor! {
         didSet {
-            if isFirstResponder() {
+            if isFirstResponder {
                 title.textColor = titleActiveTextColour
             }
         }
@@ -96,7 +96,7 @@ public class HKFloatingTextField: UITextField {
      var titleFont:UIFont{
         get{
             
-            title.font = UIFont.systemFontOfSize(self.font!.pointSize - CGFloat(4))
+            title.font = UIFont.systemFont(ofSize: self.font!.pointSize - CGFloat(4))
 
             return title.font
         }
@@ -116,10 +116,10 @@ public class HKFloatingTextField: UITextField {
     }
     
     // MARK:- Overrides
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         setTitlePositionForTextAlignment()
-        let isResp = isFirstResponder()
+        let isResp = isFirstResponder
         if isResp && !text!.isEmpty {
             title.textColor = MAIN_COLOR
         } else {
@@ -135,47 +135,47 @@ public class HKFloatingTextField: UITextField {
         }
         
         if bottomBorder != nil {
-            self.bottomBorder!.frame = CGRectMake(self.bottomBorder!.frame.origin.x, self.frame.size.height - self.bottomBorder!.frame.height, self.frame.width, self.bottomBorder!.frame.height)
+            self.bottomBorder!.frame = CGRect(x: self.bottomBorder!.frame.origin.x, y: self.frame.size.height - self.bottomBorder!.frame.height, width: self.frame.width, height: self.bottomBorder!.frame.height)
 
         }
         
     }
     
-    override public func textRectForBounds(bounds:CGRect) -> CGRect {
-        var r = super.textRectForBounds(bounds)
+    override open func textRect(forBounds bounds:CGRect) -> CGRect {
+        var r = super.textRect(forBounds: bounds)
         if !text!.isEmpty {
             var top = ceil(title.font.lineHeight + hintYPadding)
             top = min(top, maxTopInset())
             r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 5.0, 0.0))
         }
-        return CGRectIntegral(r)
+        return r.integral
     }
     
-    override public func editingRectForBounds(bounds:CGRect) -> CGRect {
-        var r = super.editingRectForBounds(bounds)
+    override open func editingRect(forBounds bounds:CGRect) -> CGRect {
+        var r = super.editingRect(forBounds: bounds)
         if !text!.isEmpty {
             var top = ceil(title.font.lineHeight + hintYPadding)
             top = min(top, maxTopInset())
             r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 5.0, 0.0))
         }
-        return CGRectIntegral(r)
+        return r.integral
     }
     
-    override public func clearButtonRectForBounds(bounds:CGRect) -> CGRect {
-        var r = super.clearButtonRectForBounds(bounds)
+    override open func clearButtonRect(forBounds bounds:CGRect) -> CGRect {
+        var r = super.clearButtonRect(forBounds: bounds)
         if !text!.isEmpty {
             var top = ceil(title.font.lineHeight + hintYPadding)
             top = min(top, maxTopInset())
             r = CGRect(x:r.origin.x, y:r.origin.y + (top * 0.5), width:r.size.width, height:r.size.height)
         }
-        return CGRectIntegral(r)
+        return r.integral
     }
     
     // MARK:- Public Methods
     
     // MARK:- Private Methods
-    private func setup() {
-        borderStyle = UITextBorderStyle.None
+    fileprivate func setup() {
+        borderStyle = UITextBorderStyle.none
         titleActiveTextColour = tintColor
         // Set up title label
         title.alpha = 0.0
@@ -191,24 +191,24 @@ public class HKFloatingTextField: UITextField {
         self.addSubview(title)
     }
     
-    private func maxTopInset()->CGFloat {
+    fileprivate func maxTopInset()->CGFloat {
         return max(0, floor(bounds.size.height - font!.lineHeight - 4.0))
     }
     
-    private func setTitlePositionForTextAlignment() {
-        let r = textRectForBounds(bounds)
+    fileprivate func setTitlePositionForTextAlignment() {
+        let r = textRect(forBounds: bounds)
         var x = r.origin.x
-        if textAlignment == NSTextAlignment.Center {
+        if textAlignment == NSTextAlignment.center {
             x = r.origin.x + (r.size.width * 0.5) - title.frame.size.width
-        } else if textAlignment == NSTextAlignment.Right {
+        } else if textAlignment == NSTextAlignment.right {
             x = r.origin.x + r.size.width - title.frame.size.width
         }
         title.frame = CGRect(x:x, y:title.frame.origin.y, width:title.frame.size.width, height:title.frame.size.height)
     }
     
-    private func showTitle(animated:Bool) {
+    fileprivate func showTitle(_ animated:Bool) {
         let dur = animated ? animationDuration : 0
-        UIView.animateWithDuration(dur, delay:0, options: [.BeginFromCurrentState, .CurveEaseOut], animations:{
+        UIView.animate(withDuration: dur, delay:0, options: [.beginFromCurrentState, .curveEaseOut], animations:{
             // Animation
             self.title.alpha = 1.0
             var r = self.title.frame
@@ -217,9 +217,9 @@ public class HKFloatingTextField: UITextField {
             }, completion:nil)
     }
     
-    private func hideTitle(animated:Bool) {
+    fileprivate func hideTitle(_ animated:Bool) {
         let dur = animated ? animationDuration : 0
-        UIView.animateWithDuration(dur, delay:0, options: [.BeginFromCurrentState, .CurveEaseIn], animations:{
+        UIView.animate(withDuration: dur, delay:0, options: [.beginFromCurrentState, .curveEaseIn], animations:{
             // Animation
             self.title.alpha = 0.0
             var r = self.title.frame
@@ -231,36 +231,39 @@ public class HKFloatingTextField: UITextField {
 }
 
 
-public class HKFloatingTextFieldDelegate:NSObject,UITextFieldDelegate {
+open class HKFloatingTextFieldDelegate:NSObject,UITextFieldDelegate {
     
     var textChangedClouser:clouserFloating?
     var delegate:UITextFieldDelegate?
     
-    public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        return textChangedClouser?(textField as! HKFloatingTextField,textField.text!.stringByReplacingCharactersInRange(range.toRange(textField.text!),withString: string),string) ??
-            delegate?.textField?(textField, shouldChangeCharactersInRange: range, replacementString: string) ?? true
+    open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let r = textField.text!.range(from: range)
+
+        return textChangedClouser?(textField as! HKFloatingTextField,textField.text!.replacingCharacters(in:r!,with: string),string) ??
+            delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) ?? true
         
     }
     
-    public func textFieldDidEndEditing(textField: UITextField) {
+    open func textFieldDidEndEditing(_ textField: UITextField) {
         delegate?.textFieldShouldBeginEditing?(textField)
     }
     
-    public func textFieldShouldClear(textField: UITextField) -> Bool {
+    open func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return delegate?.textFieldShouldClear?(textField) ?? true
     }
-    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+    open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return delegate?.textFieldShouldReturn?(textField) ?? true
     }
-    public func textFieldDidBeginEditing(textField: UITextField) {
+    open func textFieldDidBeginEditing(_ textField: UITextField) {
         delegate?.textFieldDidBeginEditing?(textField)
         
     }
-    public func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+    open func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return delegate?.textFieldShouldEndEditing?(textField) ?? true
         
     }
-    public func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return delegate?.textFieldShouldBeginEditing?(textField) ?? true
     }
 }

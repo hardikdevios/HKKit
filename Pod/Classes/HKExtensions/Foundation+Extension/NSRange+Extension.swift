@@ -9,9 +9,5 @@
 import UIKit
 
 extension NSRange {
-    public func toRange(string: String) -> Range<String.Index> {
-        let startIndex = string.startIndex.advancedBy(location)
-        let endIndex = startIndex.advancedBy(length)
-        return startIndex..<endIndex
-    }
+
 }

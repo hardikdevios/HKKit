@@ -13,18 +13,18 @@ extension UIButton{
         self.backgroundColor = MAIN_COLOR
     }
     public func setAppDisableColor()->Void{
-        self.backgroundColor = UIColor.lightGrayColor()
+        self.backgroundColor = UIColor.lightGray
     }
     
     public func toggleOnOff()->Void{
-        self.selected = !self.selected;
+        self.isSelected = !self.isSelected;
     }
-    public func setDisableWithAlpha(isDisable:Bool){
+    public func setDisableWithAlpha(_ isDisable:Bool){
         if isDisable {
-            self.enabled = false
+            self.isEnabled = false
             self.alpha = 0.5
         }else{
-            self.enabled = true
+            self.isEnabled = true
             self.alpha = 1.0
         }
     }

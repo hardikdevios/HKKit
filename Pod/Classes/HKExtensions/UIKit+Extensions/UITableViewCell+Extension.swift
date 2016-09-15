@@ -22,7 +22,7 @@ extension UITableViewCell {
 extension UITableViewCell {
     
     public func setSepratorInsetZero(){
-        self.layoutMargins = UIEdgeInsetsZero
+        self.layoutMargins = UIEdgeInsets.zero
         self.preservesSuperviewLayoutMargins = false
         
     }

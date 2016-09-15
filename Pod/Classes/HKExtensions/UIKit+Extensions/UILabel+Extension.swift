@@ -13,19 +13,19 @@ extension UILabel{
             self.textColor = MAIN_COLOR
         }
     
-        public func setDefaultText(defaultText:String!)->Void{
+        public func setDefaultText(_ defaultText:String!)->Void{
             if self.text == "" ||  self.text == " " ||  self.text == nil{
                 self.text = defaultText
             }
             
         }
-        public func setHtmlText(string:String!){
+        public func setHtmlText(_ string:String!){
             
             if string != nil {
-                let encodedData = string.dataUsingEncoding(NSUTF8StringEncoding)!
+                let encodedData = string.data(using: String.Encoding.utf8)!
                 let attributedOptions : [String: AnyObject] = [
-                    NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                    NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding
+                    NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType as AnyObject,
+                    NSCharacterEncodingDocumentAttribute: String.Encoding.utf8 as AnyObject
                 ]
                 let attributedString = try! NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
                 self.text = attributedString.string

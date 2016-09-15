@@ -12,28 +12,28 @@ extension UIImage {
     public func base64() -> String {
         let imageData = UIImageJPEGRepresentation(self, 1.0)
         
-        return imageData!.base64EncodedStringWithOptions([])
+        return imageData!.base64EncodedString(options: [])
     }
 }
 extension UIImage {
     
-    public func resize(width:CGFloat,height:CGFloat)->UIImage?{
+    public func resize(_ width:CGFloat,height:CGFloat)->UIImage?{
                 
-        var newSize:CGSize = CGSizeMake(width, height)
+        var newSize:CGSize = CGSize(width: width, height: height)
         let widthRatio:CGFloat = newSize.width/self.size.width
         let heightRatio:CGFloat = newSize.height/self.size.height;
         
         if(widthRatio > heightRatio){
-            newSize = CGSizeMake(self.size.width*widthRatio,self.size.height*widthRatio)
+            newSize = CGSize(width: self.size.width*widthRatio,height: self.size.height*widthRatio)
             
         }else{
-            newSize=CGSizeMake(self.size.width*heightRatio,self.size.height*heightRatio)
+            newSize=CGSize(width: self.size.width*heightRatio,height: self.size.height*heightRatio)
         }
         
         
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        self.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
-        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return newImage
     }
