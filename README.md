@@ -22,7 +22,7 @@ pod "HKKit"
 
 ## Author
 
-Hardik, hardik.webatease@gmail.com
+Hardik, hardik@praxinfo.com
 
 ## License
 
