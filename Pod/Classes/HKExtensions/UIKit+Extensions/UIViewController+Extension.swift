@@ -66,7 +66,7 @@ extension UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: action)
     }
     
-    public func cancelClick(_ sender:AnyObject?){
+    open func cancelClick(_ sender:AnyObject?){
         self.dismiss(animated: true, completion: { () -> Void in
             
         })

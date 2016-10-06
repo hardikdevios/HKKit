@@ -20,7 +20,7 @@ extension UINavigationController {
     }
     public func getNavigationBarHeight()->CGFloat{
 
-        return (self.navigationController?.navigationBar.frame.height ?? 0 ) + (UIApplication.shared.statusBarFrame.height ?? 0)
+        return (self.navigationController?.navigationBar.frame.height ?? 0 ) + (UIApplication.shared.statusBarFrame.height )
         
     }
 }

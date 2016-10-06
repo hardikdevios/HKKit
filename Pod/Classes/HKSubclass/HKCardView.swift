@@ -22,7 +22,7 @@ open class HKCardView: UIView {
         layer.shadowOpacity = 0.1
         layer.shadowPath = shadowPath.cgPath
     }
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     }
     required public init(coder aDecoder: NSCoder) {

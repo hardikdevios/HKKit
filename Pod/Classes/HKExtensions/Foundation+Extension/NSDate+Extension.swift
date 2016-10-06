@@ -8,71 +8,71 @@
 
 import UIKit
 extension Date{
-    public static func getOnlydate()->String!{
+    public static func getOnlydate()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MMM-dd"
         let date = dateFormatter.string(from: Date())
         return date
     }
     
-    public func getOnlydate()->String!{
+    public func getOnlydate()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MMM-dd"
         let date = dateFormatter.string(from: self)
         return date
     }
-    public func getOnlydateStartWithDD()->String!{
+    public func getOnlydateStartWithDD()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MMM-yyyy"
         let date = dateFormatter.string(from: self)
         return date
     }
-    public func getOnlyDateWithMM()->String!{
+    public func getOnlyDateWithMM()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.string(from: self)
         return date
     }
     
-    public static func getOnlyTime()->String!{
+    public static func getOnlyTime()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let date = dateFormatter.string(from: Date())
         return date
     }
     
-    public func getOnlyTime()->String!{
+    public func getOnlyTime()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let date = dateFormatter.string(from: self)
         return date
     }
-    public func getOnlyTimeWithAMPM()->String!{
+    public func getOnlyTimeWithAMPM()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm a"
         let date = dateFormatter.string(from: self)
         return date
     }
     
-    public func getAMPM()->String!{
+    public func getAMPM()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "a"
         let date = dateFormatter.string(from: self)
         return date
     }
-    public func getOnlyTimeWithDot()->String!{
+    public func getOnlyTimeWithDot()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let date = dateFormatter.string(from: self)
         return date
     }
-    public func getOnlyTimeWithDotWithSecond()->String!{
+    public func getOnlyTimeWithDotWithSecond()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss"
         let date = dateFormatter.string(from: self)
         return date
     }
-    public func getOnlyTimeWithSeconds()->String!{
+    public func getOnlyTimeWithSeconds()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm:ss a"
         let date = dateFormatter.string(from: self)
@@ -95,7 +95,7 @@ extension Date{
         print(date, terminator: "")
         return date!
     }
-    public func getOnlydateWithMonthString()->String!{
+    public func getOnlydateWithMonthString()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MMM-dd"
         
@@ -103,7 +103,7 @@ extension Date{
         return date
     }
     
-    public func getTodayMedicineDate()->String!{
+    public func getTodayMedicineDate()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E, MMM dd, yyyy"
         
@@ -111,7 +111,7 @@ extension Date{
         return date
     }
     
-    public func getDateAndTimeString()->String!{
+    public func getDateAndTimeString()->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MMM-dd hh:mm:ss a"
         let date = dateFormatter.string(from: self)
@@ -143,7 +143,7 @@ extension Date{
     }
     
     
-    public static func getTimeStampFromString(_ str:String!)->Int{
+    public static func getTimeStampFromString(_ str:String)->Int{
         
         return Int(getDateFromStringValue(str).timeIntervalSince1970)
     }
@@ -162,19 +162,19 @@ extension Date{
     public static func getTimeStampFromStringWithDateandTime(_ timestamp:Int)->String{
         return  Date(timeIntervalSince1970: Double(timestamp)).getOnlyTimeWithSeconds()
     }
-    public static func getHourMinwithDate(_ time:String!)->Date!{
+    public static func getHourMinwithDate(_ time:String)->Date!{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let date = dateFormatter.date(from: time ?? Date.getOnlyTime()) ?? Date()
         return date
     }
-    public static func getHourMinwithDateDot(_ time:String!)->Date!{
+    public static func getHourMinwithDateDot(_ time:String)->Date!{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH.mm"
         let date = dateFormatter.date(from: time ?? Date.getOnlyTime()) ?? Date()
         return date
     }
-    public static func getHourMinSecondswithDate(_ time:String!)->Date!{
+    public static func getHourMinSecondswithDate(_ time:String)->Date!{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm:ss a"
         let date = dateFormatter.date(from: time ?? Date.getOnlyTime()) ?? Date()
