@@ -92,7 +92,6 @@ extension Date{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MMM-dd hh:mm:ss a"
         let date = dateFormatter.date(from: dateString)
-        print(date, terminator: "")
         return date!
     }
     public func getOnlydateWithMonthString()->String{
@@ -165,19 +164,19 @@ extension Date{
     public static func getHourMinwithDate(_ time:String)->Date!{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let date = dateFormatter.date(from: time ?? Date.getOnlyTime()) ?? Date()
+        let date = dateFormatter.date(from: time) ?? Date()
         return date
     }
     public static func getHourMinwithDateDot(_ time:String)->Date!{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH.mm"
-        let date = dateFormatter.date(from: time ?? Date.getOnlyTime()) ?? Date()
+        let date = dateFormatter.date(from: time ) ?? Date()
         return date
     }
     public static func getHourMinSecondswithDate(_ time:String)->Date!{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm:ss a"
-        let date = dateFormatter.date(from: time ?? Date.getOnlyTime()) ?? Date()
+        let date = dateFormatter.date(from: time ) ?? Date()
         return date
     }
     

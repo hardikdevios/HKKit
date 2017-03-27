@@ -348,7 +348,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					23F983A25C6808582EA793B54E3432DF = {
 						LastSwiftMigration = 0800;

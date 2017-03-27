@@ -246,7 +246,7 @@ open class HKFloatingTextFieldDelegate:NSObject,UITextFieldDelegate {
     }
     
     open func textFieldDidEndEditing(_ textField: UITextField) {
-        delegate?.textFieldShouldBeginEditing?(textField)
+       let _ = delegate?.textFieldShouldBeginEditing?(textField)
     }
     
     open func textFieldShouldClear(_ textField: UITextField) -> Bool {

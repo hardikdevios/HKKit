@@ -47,7 +47,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     open override func layoutSubviews() {
         super.layoutSubviews()
         if needBottomBorder == true {
-            self.addBottomBorderWithColor(UIColor.lightGray, width: 0.5)
+            let _ = self.addBottomBorderWithColor(UIColor.lightGray, width: 0.5)
         }
     }
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -107,10 +107,10 @@ open class HKTextFieldDelegate:NSObject,UITextFieldDelegate {
     
     open func textFieldDidEndEditing(_ textField: UITextField) {
         guard let clouser = textEditingStopClouser else{
-            delegate?.textFieldShouldBeginEditing?(textField)
+            let _ = delegate?.textFieldShouldBeginEditing?(textField)
             return
         }
-        clouser(textField as! HKTextField)
+        let _ = clouser(textField as! HKTextField)
     }
     
     open func textFieldShouldClear(_ textField: UITextField) -> Bool {
