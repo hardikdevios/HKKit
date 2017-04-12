@@ -7,15 +7,15 @@ Pod::Spec.new do |s|
 
   s.homepage         = "https://github.com/hardikdevios/HKCustomization"
   s.license          = 'MIT'
-  s.author           = { "Hardik" => "hardik.webatease@gmail.com" }
+  s.author           = { "Hardik" => "hardik@praxinfo.com" }
   s.source           = { :git => "https://github.com/hardikdevios/HKKit.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'HKKit' => ['Pod/Assets/*.png']
-  }
+  # s.resource_bundles = {
+  #   'HKKit' => ['Pod/Assets/*.png']
+  # }
 
 end
