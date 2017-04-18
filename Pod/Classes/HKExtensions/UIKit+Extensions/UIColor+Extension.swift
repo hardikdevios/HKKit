@@ -72,4 +72,10 @@ extension UIColor {
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
         
     }
+    
+    
+    convenience public init(clearRed:CGFloat,clearGreen:CGFloat,clearBlue:CGFloat){
+        
+        self.init(red: clearRed/255.0, green: clearGreen/255.0, blue: clearBlue/255, alpha: 1)
+    }
 }
