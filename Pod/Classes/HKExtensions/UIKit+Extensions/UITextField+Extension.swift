@@ -40,14 +40,14 @@ extension UITextField{
         
     }
     
-   public func setLeftImgView(_ imgName:String!)->Void{
+    public func setLeftImgView(_ imgName:String!,contentMode:UIViewContentMode = .center)->Void{
         
         self.layoutIfNeeded()
         let leftViewForImg = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: self.frame.size.height))
         let imgView = UIImageView(image: UIImage(named: imgName)!)
         imgView.frame = CGRect(x: 0, y: 0, width: leftViewForImg.frame.size.width - 20, height: leftViewForImg.frame.size.height - 20)
         imgView.center = leftViewForImg.center
-        imgView.contentMode = .scaleAspectFit
+        imgView.contentMode = contentMode
         leftViewForImg.addSubview(imgView)
         self.leftView = leftViewForImg
         self.leftViewMode = .always
