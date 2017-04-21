@@ -197,7 +197,7 @@ extension UIViewController {
         }
     }
     
-    public func setNavigationBarVisiblity(_ isVisible:Bool = true){
+    public func setNavigationBarVisiblity(isVisible:Bool = true){
         self.navigationController?.isNavigationBarHidden = !isVisible
         }
     
@@ -205,19 +205,6 @@ extension UIViewController {
     
 }
 
-extension UIViewController{
-
-    
- 
-    
-    public func segue(_ identifire:String){
-        self.performSegue(withIdentifier: identifire, sender: self)
-    }
-    
-    public func segue(_ identifire:String,sender:AnyObject?){
-        self.performSegue(withIdentifier: identifire, sender: sender)
-    }
-}
 
 extension UIViewController {
     class public func currentViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
