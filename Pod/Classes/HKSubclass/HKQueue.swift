@@ -14,24 +14,24 @@ protocol ExcutableQueue {
 }
 
 extension ExcutableQueue {
-    func execute(_ closure: @escaping () -> Void) {
+    open func execute(_ closure: @escaping () -> Void) {
         queue.async(execute: closure)
     }
-    func executeAfter(_ seconds:Double,closure: @escaping () -> Void){
+    open func executeAfter(_ seconds:Double,closure: @escaping () -> Void){
         let delayTime = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         queue.asyncAfter(deadline: delayTime,execute: closure)
         
     }
 }
 
-enum HKQueue: ExcutableQueue {
+open enum HKQueue: ExcutableQueue {
     case main
     case userInteractive
     case userInitiated
     case utility
     case background
     
-    var queue: DispatchQueue {
+    open var queue: DispatchQueue {
         switch self {
         case .main:
             return DispatchQueue.main

@@ -41,7 +41,7 @@ open class ConcurrentOperation : Operation {
         }
     }
     
-    func completeOperation() {
+   open func completeOperation() {
         isExecuting = false
         isFinished  = true
     }
