@@ -45,6 +45,14 @@ extension String {
         return from ..< to
     }
     
+    public func toRange()->NSRange{
+     
+        let range = self.range(of: self)
+        
+       return NSMakeRange(self.characters.distance(from: self.startIndex, to: range!.lowerBound),self.characters.count)
+
+    }
+    
     
 }
 extension String {

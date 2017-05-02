@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "HKKit"
-  s.version          = "1.0.16"
+  s.version          = "1.0.17"
   s.summary          = "Perosnal repo"
   s.description      = "Faster app development use for my personal use only in order to import and maintain my gloabal funcations"
 
@@ -17,5 +17,7 @@ Pod::Spec.new do |s|
   # s.resource_bundles = {
   #   'HKKit' => ['Pod/Assets/*.png']
   # }
+  s.dependency 'Alamofire'
+  s.dependency 'SwiftyJSON'
 
 end

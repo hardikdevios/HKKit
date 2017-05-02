@@ -11,7 +11,7 @@ public typealias clouser = ((HKTextField,String,String)->Bool?)
 public typealias clouser2 = ((HKTextField)->Bool?)
 
 open class HKTextField: UITextField,UITextFieldDelegate {
-    let padding = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 5);
+    let padding = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 10);
     open var needBottomBorder:Bool = false
     var objDelegate:HKTextFieldDelegate = HKTextFieldDelegate()
     open var textChanged:clouser?{

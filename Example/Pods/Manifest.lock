@@ -1,14 +1,18 @@
 PODS:
-  - HKKit (0.1.0)
+  - Alamofire (4.4.0)
+  - HKKit (1.0.16)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
-  - HKKit (from `../`)
-
-EXTERNAL SOURCES:
-  HKKit:
-    :path: ../
+  - Alamofire
+  - HKKit
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
-  HKKit: 1dd1027b2bce04254c6fe5c986d2f9d10aa98d2d
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  HKKit: 733fcb650ffd0c25eba48829d18faad7d11984df
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 4f7432677240ce7639721334aab663f556947639
+
+COCOAPODS: 1.2.1
