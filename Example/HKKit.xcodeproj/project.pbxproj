@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28A37BA37690E783DE563B5E /* Pods_HKKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDF6BF1D07B00D349550AD3 /* Pods_HKKit_Tests.framework */; };
+		562BF2771EBB19F900A3B762 /* HKAlamofireImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562BF2761EBB19F900A3B762 /* HKAlamofireImageView.swift */; };
 		566F63E81EB863700010FC22 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 566F63C81EB863700010FC22 /* .gitkeep */; };
 		566F63E91EB863700010FC22 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 566F63CA1EB863700010FC22 /* .gitkeep */; };
 		566F63EA1EB863700010FC22 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566F63CD1EB863700010FC22 /* Array+Extension.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		08942CA592530F0E49F470F8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		562BF2761EBB19F900A3B762 /* HKAlamofireImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKAlamofireImageView.swift; sourceTree = "<group>"; };
 		566F63C81EB863700010FC22 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		566F63CA1EB863700010FC22 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		566F63CD1EB863700010FC22 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		566F63E21EB863700010FC22 /* HKSubclass */ = {
 			isa = PBXGroup;
 			children = (
+				562BF2761EBB19F900A3B762 /* HKAlamofireImageView.swift */,
 				566F63E31EB863700010FC22 /* HKCardView.swift */,
 				566F63E41EB863700010FC22 /* HKFloatingTextField.swift */,
 				566F63E51EB863700010FC22 /* HKOprationQueue.swift */,
@@ -383,6 +386,7 @@
 				566F64011EB863700010FC22 /* HKTextField.swift in Sources */,
 				566F63FA1EB863700010FC22 /* UIView+Extension.swift in Sources */,
 				566F63F41EB863700010FC22 /* UILabel+Extension.swift in Sources */,
+				562BF2771EBB19F900A3B762 /* HKAlamofireImageView.swift in Sources */,
 				566F63F21EB863700010FC22 /* UIImage+Extension.swift in Sources */,
 				566F63EB1EB863700010FC22 /* Dictionary+Extension.swift in Sources */,
 				566F63FF1EB863700010FC22 /* HKOprationQueue.swift in Sources */,
