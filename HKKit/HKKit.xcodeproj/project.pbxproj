@@ -36,7 +36,6 @@
 		56EBA9871ED06A7900C743F7 /* HKOprationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA96C1ED06A7900C743F7 /* HKOprationQueue.swift */; };
 		56EBA9881ED06A7900C743F7 /* HKQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA96D1ED06A7900C743F7 /* HKQueue.swift */; };
 		56EBA9891ED06A7900C743F7 /* HKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA96E1ED06A7900C743F7 /* HKTextField.swift */; };
-		56EBA9CB1ED0729200C743F7 /* HKKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 56EBA9CA1ED0729200C743F7 /* HKKit.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -298,7 +297,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56EBA96F1ED06A7900C743F7 /* .gitkeep in Resources */,
-				56EBA9CB1ED0729200C743F7 /* HKKit.podspec in Resources */,
 				56EBA9701ED06A7900C743F7 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
