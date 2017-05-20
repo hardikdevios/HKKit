@@ -26,4 +26,12 @@ extension UITableViewCell {
         self.preservesSuperviewLayoutMargins = false
         
     }
+    
+    func enable(_ on: Bool) {
+        self.isUserInteractionEnabled = on
+        for view in contentView.subviews {
+            view.isUserInteractionEnabled = on
+            view.alpha = on ? 1 : 0.5
+        }
+    }
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C7BDE6EB37AA2515B2707E8 /* Pods_HKKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993B90264185297ACF793BF4 /* Pods_HKKit.framework */; };
 		56EBA9461ED06A3A00C743F7 /* HKKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 56EBA9441ED06A3A00C743F7 /* HKKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		56EBA96F1ED06A7900C743F7 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 56EBA94E1ED06A7900C743F7 /* .gitkeep */; };
 		56EBA9701ED06A7900C743F7 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 56EBA9501ED06A7900C743F7 /* .gitkeep */; };
 		56EBA9711ED06A7900C743F7 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9531ED06A7900C743F7 /* Array+Extension.swift */; };
 		56EBA9721ED06A7900C743F7 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9541ED06A7900C743F7 /* Dictionary+Extension.swift */; };
@@ -36,13 +35,14 @@
 		56EBA9871ED06A7900C743F7 /* HKOprationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA96C1ED06A7900C743F7 /* HKOprationQueue.swift */; };
 		56EBA9881ED06A7900C743F7 /* HKQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA96D1ED06A7900C743F7 /* HKQueue.swift */; };
 		56EBA9891ED06A7900C743F7 /* HKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA96E1ED06A7900C743F7 /* HKTextField.swift */; };
+		56EBA9CD1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9CC1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift */; };
+		56EBA9CF1ED0780100C743F7 /* Misc+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9CE1ED0780100C743F7 /* Misc+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		56EBA9411ED06A3A00C743F7 /* HKKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HKKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EBA9441ED06A3A00C743F7 /* HKKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKKit.h; sourceTree = "<group>"; };
 		56EBA9451ED06A3A00C743F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56EBA94E1ED06A7900C743F7 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		56EBA9501ED06A7900C743F7 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		56EBA9531ED06A7900C743F7 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		56EBA9541ED06A7900C743F7 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
@@ -70,6 +70,8 @@
 		56EBA96D1ED06A7900C743F7 /* HKQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKQueue.swift; sourceTree = "<group>"; };
 		56EBA96E1ED06A7900C743F7 /* HKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKTextField.swift; sourceTree = "<group>"; };
 		56EBA9CA1ED0729200C743F7 /* HKKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = HKKit.podspec; path = ../HKKit.podspec; sourceTree = "<group>"; };
+		56EBA9CC1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		56EBA9CE1ED0780100C743F7 /* Misc+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Misc+Extension.swift"; sourceTree = "<group>"; };
 		993B90264185297ACF793BF4 /* Pods_HKKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HKKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C691E96631988767F07F6E5E /* Pods-HKKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HKKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HKKit/Pods-HKKit.debug.xcconfig"; sourceTree = "<group>"; };
 		D2385CE64610DE065754A2D6 /* Pods-HKKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HKKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-HKKit/Pods-HKKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,19 +121,10 @@
 			isa = PBXGroup;
 			children = (
 				56EBA9CA1ED0729200C743F7 /* HKKit.podspec */,
-				56EBA94D1ED06A7900C743F7 /* Assets */,
 				56EBA94F1ED06A7900C743F7 /* Classes */,
 			);
 			name = Pod;
 			path = ../../Pod;
-			sourceTree = "<group>";
-		};
-		56EBA94D1ED06A7900C743F7 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				56EBA94E1ED06A7900C743F7 /* .gitkeep */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		56EBA94F1ED06A7900C743F7 /* Classes */ = {
@@ -150,6 +143,7 @@
 			children = (
 				56EBA9521ED06A7900C743F7 /* Foundation+Extension */,
 				56EBA9591ED06A7900C743F7 /* UIKit+Extensions */,
+				56EBA9CE1ED0780100C743F7 /* Misc+Extension.swift */,
 			);
 			path = HKExtensions;
 			sourceTree = "<group>";
@@ -182,6 +176,7 @@
 				56EBA9631ED06A7900C743F7 /* UITextView+Extension.swift */,
 				56EBA9641ED06A7900C743F7 /* UIView+Extension.swift */,
 				56EBA9651ED06A7900C743F7 /* UIViewController+Extension.swift */,
+				56EBA9CC1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift */,
 			);
 			path = "UIKit+Extensions";
 			sourceTree = "<group>";
@@ -296,7 +291,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56EBA96F1ED06A7900C743F7 /* .gitkeep in Resources */,
 				56EBA9701ED06A7900C743F7 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,7 +346,9 @@
 				56EBA9881ED06A7900C743F7 /* HKQueue.swift in Sources */,
 				56EBA9711ED06A7900C743F7 /* Array+Extension.swift in Sources */,
 				56EBA9751ED06A7900C743F7 /* NSRange+Extension.swift in Sources */,
+				56EBA9CF1ED0780100C743F7 /* Misc+Extension.swift in Sources */,
 				56EBA97D1ED06A7900C743F7 /* UISwitch+Extension.swift in Sources */,
+				56EBA9CD1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift in Sources */,
 				56EBA9811ED06A7900C743F7 /* UIView+Extension.swift in Sources */,
 				56EBA9791ED06A7900C743F7 /* UIImage+Extension.swift in Sources */,
 				56EBA97E1ED06A7900C743F7 /* UITableViewCell+Extension.swift in Sources */,

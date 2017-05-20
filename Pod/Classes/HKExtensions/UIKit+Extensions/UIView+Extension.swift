@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 extension UIView{
     public func setAppBackGround()->Void{
@@ -118,7 +119,57 @@ extension UIView{
     
     
 }
-
+extension UIView {
+    
+    
+    
+    public func makeOval(){
+        
+        if let imgView = self as? UIImageView {
+            imgView.image = imgView.image?.af_imageRoundedIntoCircle()
+            return
+        }
+        
+        self.layer.cornerRadius = self.frame.height / 2
+        self.clipsToBounds = true
+    }
+    
+    public func setAppTintColor(){
+        
+        self.tintColor = MAIN_COLOR
+    }
+    
+    
+}
+extension UIView {
+    
+    fileprivate func actionHandleBlock(_ action:(() -> Void)? = nil) {
+        struct ActionClick {
+            static var action :(() -> Void)?
+        }
+        
+        
+        if action != nil {
+            ActionClick.action = action
+        } else {
+            ActionClick.action?()
+        }
+    }
+    @objc fileprivate func triggerActionHandleBlock() {
+        self.actionHandleBlock()
+        
+    }
+    
+    func onViewClick(_ block:@escaping (()->())){
+        
+        self.isUserInteractionEnabled = true
+        self.actionHandleBlock(block)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.triggerActionHandleBlock))
+        self.addGestureRecognizer(gesture)
+        
+    }
+    
+}
 
 extension UIView {
     public func addTopBorderWithColor(_ color: UIColor, width: CGFloat) {

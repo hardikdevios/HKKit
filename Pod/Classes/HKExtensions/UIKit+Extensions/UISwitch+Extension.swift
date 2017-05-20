@@ -10,9 +10,6 @@ import UIKit
 
 extension UISwitch {
 
-    public func setAppTintColor(){
-        self.onTintColor = MAIN_COLOR
-
-    }
+   
 
 }
