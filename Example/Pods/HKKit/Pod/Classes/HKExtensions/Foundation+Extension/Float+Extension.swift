@@ -17,6 +17,7 @@ extension Float{
     public func getOneDecimal() -> String{
         
         return String(format: "%.f",self)
+        
     }
 }
 

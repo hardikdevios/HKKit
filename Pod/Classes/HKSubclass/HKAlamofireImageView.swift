@@ -13,11 +13,11 @@ open class HKAlamofireImageView: UIImageView {
     
     private var recipt:RequestReceipt?
     static var downloader = ImageDownloader(
-        configuration: ImageDownloader.defaultURLSessionConfiguration(),
-        downloadPrioritization: .lifo,
-        maximumActiveDownloads: 4,
-        imageCache: AutoPurgingImageCache()
-    )
+                configuration: ImageDownloader.defaultURLSessionConfiguration(),
+                downloadPrioritization: .lifo,
+                maximumActiveDownloads: 4,
+                imageCache: AutoPurgingImageCache()
+            )
     
     public func cancelRequest(){
         guard let request = recipt else {
@@ -27,7 +27,7 @@ open class HKAlamofireImageView: UIImageView {
         
     }
     
-    public func downloadImage(url:URL?,placeHolder:UIImage,imageType:HKAlamofireImageType = .normal) {
+    public func downloadImage(url:URL?,placeHolder:UIImage,imageType:HKAlamofireImageType = .normal,clouser:(()->())? = nil) {
         self.image = placeHolder
         guard let url = url else {
             return
@@ -41,12 +41,12 @@ open class HKAlamofireImageView: UIImageView {
                 if imageType == .rounded {
                     self.image = image.af_imageRoundedIntoCircle()
                 }else{
-                    self.image = image.af_imageAspectScaled(toFit: self.frame.size)
+                    self.image = image
                 }
                 
-                
+           
             }
-            
+            clouser?()
             
         })
         

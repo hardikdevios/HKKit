@@ -21,17 +21,31 @@ extension UILabel{
         }
         public func setHtmlText(_ string:String!){
             
-            if string != nil {
-                let encodedData = string.data(using: String.Encoding.utf8)!
-                let attributedOptions : [String: AnyObject] = [
-                    NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType as AnyObject,
-                    NSCharacterEncodingDocumentAttribute: String.Encoding.utf8 as AnyObject
-                ]
-                let attributedString = try! NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
-                self.text = attributedString.string
-                
-            }
-        
+            let attrStr = try! NSAttributedString(
+                data: string.data(using: .unicode, allowLossyConversion: true)!,
+                options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue],
+                documentAttributes: nil)
+            
+            
+            self.attributedText = attrStr
+
+    
+        }
+    
+        private func setHtmlTextWithFont(_ string:String,font:String? = "HelveticaNeue",fontSize:CGFloat? = 17){
+            
+            let modifiedFont = String(format:"<span style=\"font-family: '-apple-system', 'HelveticaNeue'; font-size: \(17)\">%@</span>",string)
+            
+            
+            //process collection values
+            let attrStr = try! NSAttributedString(
+                data: modifiedFont.data(using: .unicode, allowLossyConversion: true)!,
+                options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue],
+                documentAttributes: nil)
+            
+            
+            self.attributedText = attrStr
+            
         }
 
 }

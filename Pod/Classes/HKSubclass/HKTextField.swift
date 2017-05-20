@@ -72,10 +72,13 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     
     fileprivate func newBounds(_ bounds: CGRect,extraPadding:CGFloat = 25.0) -> CGRect {
         var newBounds = bounds
-        newBounds.origin.x += padding.left + (self.leftView?.frame.size.width ?? 0)  + (self.rightView?.frame.size.width ?? 0)
+        let leftWidth = self.leftView?.frame.width ?? 0
+        let rightWidth = self.rightView?.frame.width ?? 0
+        
+        newBounds.origin.x += padding.left + leftWidth  + rightWidth
         newBounds.origin.y += padding.top
         newBounds.size.height -= padding.top + padding.bottom
-        newBounds.size.width -= padding.left + padding.right + (self.leftView?.frame.size.width ?? 0) + (self.rightView?.frame.size.width ?? 0) + extraPadding
+        newBounds.size.width -= padding.left + padding.right + leftWidth + rightWidth + extraPadding
 
         return newBounds
     }
