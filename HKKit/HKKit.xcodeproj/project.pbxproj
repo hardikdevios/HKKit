@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0C7BDE6EB37AA2515B2707E8 /* Pods_HKKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993B90264185297ACF793BF4 /* Pods_HKKit.framework */; };
+		563025101ED42E5500194856 /* NSMangedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */; };
+		563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025111ED42F9300194856 /* UITableView+Extension.swift */; };
+		563025141ED4307C00194856 /* UIPickerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025131ED4307C00194856 /* UIPickerView+Extension.swift */; };
 		56EBA9461ED06A3A00C743F7 /* HKKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 56EBA9441ED06A3A00C743F7 /* HKKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56EBA9701ED06A7900C743F7 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 56EBA9501ED06A7900C743F7 /* .gitkeep */; };
 		56EBA9711ED06A7900C743F7 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9531ED06A7900C743F7 /* Array+Extension.swift */; };
@@ -40,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMangedObject+Extension.swift"; sourceTree = "<group>"; };
+		563025111ED42F9300194856 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		563025131ED4307C00194856 /* UIPickerView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Extension.swift"; sourceTree = "<group>"; };
 		56EBA9411ED06A3A00C743F7 /* HKKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HKKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EBA9441ED06A3A00C743F7 /* HKKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKKit.h; sourceTree = "<group>"; };
 		56EBA9451ED06A3A00C743F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				56EBA9561ED06A7900C743F7 /* NSDate+Extension.swift */,
 				56EBA9571ED06A7900C743F7 /* NSRange+Extension.swift */,
 				56EBA9581ED06A7900C743F7 /* String+Extension.swift */,
+				5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */,
 			);
 			path = "Foundation+Extension";
 			sourceTree = "<group>";
@@ -177,6 +184,8 @@
 				56EBA9641ED06A7900C743F7 /* UIView+Extension.swift */,
 				56EBA9651ED06A7900C743F7 /* UIViewController+Extension.swift */,
 				56EBA9CC1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift */,
+				563025111ED42F9300194856 /* UITableView+Extension.swift */,
+				563025131ED4307C00194856 /* UIPickerView+Extension.swift */,
 			);
 			path = "UIKit+Extensions";
 			sourceTree = "<group>";
@@ -348,11 +357,14 @@
 				56EBA9751ED06A7900C743F7 /* NSRange+Extension.swift in Sources */,
 				56EBA9CF1ED0780100C743F7 /* Misc+Extension.swift in Sources */,
 				56EBA97D1ED06A7900C743F7 /* UISwitch+Extension.swift in Sources */,
+				563025101ED42E5500194856 /* NSMangedObject+Extension.swift in Sources */,
+				563025141ED4307C00194856 /* UIPickerView+Extension.swift in Sources */,
 				56EBA9CD1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift in Sources */,
 				56EBA9811ED06A7900C743F7 /* UIView+Extension.swift in Sources */,
 				56EBA9791ED06A7900C743F7 /* UIImage+Extension.swift in Sources */,
 				56EBA97E1ED06A7900C743F7 /* UITableViewCell+Extension.swift in Sources */,
 				56EBA9731ED06A7900C743F7 /* Float+Extension.swift in Sources */,
+				563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */,
 				56EBA9761ED06A7900C743F7 /* String+Extension.swift in Sources */,
 				56EBA9891ED06A7900C743F7 /* HKTextField.swift in Sources */,
 				56EBA9801ED06A7900C743F7 /* UITextView+Extension.swift in Sources */,

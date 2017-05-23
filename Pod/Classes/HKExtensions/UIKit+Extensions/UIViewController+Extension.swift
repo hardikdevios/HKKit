@@ -221,4 +221,148 @@ extension UIViewController {
         }
         return base
     }
+    public func isUIViewControllerPresentedAsModal() -> Bool {
+        
+        
+        if((self.presentingViewController) != nil) {
+            return true
+        }
+        
+        if(self.presentingViewController?.presentedViewController == self) {
+            return true
+        }
+        
+        if(self.navigationController?.presentingViewController?.presentedViewController == self.navigationController) {
+            return true
+        }
+        
+        if((self.tabBarController?.presentingViewController?.isKind(of: UITabBarController.self)) != nil) {
+            return true
+        }
+        
+        return false
+    }
 }
+
+private var xoAssociationKey: UInt8 = 0
+
+
+extension UIViewController {
+    
+    
+    var tbl_pickerIndexPath: IndexPath! {
+        get {
+            return objc_getAssociatedObject(self, &xoAssociationKey) as? IndexPath
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &xoAssociationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
+    
+    func tbl_displayInLinepickerAtIndextPath(_ indexpath:IndexPath!,tableView:UITableView)->Void{
+        
+        tableView.beginUpdates()
+        
+        let before = tbl_pickerIsBefore(indexpath)
+        let sameCellClicked = tbl_isSameCelclicked(indexpath)
+        
+        if self.tbl_hasInlinePicker() && sameCellClicked{
+            
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [IndexPath(row: self.tbl_pickerIndexPath.row, section: self.tbl_pickerIndexPath.section)], with: .fade)
+            tableView.endUpdates()
+            self.tbl_pickerIndexPath = nil
+            
+        }
+        
+        if (!sameCellClicked)
+        {
+            
+            
+            let rowToReveal:NSInteger! = (before ? indexpath.row-1:indexpath.row)
+            
+            let indexpathRowtoRivel:IndexPath! = IndexPath(row: rowToReveal, section: indexpath.section)
+            self.tbl_insertPickeratIndexPath(indexpathRowtoRivel,tableView:tableView)
+            
+            self.tbl_pickerIndexPath = IndexPath(row: indexpathRowtoRivel.row + 1, section: indexpathRowtoRivel.section)
+            
+        }
+        
+        tableView.deselectRow(at: indexpath, animated: true)
+        
+        tableView.endUpdates()
+        
+        
+    }
+    func tbl_indexPathHasPicker(_ indexPath:IndexPath!)->Bool{
+        
+        return (self.tbl_hasInlinePicker() && self.tbl_pickerIndexPath.row == indexPath.row && self.tbl_pickerIndexPath.section == indexPath.section);
+        
+        
+    }
+    
+    
+    func tbl_hasInlinePicker()->Bool{
+        
+        
+        if((self.tbl_pickerIndexPath) != nil){
+            return true
+        }
+        return false
+    }
+    
+    func tbl_pickerIsBefore(_ indexpath:IndexPath)->Bool{
+        
+        var before:Bool = false
+        if self.tbl_hasInlinePicker(){
+            before = self.tbl_pickerIndexPath.row < (indexpath as NSIndexPath).row && self.tbl_pickerIndexPath.section == (indexpath as NSIndexPath).section
+        }
+        return before
+    }
+    
+    func tbl_isSameCelclicked(_ indexpath:IndexPath)->Bool{
+        
+        var sameCellClicked:Bool = false;
+        
+        if (self.tbl_pickerIndexPath) != nil {
+            sameCellClicked = (self.tbl_pickerIndexPath.row - 1 == (indexpath as NSIndexPath).row && self.tbl_pickerIndexPath.section == (indexpath as NSIndexPath).section)
+        }
+        return sameCellClicked
+    }
+    
+    func tbl_hasInlinePicker(_ section:Int)->Bool{
+        
+        
+        if(self.tbl_pickerIndexPath != nil && self.tbl_pickerIndexPath.section == section){
+            return true
+        }
+        return false
+    }
+    func tbl_insertPickeratIndexPath(_ indexpath:IndexPath!,tableView:UITableView)->Void{
+        tableView.beginUpdates()
+        if self.tbl_hasInlinePicker() {
+            tableView.deleteRows(at: [IndexPath(row: self.tbl_pickerIndexPath.row, section: self.tbl_pickerIndexPath.section)], with: .fade)
+            
+        }
+        tableView.insertRows(at: [IndexPath(row: indexpath.row + 1, section: indexpath.section)], with: .fade)
+        tableView.endUpdates()
+    }
+}
+
+
+extension UIViewController  {
+    
+    
+    func setUpAddClick(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(UIViewController.addClick))
+        
+        
+    }
+    
+    func addClick(){
+        
+    }
+    
+}
+

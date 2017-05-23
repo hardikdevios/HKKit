@@ -47,5 +47,45 @@ extension UILabel{
             self.attributedText = attrStr
             
         }
+    
+    func setAttributeString(_ mainString:String,attributeString:String,attributes:[String:Any]){
+        
+        let range = mainString.range(of: attributeString, options: NSString.CompareOptions.caseInsensitive)
+        let attrString: NSMutableAttributedString = NSMutableAttributedString(string:mainString)
+        
+        if range != nil {
+            
+            attrString.addAttributes(attributes, range: NSMakeRange((mainString.characters.distance(from: mainString.startIndex, to: range!.lowerBound)),attributeString.characters.count))
+            self.attributedText = attrString
+            
+        }else{
+            self.text = mainString
+        }
+        
+    }
+    
+    
+    func setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[String:Any]]) {
+        
+        let attrString: NSMutableAttributedString = NSMutableAttributedString(string:mainString)
+        
+        for (index,string) in attributeStrings.enumerated() {
+            
+            let range = mainString.range(of: string, options: NSString.CompareOptions.caseInsensitive)
+            
+            if range != nil {
+                
+                attrString.addAttributes(total_attributes[index], range: NSMakeRange((mainString.characters.distance(from: mainString.startIndex, to: range!.lowerBound)),string.characters.count))
+                
+                
+            }else{
+                continue
+            }
+            
+        }
+        self.attributedText = attrString
+        
+    }
+
 
 }

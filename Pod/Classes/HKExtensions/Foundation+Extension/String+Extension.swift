@@ -53,6 +53,57 @@ extension String {
 
     }
     
+    var toNumericString:String{
+        
+        return self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
+    }
+    var toDictionary:[AnyHashable: Any]? {
+        if let data = self.data(using: String.Encoding.utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [AnyHashable: Any]
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+        return nil
+    }
+    var toArray:[[AnyHashable: Any]]? {
+        if let data = self.data(using: String.Encoding.utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [[AnyHashable: Any]]
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+        return nil
+    }
+    func getFirstComponent(_ sperator:String = " ")->String{
+        
+        let arr = self.components(separatedBy: sperator)
+        return arr.first ?? self
+        
+    }
+    func getLastComponent(_ sperator:String = " ")->String{
+        
+        let arr = self.components(separatedBy: sperator)
+        return arr.last ?? self
+        
+    }
+    public func isEmailValid()-> Bool {
+        
+        let regex = try? NSRegularExpression(pattern: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", options: .caseInsensitive)
+        return regex?.firstMatch(in: self.trimWhiteSpace()!, options: [], range: NSMakeRange(0, self.trimWhiteSpace()!.characters.count)) != nil
+        
+        
+    }
+    
+    public func isNumeric()->Bool {
+        
+        let regx = "\\d{0,5}(\\.\\d{0,2})?"
+        return NSPredicate(format: "SELF MATCHES %@", regx).evaluate(with: self)
+    }
+
+    
     
 }
 extension String {

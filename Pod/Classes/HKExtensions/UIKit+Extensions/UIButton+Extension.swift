@@ -28,5 +28,29 @@ extension UIButton{
             self.alpha = 1.0
         }
     }
+    func appleBootStrapTheme(_ color:UIColor = MAIN_COLOR){
+        
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 2
+        self.layer.borderColor = color.cgColor
+        self.setTitleColor(color, for: UIControlState())
+    }
     
+    func setAttributeString(_ mainString:String,attributeString:String,attributes:[String:Any]){
+        
+        let range = mainString.range(of: attributeString, options: NSString.CompareOptions.caseInsensitive)
+        let attrString: NSMutableAttributedString = NSMutableAttributedString(string:mainString)
+        
+        if range != nil {
+            
+            attrString.addAttributes(attributes, range: NSMakeRange((mainString.characters.distance(from: mainString.startIndex, to: range!.lowerBound)),attributeString.characters.count))
+            self.setAttributedTitle(attrString, for: UIControlState())
+            
+        }else{
+            self.setTitle(mainString, for: UIControlState())
+            
+        }
+        
+    }
+
 }

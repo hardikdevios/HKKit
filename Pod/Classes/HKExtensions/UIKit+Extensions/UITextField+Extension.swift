@@ -63,6 +63,14 @@ extension UITextField{
     
 }
 
+extension UITextField {
+    
+    public func getIndexPathForTableView(for tableView:UITableView)->IndexPath?{
+        
+        return tableView.indexPathForRow(at: (self.superview?.convert(self.frame.origin, to:tableView))!)
+        
+    }
+}
 
 extension UITextField{
     
