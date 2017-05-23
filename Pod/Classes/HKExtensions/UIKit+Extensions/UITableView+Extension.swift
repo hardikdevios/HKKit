@@ -61,7 +61,7 @@ private var xoAssociationKeyTableView: UInt8 = 0
 extension UIViewController:NSFetchedResultsControllerDelegate {
     
     
-    var hk_tbl_extended: UITableView! {
+    public var hk_tbl_extended: UITableView! {
         get {
             return objc_getAssociatedObject(self, &xoAssociationKeyTableView) as? UITableView
         }
