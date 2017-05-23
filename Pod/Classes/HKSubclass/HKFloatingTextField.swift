@@ -238,7 +238,7 @@ open class HKFloatingTextFieldDelegate:NSObject,UITextFieldDelegate {
     
     open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        let r = textField.text!.range(from: range)
+        let r = textField.text!.hk_range(from: range)
 
         return textChangedClouser?(textField as! HKFloatingTextField,textField.text!.replacingCharacters(in:r!,with: string),string) ??
             delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) ?? true

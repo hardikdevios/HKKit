@@ -10,22 +10,22 @@ import UIKit
 import AlamofireImage
 
 extension UIView{
-    public func setAppBackGround()->Void{
+    public func hk_setAppBackGround()->Void{
         self.backgroundColor = MAIN_COLOR
     }
-    public func setAppBackGroundWithAlpha(_ alpha:CGFloat)->Void{
+    public func hk_setAppBackGroundWithAlpha(_ alpha:CGFloat)->Void{
         self.backgroundColor = MAIN_COLOR.withAlphaComponent(alpha)
     }
-    public func setAppRadius()->Void{
+    public func hk_setAppRadius()->Void{
         self.layer.cornerRadius = 3.0
     }
-    public func setAppRadius(_ radius:CGFloat)->Void{
+    public func hk_setAppRadius(_ radius:CGFloat)->Void{
         self.layer.cornerRadius = radius
     }
-    public func setEmptyView(_ text:String!){
+    public func hk_setEmptyView(_ text:String!){
         let visualEffect:UIVisualEffectView? = self.viewWithTag(9999) as? UIVisualEffectView
         if visualEffect != nil{
-            self.isViewEmpty(false)
+            self.hk_isViewEmpty(false)
             return
         }
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
@@ -50,7 +50,7 @@ extension UIView{
         blurEffectView.contentView.addSubview(vibrantLabel)
     }
     
-    public func isViewEmpty(_ isempty:Bool){
+    public func hk_isViewEmpty(_ isempty:Bool){
         let visualEffect:UIVisualEffectView? = self.viewWithTag(9999) as? UIVisualEffectView
         if visualEffect == nil{
             return
@@ -58,7 +58,7 @@ extension UIView{
         visualEffect?.isHidden = isempty
     }
     
-    public func setAppShadow(_ color:UIColor,size:CGSize){
+    public func hk_setAppShadow(_ color:UIColor,size:CGSize){
         
         self.layer.shadowColor = color.cgColor;
         self.layer.shadowOffset = size;
@@ -67,7 +67,7 @@ extension UIView{
         self.clipsToBounds = false
     }
     
-    public func setCardlayout(){
+    public func hk_setCardlayout(){
         self.clipsToBounds = false
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.black.cgColor
@@ -77,7 +77,7 @@ extension UIView{
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
     }
     
-    public func addDashedBorder() {
+    public func hk_addDashedBorder() {
         
         // self.layoutIfNeeded()
         let color = UIColor.lightGray.cgColor
@@ -101,7 +101,7 @@ extension UIView{
         
     }
     
-    public func findSuperViewWithClass<T>(_ superViewClass : T.Type) -> UIView? {
+    public func hk_findSuperViewWithClass<T>(_ superViewClass : T.Type) -> UIView? {
         
         var xsuperView : UIView!  = self.superview!
         var foundSuperView : UIView!
@@ -123,7 +123,7 @@ extension UIView {
     
     
     
-    public func makeOval(){
+    public func hk_makeOval(){
         
         if let imgView = self as? UIImageView {
             imgView.image = imgView.image?.af_imageRoundedIntoCircle()
@@ -134,7 +134,7 @@ extension UIView {
         self.clipsToBounds = true
     }
     
-    public func setAppTintColor(){
+    public func hk_setAppTintColor(){
         
         self.tintColor = MAIN_COLOR
     }
@@ -143,7 +143,7 @@ extension UIView {
 }
 extension UIView {
     
-    fileprivate func actionHandleBlock(_ action:(() -> Void)? = nil) {
+    fileprivate func hk_actionHandleBlock(_ action:(() -> Void)? = nil) {
         struct ActionClick {
             static var action :(() -> Void)?
         }
@@ -155,16 +155,16 @@ extension UIView {
             ActionClick.action?()
         }
     }
-    @objc fileprivate func triggerActionHandleBlock() {
-        self.actionHandleBlock()
+    @objc fileprivate func hk_triggerActionHandleBlock() {
+        self.hk_actionHandleBlock()
         
     }
     
-    func onViewClick(_ block:@escaping (()->())){
+    func hk_onViewClick(_ block:@escaping (()->())){
         
         self.isUserInteractionEnabled = true
-        self.actionHandleBlock(block)
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.triggerActionHandleBlock))
+        self.hk_actionHandleBlock(block)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.hk_triggerActionHandleBlock))
         self.addGestureRecognizer(gesture)
         
     }
@@ -172,21 +172,21 @@ extension UIView {
 }
 
 extension UIView {
-    public func addTopBorderWithColor(_ color: UIColor, width: CGFloat) {
+    public func hk_addTopBorderWithColor(_ color: UIColor, width: CGFloat) {
         let border = CALayer()
         border.backgroundColor = color.cgColor
         border.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: width)
         self.layer.addSublayer(border)
     }
     
-    public func addRightBorderWithColor(_ color: UIColor, width: CGFloat) {
+    public func hk_addRightBorderWithColor(_ color: UIColor, width: CGFloat) {
         let border = CALayer()
         border.backgroundColor = color.cgColor
         border.frame = CGRect(x: self.frame.size.width - width, y: 0, width: width, height: self.frame.size.height)
         self.layer.addSublayer(border)
     }
     
-    public func addBottomBorderWithColor(_ color: UIColor, width: CGFloat)->CALayer {
+    public func hk_addBottomBorderWithColor(_ color: UIColor, width: CGFloat)->CALayer {
         let border = CALayer()
         border.backgroundColor = color.cgColor
         border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: width)
@@ -194,7 +194,7 @@ extension UIView {
         return border
     }
     
-    public func addLeftBorderWithColor(_ color: UIColor, width: CGFloat) {
+    public func hk_addLeftBorderWithColor(_ color: UIColor, width: CGFloat) {
         let border = CALayer()
         border.backgroundColor = color.cgColor
         border.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.size.height)

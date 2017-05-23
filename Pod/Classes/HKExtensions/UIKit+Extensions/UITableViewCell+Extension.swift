@@ -8,7 +8,7 @@
 
 import UIKit
 extension UITableViewCell {
-   public func removeAllGestures(){
+   public func hk_removeAllGestures(){
         if let recognizers = self.contentView.gestureRecognizers
         {
             for recognizer in recognizers {
@@ -21,13 +21,13 @@ extension UITableViewCell {
 }
 extension UITableViewCell {
     
-    public func setSepratorInsetZero(){
+    public func hk_setSepratorInsetZero(){
         self.layoutMargins = UIEdgeInsets.zero
         self.preservesSuperviewLayoutMargins = false
         
     }
     
-    func enable(_ on: Bool) {
+    public func hk_enable(_ on: Bool) {
         self.isUserInteractionEnabled = on
         for view in contentView.subviews {
             view.isUserInteractionEnabled = on

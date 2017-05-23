@@ -12,7 +12,7 @@ extension UIViewController {
     
     
     
-    public func setAppLogo(){
+    public func hk_setAppLogo(){
         
         let imgView:UIImageView = UIImageView(image: UIImage(named: MAIN_LOGO))
         imgView.contentMode = .scaleAspectFit
@@ -20,7 +20,7 @@ extension UIViewController {
         self.navigationItem.titleView = imgView
     }
     
-    public func setAppLogoLeft(){
+    public func hk_setAppLogoLeft(){
         
         let imgView:UIImageView = UIImageView(image: UIImage(named: MAIN_LOGO))
         imgView.contentMode = .center
@@ -28,23 +28,23 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = barbutton
     }
     
-    public func setMainTitle(_ navigationTitle:String!)->Void{
+    public func hk_setMainTitle(_ navigationTitle:String!)->Void{
         self.navigationItem.title = navigationTitle
     }
     
-    public func remvoeAllObserver(_ isForcefully:Bool = false){
+    public func hk_remvoeAllObserver(_ isForcefully:Bool = false){
         
         if self.isMovingFromParentViewController || isForcefully{
             NotificationCenter.default.removeObserver(self)
         }
     }
     
-    public func setObserver(_ methodname:Selector,observername:String){
+    public func hk_setObserver(_ methodname:Selector,observername:String){
         
         NotificationCenter.default.addObserver(self, selector: methodname, name: NSNotification.Name(rawValue: observername), object: nil)
         
     }
-    public func setCustomeTitleView(_ navigationTitle:String!,font:UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize))->Void{
+    public func hk_setCustomeTitleView(_ navigationTitle:String!,font:UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize))->Void{
         
         let label = UILabel()
         label.numberOfLines = 2
@@ -58,21 +58,21 @@ extension UIViewController {
         self.navigationItem.titleView = label
     }
   
-    public func setCancelButton()->Void{
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action:#selector(UIViewController.cancelClick(_:)))
+    public func hk_setCancelButton()->Void{
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action:#selector(UIViewController.hk_cancelClick(_:)))
     }
     
-    public func setSaveButton(_ action:Selector)->Void{
+    public func hk_setSaveButton(_ action:Selector)->Void{
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: action)
     }
     
-    open func cancelClick(_ sender:AnyObject?){
+    open func hk_cancelClick(_ sender:AnyObject?){
         self.dismiss(animated: true, completion: { () -> Void in
             
         })
     }
     
-    public func setBlurryBackground(){
+    public func hk_setBlurryBackground(){
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light)) as UIVisualEffectView
         visualEffectView.frame = self.view.bounds
         visualEffectView.tag = 999
@@ -81,7 +81,7 @@ extension UIViewController {
         visualEffectView.isHidden=false;
     }
     
-    public func isBlurVisible(_ ishidden:Bool){
+    public func hk_isBlurVisible(_ ishidden:Bool){
         //        var visualEffect:UIVisualEffectView? = (self.revealViewController().frontViewController as! UINavigationController).topViewController.view.viewWithTag(999) as? UIVisualEffectView
         //        if visualEffect == nil{
         //            return
@@ -90,7 +90,7 @@ extension UIViewController {
         
     }
     
-    public func setEmptyView(_ text:String!){
+    public func hk_setEmptyView(_ text:String!){
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
@@ -110,7 +110,7 @@ extension UIViewController {
         blurEffectView.contentView.addSubview(vibrantLabel)
     }
     
-    public func isViewEmpty(_ isempty:Bool){
+    public func hk_isViewEmpty(_ isempty:Bool){
         let visualEffect:UIVisualEffectView? = view.viewWithTag(9999) as? UIVisualEffectView
         if visualEffect == nil{
             return
@@ -119,7 +119,7 @@ extension UIViewController {
         
     }
     
-    public func setToolbarWithActivity(){
+    public func hk_setToolbarWithActivity(){
         
         let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         activity.isHidden = false
@@ -129,7 +129,7 @@ extension UIViewController {
         self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),barbuttonActivity,UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)]
         
     }
-    public func removeWithAnimation(){
+    public func hk_removeWithAnimation(){
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.view.alpha = 0
             }, completion: { (sucess) -> Void in
@@ -138,14 +138,14 @@ extension UIViewController {
                 
         })
     }
-    public func setBlankBackButton(){
+    public func hk_setBlankBackButton(){
         
         let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = backItem
         
     }
     
-    public func setCustomBackbutton(_ methodName:Selector){
+    public func hk_setCustomBackbutton(_ methodName:Selector){
         let myBackButton:UIButton = UIButton(type: UIButtonType.custom)
         myBackButton.addTarget(self, action: methodName, for: UIControlEvents.touchUpInside)
         myBackButton.setTitle(" ", for: UIControlState())
@@ -163,7 +163,7 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem  = myCustomBackButtonItem
     }
     
-    public func setUpActivityIndicator(){
+    public func hk_setUpActivityIndicator(){
         
         let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         activity.hidesWhenStopped = true
@@ -177,7 +177,7 @@ extension UIViewController {
         }
     }
 
-    public func startIndicator(){
+    public func hk_startIndicator(){
         
         
         if let activity = self.navigationItem.rightBarButtonItems?.last?.customView as? UIActivityIndicatorView {
@@ -188,7 +188,7 @@ extension UIViewController {
         }
     }
     
-    public func stopIndicator(){
+    public func hk_stopIndicator(){
         if let activity = self.navigationItem.rightBarButtonItems?.last?.customView as? UIActivityIndicatorView {
             activity.stopAnimating()
         }
@@ -197,7 +197,7 @@ extension UIViewController {
         }
     }
     
-    public func setNavigationBarVisiblity(isVisible:Bool = true){
+    public func hk_setNavigationBarVisiblity(isVisible:Bool = true){
         self.navigationController?.isNavigationBarHidden = !isVisible
         }
     
@@ -207,21 +207,21 @@ extension UIViewController {
 
 
 extension UIViewController {
-    class public func currentViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    class public func hk_currentViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
-            return currentViewController(nav.visibleViewController)
+            return hk_currentViewController(nav.visibleViewController)
         }
         if let tab = base as? UITabBarController {
             if let selected = tab.selectedViewController {
-                return currentViewController(selected)
+                return hk_currentViewController(selected)
             }
         }
         if let presented = base?.presentedViewController {
-            return currentViewController(presented)
+            return hk_currentViewController(presented)
         }
         return base
     }
-    public func isUIViewControllerPresentedAsModal() -> Bool {
+    public func hk_isUIViewControllerPresentedAsModal() -> Bool {
         
         
         if((self.presentingViewController) != nil) {
@@ -250,7 +250,7 @@ private var xoAssociationKey: UInt8 = 0
 extension UIViewController {
     
     
-    var tbl_pickerIndexPath: IndexPath! {
+    public var tbl_pickerIndexPath: IndexPath! {
         get {
             return objc_getAssociatedObject(self, &xoAssociationKey) as? IndexPath
         }
@@ -260,14 +260,14 @@ extension UIViewController {
     }
     
     
-    func tbl_displayInLinepickerAtIndextPath(_ indexpath:IndexPath!,tableView:UITableView)->Void{
+    public func hk_tbl_displayInLinepickerAtIndextPath(_ indexpath:IndexPath!,tableView:UITableView)->Void{
         
         tableView.beginUpdates()
         
-        let before = tbl_pickerIsBefore(indexpath)
-        let sameCellClicked = tbl_isSameCelclicked(indexpath)
+        let before = hk_tbl_pickerIsBefore(indexpath)
+        let sameCellClicked = hk_tbl_isSameCelclicked(indexpath)
         
-        if self.tbl_hasInlinePicker() && sameCellClicked{
+        if self.hk_tbl_hasInlinePicker() && sameCellClicked{
             
             tableView.beginUpdates()
             tableView.deleteRows(at: [IndexPath(row: self.tbl_pickerIndexPath.row, section: self.tbl_pickerIndexPath.section)], with: .fade)
@@ -283,7 +283,7 @@ extension UIViewController {
             let rowToReveal:NSInteger! = (before ? indexpath.row-1:indexpath.row)
             
             let indexpathRowtoRivel:IndexPath! = IndexPath(row: rowToReveal, section: indexpath.section)
-            self.tbl_insertPickeratIndexPath(indexpathRowtoRivel,tableView:tableView)
+            self.hk_tbl_insertPickeratIndexPath(indexpathRowtoRivel,tableView:tableView)
             
             self.tbl_pickerIndexPath = IndexPath(row: indexpathRowtoRivel.row + 1, section: indexpathRowtoRivel.section)
             
@@ -295,15 +295,15 @@ extension UIViewController {
         
         
     }
-    func tbl_indexPathHasPicker(_ indexPath:IndexPath!)->Bool{
+    public func hk_tbl_indexPathHasPicker(_ indexPath:IndexPath!)->Bool{
         
-        return (self.tbl_hasInlinePicker() && self.tbl_pickerIndexPath.row == indexPath.row && self.tbl_pickerIndexPath.section == indexPath.section);
+        return (self.hk_tbl_hasInlinePicker() && self.tbl_pickerIndexPath.row == indexPath.row && self.tbl_pickerIndexPath.section == indexPath.section);
         
         
     }
     
     
-    func tbl_hasInlinePicker()->Bool{
+    public func hk_tbl_hasInlinePicker()->Bool{
         
         
         if((self.tbl_pickerIndexPath) != nil){
@@ -312,16 +312,16 @@ extension UIViewController {
         return false
     }
     
-    func tbl_pickerIsBefore(_ indexpath:IndexPath)->Bool{
+    public func hk_tbl_pickerIsBefore(_ indexpath:IndexPath)->Bool{
         
         var before:Bool = false
-        if self.tbl_hasInlinePicker(){
+        if self.hk_tbl_hasInlinePicker(){
             before = self.tbl_pickerIndexPath.row < (indexpath as NSIndexPath).row && self.tbl_pickerIndexPath.section == (indexpath as NSIndexPath).section
         }
         return before
     }
     
-    func tbl_isSameCelclicked(_ indexpath:IndexPath)->Bool{
+    public func hk_tbl_isSameCelclicked(_ indexpath:IndexPath)->Bool{
         
         var sameCellClicked:Bool = false;
         
@@ -331,7 +331,7 @@ extension UIViewController {
         return sameCellClicked
     }
     
-    func tbl_hasInlinePicker(_ section:Int)->Bool{
+    public func hk_tbl_hasInlinePicker(_ section:Int)->Bool{
         
         
         if(self.tbl_pickerIndexPath != nil && self.tbl_pickerIndexPath.section == section){
@@ -339,9 +339,9 @@ extension UIViewController {
         }
         return false
     }
-    func tbl_insertPickeratIndexPath(_ indexpath:IndexPath!,tableView:UITableView)->Void{
+    public func hk_tbl_insertPickeratIndexPath(_ indexpath:IndexPath!,tableView:UITableView)->Void{
         tableView.beginUpdates()
-        if self.tbl_hasInlinePicker() {
+        if self.hk_tbl_hasInlinePicker() {
             tableView.deleteRows(at: [IndexPath(row: self.tbl_pickerIndexPath.row, section: self.tbl_pickerIndexPath.section)], with: .fade)
             
         }
@@ -354,13 +354,13 @@ extension UIViewController {
 extension UIViewController  {
     
     
-    func setUpAddClick(){
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(UIViewController.addClick))
+    public func hk_setUpAddClick(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(UIViewController.hk_addClick))
         
         
     }
     
-    func addClick(){
+    public func hk_addClick(){
         
     }
     

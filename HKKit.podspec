@@ -20,4 +20,6 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire'
   s.dependency 'SwiftyJSON'
   s.dependency 'AlamofireImage'
+  s.dependency 'MagicalRecord'
+
 end

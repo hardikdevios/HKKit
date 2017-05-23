@@ -13,7 +13,7 @@ import Foundation
 
 extension UIPickerView {
     
-    func stopScrolling() {
+    public func hk_stopScrolling() {
         
         let delegate = self.delegate
         let dataSource = self.dataSource

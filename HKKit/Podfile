@@ -3,7 +3,8 @@ use_frameworks!
 
 
 target 'HKKit' do
-    pod "HKKit"
     pod 'Alamofire'
+    pod 'AlamofireImage'
     pod 'SwiftyJSON'
+    pod 'MagicalRecord'
 end

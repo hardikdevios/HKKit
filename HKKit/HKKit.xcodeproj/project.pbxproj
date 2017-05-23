@@ -11,12 +11,13 @@
 		563025101ED42E5500194856 /* NSMangedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */; };
 		563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025111ED42F9300194856 /* UITableView+Extension.swift */; };
 		563025141ED4307C00194856 /* UIPickerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025131ED4307C00194856 /* UIPickerView+Extension.swift */; };
+		56B1FF2A1ED437DF00779B57 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B1FF291ED437DF00779B57 /* NSObject+Extension.swift */; };
 		56EBA9461ED06A3A00C743F7 /* HKKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 56EBA9441ED06A3A00C743F7 /* HKKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56EBA9701ED06A7900C743F7 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 56EBA9501ED06A7900C743F7 /* .gitkeep */; };
 		56EBA9711ED06A7900C743F7 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9531ED06A7900C743F7 /* Array+Extension.swift */; };
 		56EBA9721ED06A7900C743F7 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9541ED06A7900C743F7 /* Dictionary+Extension.swift */; };
 		56EBA9731ED06A7900C743F7 /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9551ED06A7900C743F7 /* Float+Extension.swift */; };
-		56EBA9741ED06A7900C743F7 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9561ED06A7900C743F7 /* NSDate+Extension.swift */; };
+		56EBA9741ED06A7900C743F7 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9561ED06A7900C743F7 /* Date+Extension.swift */; };
 		56EBA9751ED06A7900C743F7 /* NSRange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9571ED06A7900C743F7 /* NSRange+Extension.swift */; };
 		56EBA9761ED06A7900C743F7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9581ED06A7900C743F7 /* String+Extension.swift */; };
 		56EBA9771ED06A7900C743F7 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA95A1ED06A7900C743F7 /* UIButton+Extension.swift */; };
@@ -46,6 +47,7 @@
 		5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMangedObject+Extension.swift"; sourceTree = "<group>"; };
 		563025111ED42F9300194856 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		563025131ED4307C00194856 /* UIPickerView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Extension.swift"; sourceTree = "<group>"; };
+		56B1FF291ED437DF00779B57 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		56EBA9411ED06A3A00C743F7 /* HKKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HKKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EBA9441ED06A3A00C743F7 /* HKKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKKit.h; sourceTree = "<group>"; };
 		56EBA9451ED06A3A00C743F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,7 +55,7 @@
 		56EBA9531ED06A7900C743F7 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		56EBA9541ED06A7900C743F7 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		56EBA9551ED06A7900C743F7 /* Float+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
-		56EBA9561ED06A7900C743F7 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		56EBA9561ED06A7900C743F7 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		56EBA9571ED06A7900C743F7 /* NSRange+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+Extension.swift"; sourceTree = "<group>"; };
 		56EBA9581ED06A7900C743F7 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		56EBA95A1ED06A7900C743F7 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -160,10 +162,11 @@
 				56EBA9531ED06A7900C743F7 /* Array+Extension.swift */,
 				56EBA9541ED06A7900C743F7 /* Dictionary+Extension.swift */,
 				56EBA9551ED06A7900C743F7 /* Float+Extension.swift */,
-				56EBA9561ED06A7900C743F7 /* NSDate+Extension.swift */,
+				56EBA9561ED06A7900C743F7 /* Date+Extension.swift */,
 				56EBA9571ED06A7900C743F7 /* NSRange+Extension.swift */,
 				56EBA9581ED06A7900C743F7 /* String+Extension.swift */,
 				5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */,
+				56B1FF291ED437DF00779B57 /* NSObject+Extension.swift */,
 			);
 			path = "Foundation+Extension";
 			sourceTree = "<group>";
@@ -351,7 +354,7 @@
 				56EBA9851ED06A7900C743F7 /* HKCardView.swift in Sources */,
 				56EBA97A1ED06A7900C743F7 /* UIImageView+Extension.swift in Sources */,
 				56EBA9861ED06A7900C743F7 /* HKFloatingTextField.swift in Sources */,
-				56EBA9741ED06A7900C743F7 /* NSDate+Extension.swift in Sources */,
+				56EBA9741ED06A7900C743F7 /* Date+Extension.swift in Sources */,
 				56EBA9881ED06A7900C743F7 /* HKQueue.swift in Sources */,
 				56EBA9711ED06A7900C743F7 /* Array+Extension.swift in Sources */,
 				56EBA9751ED06A7900C743F7 /* NSRange+Extension.swift in Sources */,
@@ -370,6 +373,7 @@
 				56EBA9801ED06A7900C743F7 /* UITextView+Extension.swift in Sources */,
 				56EBA9721ED06A7900C743F7 /* Dictionary+Extension.swift in Sources */,
 				56EBA9771ED06A7900C743F7 /* UIButton+Extension.swift in Sources */,
+				56B1FF2A1ED437DF00779B57 /* NSObject+Extension.swift in Sources */,
 				56EBA9781ED06A7900C743F7 /* UIColor+Extension.swift in Sources */,
 				56EBA9871ED06A7900C743F7 /* HKOprationQueue.swift in Sources */,
 				56EBA9841ED06A7900C743F7 /* HKAlamofireImageView.swift in Sources */,

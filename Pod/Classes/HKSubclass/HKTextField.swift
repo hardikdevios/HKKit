@@ -47,7 +47,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     open override func layoutSubviews() {
         super.layoutSubviews()
         if needBottomBorder == true {
-            let _ = self.addBottomBorderWithColor(UIColor.lightGray, width: 0.5)
+            let _ = self.hk_addBottomBorderWithColor(UIColor.lightGray, width: 0.5)
         }
     }
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -102,7 +102,7 @@ open class HKTextFieldDelegate:NSObject,UITextFieldDelegate {
     
     open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-            let r = textField.text!.range(from: range)
+            let r = textField.text!.hk_range(from: range)
             return textChangedClouser?(textField as! HKTextField,textField.text!.replacingCharacters(in: r!,with: string),string) ??
             delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) ?? true
        

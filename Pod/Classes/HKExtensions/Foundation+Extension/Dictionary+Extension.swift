@@ -10,7 +10,7 @@ import UIKit
 
 extension Dictionary {
     
-    public func removeNilFromDict(_ dict:inout Dictionary<NSObject,AnyObject?>) -> Dictionary<NSObject,AnyObject?>{
+    public func hk_removeNilFromDict(_ dict:inout Dictionary<NSObject,AnyObject?>) -> Dictionary<NSObject,AnyObject?>{
         
         
         for (key,name) in dict{

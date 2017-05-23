@@ -9,17 +9,17 @@
 import UIKit
 
 extension UIButton{
-    public func setAppBackGroundColor()->Void{
+    public func hk_setAppBackGroundColor()->Void{
         self.backgroundColor = MAIN_COLOR
     }
-    public func setAppDisableColor()->Void{
+    public func hk_setAppDisableColor()->Void{
         self.backgroundColor = UIColor.lightGray
     }
     
-    public func toggleOnOff()->Void{
+    public func hk_toggleOnOff()->Void{
         self.isSelected = !self.isSelected;
     }
-    public func setDisableWithAlpha(_ isDisable:Bool){
+    public func hk_setDisableWithAlpha(_ isDisable:Bool){
         if isDisable {
             self.isEnabled = false
             self.alpha = 0.5
@@ -28,7 +28,7 @@ extension UIButton{
             self.alpha = 1.0
         }
     }
-    func appleBootStrapTheme(_ color:UIColor = MAIN_COLOR){
+    func hk_appleBootStrapTheme(_ color:UIColor = MAIN_COLOR){
         
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 2
@@ -36,7 +36,7 @@ extension UIButton{
         self.setTitleColor(color, for: UIControlState())
     }
     
-    func setAttributeString(_ mainString:String,attributeString:String,attributes:[String:Any]){
+    func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[String:Any]){
         
         let range = mainString.range(of: attributeString, options: NSString.CompareOptions.caseInsensitive)
         let attrString: NSMutableAttributedString = NSMutableAttributedString(string:mainString)

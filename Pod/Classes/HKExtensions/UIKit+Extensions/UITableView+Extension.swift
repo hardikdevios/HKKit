@@ -10,7 +10,7 @@
 import Foundation
 extension UITableView {
     
-    func headerSizeFit(padding:CGFloat = 0){
+    public func hk_headerSizeFit(padding:CGFloat = 0){
         
         guard let headerView = self.tableHeaderView else {
             return
@@ -26,7 +26,7 @@ extension UITableView {
         self.tableHeaderView = headerView
     }
     
-    func footerSizeFit(){
+    public func hk_footerSizeFit(){
         
         guard let headerView = self.tableFooterView else {
             return
@@ -42,7 +42,7 @@ extension UITableView {
         self.tableFooterView = headerView
     }
     
-    func setAndLayoutTableHeaderView(_ header: UIView) {
+    public func hk_setAndLayoutTableHeaderView(_ header: UIView) {
         self.tableHeaderView = header
         header.setNeedsLayout()
         header.layoutIfNeeded()

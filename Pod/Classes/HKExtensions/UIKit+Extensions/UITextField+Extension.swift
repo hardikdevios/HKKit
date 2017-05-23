@@ -9,7 +9,7 @@
 import UIKit
 extension UITextField{
     
-    public func setDefaultBottomBorder()->Void{
+    public func hk_setDefaultBottomBorder()->Void{
         
         let border = CALayer()
         
@@ -21,7 +21,7 @@ extension UITextField{
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
     }
-    public func setSelectedBottomBorder()->Void{
+    public func hk_setSelectedBottomBorder()->Void{
         
         let border = CALayer()
         
@@ -33,14 +33,14 @@ extension UITextField{
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
     }
-   public func setDefaultText(_ defaultText:String!)->Void{
+   public func hk_setDefaultText(_ defaultText:String!)->Void{
         if self.text == "" ||  self.text == " " ||  self.text == nil{
             self.text = defaultText
         }
         
     }
     
-    public func setLeftImgView(_ imgName:String!,contentMode:UIViewContentMode = .center)->Void{
+    public func hk_setLeftImgView(_ imgName:String!,contentMode:UIViewContentMode = .center)->Void{
         
         self.layoutIfNeeded()
         let leftViewForImg = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: self.frame.size.height))
@@ -54,7 +54,7 @@ extension UITextField{
         
     }
     
-    public func setPlaceHolderColor(_ color:UIColor){
+    public func hk_setPlaceHolderColor(_ color:UIColor){
         
         self.attributedPlaceholder = NSAttributedString(string:self.placeholder ?? "",
             attributes:[NSForegroundColorAttributeName:color])
@@ -65,7 +65,7 @@ extension UITextField{
 
 extension UITextField {
     
-    public func getIndexPathForTableView(for tableView:UITableView)->IndexPath?{
+    public func hk_getIndexPathForTableView(for tableView:UITableView)->IndexPath?{
         
         return tableView.indexPathForRow(at: (self.superview?.convert(self.frame.origin, to:tableView))!)
         
@@ -75,24 +75,24 @@ extension UITextField {
 extension UITextField{
     
     
-    public func isEmpty()->Int{
-        if self.text!.trimWhiteSpace() != "" {
+    public func hk_isEmpty()->Int{
+        if self.text!.hk_trimWhiteSpace() != "" {
             return 0
         }
         
         if let textfield = self as? HKFloatingTextField{
-            textfield.setPlaceHolderColor(textfield.validationErrorColor)
+            textfield.hk_setPlaceHolderColor(textfield.validationErrorColor)
         }
-        self.shake()
+        self.hk_shake()
         return 1
     }
     
-    public func isEmail() -> Bool {
+    public func hk_isEmail() -> Bool {
         let regex = try? NSRegularExpression(pattern: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", options: .caseInsensitive)
-        return regex?.firstMatch(in: self.text!.trimWhiteSpace()!, options: [], range: NSMakeRange(0, self.text!.trimWhiteSpace()!.characters.count)) != nil
+        return regex?.firstMatch(in: self.text!.hk_trimWhiteSpace()!, options: [], range: NSMakeRange(0, self.text!.hk_trimWhiteSpace()!.characters.count)) != nil
     }
     
-    public func shake(){
+    public func hk_shake(){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.10
         animation.autoreverses = true
@@ -100,7 +100,7 @@ extension UITextField{
         animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
         self.layer.add(animation, forKey: "position")
     }
-    public func setLockViewAndDisabled(_ isLeft:Bool = false){
+    public func hk_setLockViewAndDisabled(_ isLeft:Bool = false){
         
         let view:UIView = UIView(frame: CGRect(x: 0, y: 0, width: 30 , height: 30))
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25 ,height: 25))

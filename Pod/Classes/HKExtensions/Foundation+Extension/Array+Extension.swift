@@ -17,7 +17,7 @@ extension Array {
     }
     
     
-    var toDictArrayForManagedObject:[[AnyHashable: Any]]{
+    public var toDictArrayForManagedObject:[[AnyHashable: Any]]{
         
         var temp = [[AnyHashable: Any]]()
         for obj in self{
@@ -33,7 +33,7 @@ extension Array {
         
     }
     
-    subscript (safe index: Index) -> Iterator.Element? {
+    public subscript (safe index: Index) -> Iterator.Element? {
         return indices.contains(index) ? self[index] : nil
     }
     

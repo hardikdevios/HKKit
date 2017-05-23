@@ -2,23 +2,23 @@ PODS:
   - Alamofire (4.4.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
-  - HKKit (1.0.20):
-    - Alamofire
-    - AlamofireImage
-    - SwiftyJSON
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire
-  - HKKit
+  - AlamofireImage
+  - MagicalRecord
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
-  HKKit: 4681899a8c55548b542f04d288401200bde878ba
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: f664159b93d1c18990d5627adf72b1b3ee896897
+PODFILE CHECKSUM: daf49f2c112da8b7ed6f8d3b2453f5ed03f8629d
 
 COCOAPODS: 1.2.1

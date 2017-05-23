@@ -10,14 +10,14 @@ import Foundation
 
 extension UIBarButtonItem {
     
-    class func getFlexibleButton()->UIBarButtonItem{
+    open class func hk_getFlexibleButton()->UIBarButtonItem{
         
         
         return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
     }
     
-    class func getFixedButton()->UIBarButtonItem{
+    open class func hk_getFixedButton()->UIBarButtonItem{
         
         return UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         

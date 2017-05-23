@@ -10,6 +10,21 @@ import UIKit
 
 extension UISwitch {
 
-   
+    public func toString()->String{
+        
+        if self.isOn {
+            return "on"
+        }
+        return "off"
+    }
+    public func fromString(value:String?) {
+        guard let value = value else {
+            self.isOn = false
+            return
+        }
+        
+        self.isOn = value.uppercased() == "ON"
+    }
+
 
 }

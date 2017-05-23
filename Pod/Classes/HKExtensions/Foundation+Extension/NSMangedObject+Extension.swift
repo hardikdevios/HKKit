@@ -13,7 +13,7 @@ import CoreData
 extension NSManagedObject {
     
     
-    var toDict:[AnyHashable: Any]{
+    public var toDict:[AnyHashable: Any]{
         
         
         return self.dictionaryWithValues(forKeys: Array(self.entity.attributesByName.keys))
