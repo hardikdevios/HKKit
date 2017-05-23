@@ -11,13 +11,13 @@ import CoreData
 
 extension Array {
     
-    public var toJsonString: String?{
+    public var hk_toJsonString: String?{
         return NSString(data:try! JSONSerialization.data(withJSONObject: self as AnyObject, options: JSONSerialization.WritingOptions.prettyPrinted), encoding:String.Encoding.utf8.rawValue) as String?
         
     }
     
     
-    public var toDictArrayForManagedObject:[[AnyHashable: Any]]{
+    public var hk_toDictArrayForManagedObject:[[AnyHashable: Any]]{
         
         var temp = [[AnyHashable: Any]]()
         for obj in self{
@@ -26,7 +26,7 @@ extension Array {
                 continue
             }
             
-            temp.append(obj.toDict)
+            temp.append(obj.hk_toDict)
         }
         
         return temp

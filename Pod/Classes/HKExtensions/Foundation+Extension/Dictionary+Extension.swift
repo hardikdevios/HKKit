@@ -22,7 +22,7 @@ extension Dictionary {
     }
     
     
-    public var toJsonString: String?{
+    public var hk_toJsonString: String?{
             return NSString(data:try! JSONSerialization.data(withJSONObject: self as AnyObject, options: JSONSerialization.WritingOptions.prettyPrinted), encoding:String.Encoding.utf8.rawValue) as String?
             
     }

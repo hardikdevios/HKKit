@@ -250,7 +250,7 @@ private var xoAssociationKey: UInt8 = 0
 extension UIViewController {
     
     
-    public var tbl_pickerIndexPath: IndexPath! {
+    public var hk_tbl_pickerIndexPath: IndexPath! {
         get {
             return objc_getAssociatedObject(self, &xoAssociationKey) as? IndexPath
         }
@@ -270,9 +270,9 @@ extension UIViewController {
         if self.hk_tbl_hasInlinePicker() && sameCellClicked{
             
             tableView.beginUpdates()
-            tableView.deleteRows(at: [IndexPath(row: self.tbl_pickerIndexPath.row, section: self.tbl_pickerIndexPath.section)], with: .fade)
+            tableView.deleteRows(at: [IndexPath(row: self.hk_tbl_pickerIndexPath.row, section: self.hk_tbl_pickerIndexPath.section)], with: .fade)
             tableView.endUpdates()
-            self.tbl_pickerIndexPath = nil
+            self.hk_tbl_pickerIndexPath = nil
             
         }
         
@@ -285,7 +285,7 @@ extension UIViewController {
             let indexpathRowtoRivel:IndexPath! = IndexPath(row: rowToReveal, section: indexpath.section)
             self.hk_tbl_insertPickeratIndexPath(indexpathRowtoRivel,tableView:tableView)
             
-            self.tbl_pickerIndexPath = IndexPath(row: indexpathRowtoRivel.row + 1, section: indexpathRowtoRivel.section)
+            self.hk_tbl_pickerIndexPath = IndexPath(row: indexpathRowtoRivel.row + 1, section: indexpathRowtoRivel.section)
             
         }
         
@@ -297,7 +297,7 @@ extension UIViewController {
     }
     public func hk_tbl_indexPathHasPicker(_ indexPath:IndexPath!)->Bool{
         
-        return (self.hk_tbl_hasInlinePicker() && self.tbl_pickerIndexPath.row == indexPath.row && self.tbl_pickerIndexPath.section == indexPath.section);
+        return (self.hk_tbl_hasInlinePicker() && self.hk_tbl_pickerIndexPath.row == indexPath.row && self.hk_tbl_pickerIndexPath.section == indexPath.section);
         
         
     }
@@ -306,7 +306,7 @@ extension UIViewController {
     public func hk_tbl_hasInlinePicker()->Bool{
         
         
-        if((self.tbl_pickerIndexPath) != nil){
+        if((self.hk_tbl_pickerIndexPath) != nil){
             return true
         }
         return false
@@ -316,7 +316,7 @@ extension UIViewController {
         
         var before:Bool = false
         if self.hk_tbl_hasInlinePicker(){
-            before = self.tbl_pickerIndexPath.row < (indexpath as NSIndexPath).row && self.tbl_pickerIndexPath.section == (indexpath as NSIndexPath).section
+            before = self.hk_tbl_pickerIndexPath.row < (indexpath as NSIndexPath).row && self.hk_tbl_pickerIndexPath.section == (indexpath as NSIndexPath).section
         }
         return before
     }
@@ -325,8 +325,8 @@ extension UIViewController {
         
         var sameCellClicked:Bool = false;
         
-        if (self.tbl_pickerIndexPath) != nil {
-            sameCellClicked = (self.tbl_pickerIndexPath.row - 1 == (indexpath as NSIndexPath).row && self.tbl_pickerIndexPath.section == (indexpath as NSIndexPath).section)
+        if (self.hk_tbl_pickerIndexPath) != nil {
+            sameCellClicked = (self.hk_tbl_pickerIndexPath.row - 1 == (indexpath as NSIndexPath).row && self.hk_tbl_pickerIndexPath.section == (indexpath as NSIndexPath).section)
         }
         return sameCellClicked
     }
@@ -334,7 +334,7 @@ extension UIViewController {
     public func hk_tbl_hasInlinePicker(_ section:Int)->Bool{
         
         
-        if(self.tbl_pickerIndexPath != nil && self.tbl_pickerIndexPath.section == section){
+        if(self.hk_tbl_pickerIndexPath != nil && self.hk_tbl_pickerIndexPath.section == section){
             return true
         }
         return false
@@ -342,7 +342,7 @@ extension UIViewController {
     public func hk_tbl_insertPickeratIndexPath(_ indexpath:IndexPath!,tableView:UITableView)->Void{
         tableView.beginUpdates()
         if self.hk_tbl_hasInlinePicker() {
-            tableView.deleteRows(at: [IndexPath(row: self.tbl_pickerIndexPath.row, section: self.tbl_pickerIndexPath.section)], with: .fade)
+            tableView.deleteRows(at: [IndexPath(row: self.hk_tbl_pickerIndexPath.row, section: self.hk_tbl_pickerIndexPath.section)], with: .fade)
             
         }
         tableView.insertRows(at: [IndexPath(row: indexpath.row + 1, section: indexpath.section)], with: .fade)

@@ -10,11 +10,11 @@ import UIKit
 
 extension Float{
     
-    public func getTwoDecimal() -> String{
+    public func hk_getTwoDecimal() -> String{
         
         return String(format: "%.2f",self)
     }
-    public func getOneDecimal() -> String{
+    public func hk_getOneDecimal() -> String{
         
         return String(format: "%.f",self)
     }

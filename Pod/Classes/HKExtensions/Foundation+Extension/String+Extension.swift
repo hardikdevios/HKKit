@@ -20,17 +20,17 @@ extension String {
         }
     }
     
-    public var floatValue: Float {
+    public var hk_floatValue: Float {
         return (self as NSString).floatValue
     }
     
-    static var uniqueGUID:String {
+    static var hk_uniqueGUID:String {
         get {
             return UUID().uuidString
         }
     }
     
-    public var toJsonDict: Dictionary<String,AnyObject>?{
+    public var hk_toJsonDict: Dictionary<String,AnyObject>?{
         return (try? JSONSerialization.jsonObject(with: self.data(using: String.Encoding.utf8, allowLossyConversion: false)!, options: JSONSerialization.ReadingOptions.allowFragments)) as? Dictionary<String,AnyObject>
         
     }
@@ -53,11 +53,11 @@ extension String {
 
     }
     
-    public var toNumericString:String{
+    public var hk_toNumericString:String{
         
         return self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
     }
-    public var toDictionary:[AnyHashable: Any]? {
+    public var hk_toDictionary:[AnyHashable: Any]? {
         if let data = self.data(using: String.Encoding.utf8) {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [AnyHashable: Any]
@@ -67,7 +67,7 @@ extension String {
         }
         return nil
     }
-    public var toArray:[[AnyHashable: Any]]? {
+    public var hk_toArray:[[AnyHashable: Any]]? {
         if let data = self.data(using: String.Encoding.utf8) {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [[AnyHashable: Any]]
@@ -115,23 +115,23 @@ extension String {
         
     }
     
-    public var encodeURL:String{
+    public var hk_encodeURL:String{
         
         return self.addingPercentEncoding(withAllowedCharacters:CharacterSet.urlQueryAllowed)!
     }
     
-    public var toRequest:URLRequest{
+    public var hk_toRequest:URLRequest{
         
         
-        return URLRequest(url: URL(string:self.encodeURL)!)
+        return URLRequest(url: URL(string:self.hk_encodeURL)!)
     }
     
-    public var toURL:URL{
+    public var hk_toURL:URL{
         
-        return URL(string:self.encodeURL)!
+        return URL(string:self.hk_encodeURL)!
     }
     
-    public func htmlNormalString()->String{
+    public func hk_htmlNormalString()->String{
         
         return self.replacingOccurrences(of: "&#8211;", with: "-")
             .replacingOccurrences(of: "&#8217;", with: "’")

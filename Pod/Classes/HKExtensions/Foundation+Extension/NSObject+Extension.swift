@@ -12,7 +12,7 @@ import MagicalRecord
 
 extension NSObject {
     
-    open func updateCoreData(_ mainblock: @escaping () -> Void) {
+    open func hk_updateCoreData(_ mainblock: @escaping () -> Void) {
         NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (sucess, error) in
             mainblock()
         }
@@ -20,7 +20,7 @@ extension NSObject {
     }
     
     
-    open func updateCoreData(_ mainblock: @escaping (Bool?,Error?) -> Void) {
+    open func hk_updateCoreData(_ mainblock: @escaping (Bool?,Error?) -> Void) {
         NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (sucess, error) in
             if sucess {
                 mainblock(sucess, nil)
@@ -30,7 +30,7 @@ extension NSObject {
         }
         
     }
-    open func updateCoreData() -> Void {
+    open func hk_updateCoreData() -> Void {
         NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (sucess, error) in
         }
         

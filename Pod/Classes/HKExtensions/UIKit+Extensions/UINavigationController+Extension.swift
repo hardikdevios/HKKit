@@ -10,15 +10,15 @@ import UIKit
 
 extension UINavigationController {
     
-    public func setPlainBackGround(){
+    public func hk_setPlainBackGround(){
         self.navigationBar.shadowImage = UIImage()
         self.navigationBar.setBackgroundImage(UIImage(), for: UIBarPosition.any,barMetrics: UIBarMetrics.default)
     }
     
-    public func getNavigationBarHeightWithOutStausBar()->CGFloat{
+    public func hk_getNavigationBarHeightWithOutStausBar()->CGFloat{
         return self.navigationController?.navigationBar.frame.height ?? 0
     }
-    public func getNavigationBarHeight()->CGFloat{
+    public func hk_getNavigationBarHeight()->CGFloat{
 
         return (self.navigationController?.navigationBar.frame.height ?? 0 ) + (UIApplication.shared.statusBarFrame.height )
         

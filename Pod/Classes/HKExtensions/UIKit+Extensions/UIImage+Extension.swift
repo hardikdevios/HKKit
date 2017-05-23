@@ -9,7 +9,7 @@
 import UIKit
 extension UIImage {
     
-    public func base64() -> String {
+    public func hk_base64() -> String {
         let imageData = UIImageJPEGRepresentation(self, 1.0)
         
         return imageData!.base64EncodedString(options: [])
@@ -17,7 +17,7 @@ extension UIImage {
 }
 extension UIImage {
     
-    public func resize(_ width:CGFloat,height:CGFloat)->UIImage?{
+    public func hk_resize(_ width:CGFloat,height:CGFloat)->UIImage?{
                 
         var newSize:CGSize = CGSize(width: width, height: height)
         let widthRatio:CGFloat = newSize.width/self.size.width

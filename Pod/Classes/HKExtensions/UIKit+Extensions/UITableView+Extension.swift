@@ -8,6 +8,8 @@
 //
 
 import Foundation
+import CoreData
+
 extension UITableView {
     
     public func hk_headerSizeFit(padding:CGFloat = 0){
@@ -52,6 +54,101 @@ extension UITableView {
         header.frame = frame
         self.tableHeaderView = header
     }
+    
+}
+private var xoAssociationKeyTableView: UInt8 = 0
+
+extension UIViewController:NSFetchedResultsControllerDelegate {
+    
+    
+    var hk_tbl_extended: UITableView! {
+        get {
+            return objc_getAssociatedObject(self, &xoAssociationKeyTableView) as? UITableView
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &xoAssociationKeyTableView, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+        }
+    }
+    
+    
+    public func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.hk_tbl_extended.beginUpdates()
+    }
+    
+    /* called:
+     - when a new model is created
+     - when an existing model is updated
+     - when an existing model is deleted */
+    
+    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                           didChange object: Any,
+                           at indexPath: IndexPath?,
+                           for type: NSFetchedResultsChangeType,
+                           newIndexPath: IndexPath?) {
+        
+        
+        switch(type) {
+            
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                self.hk_tbl_extended.insertRows(at: [newIndexPath],
+                                             with:UITableViewRowAnimation.automatic)
+            }
+            
+        case .delete:
+            if let indexPath = indexPath {
+                self.hk_tbl_extended.deleteRows(at: [indexPath],
+                                             with: UITableViewRowAnimation.automatic)
+            }
+            
+        case .update:
+            if let indexPath = indexPath {
+                self.hk_tbl_extended.reloadRows(at: [indexPath],
+                                             with: UITableViewRowAnimation.none)
+            }
+            
+        case .move:
+            if let indexPath = indexPath {
+                if let newIndexPath = newIndexPath {
+                    self.hk_tbl_extended.deleteRows(at: [indexPath],
+                                                 with: UITableViewRowAnimation.automatic)
+                    self.hk_tbl_extended.insertRows(at: [newIndexPath],
+                                                 with: UITableViewRowAnimation.automatic)
+                }
+            }
+        }
+        
+        
+    }
+    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                           didChange sectionInfo: NSFetchedResultsSectionInfo,
+                           atSectionIndex sectionIndex: Int,
+                           for type: NSFetchedResultsChangeType)
+    {
+        switch(type) {
+            
+        case .insert:
+            self.hk_tbl_extended.insertSections(IndexSet(integer: sectionIndex),
+                                             with: UITableViewRowAnimation.bottom)
+            
+        case .delete:
+            self.hk_tbl_extended.deleteSections(IndexSet(integer: sectionIndex),
+                                             with: UITableViewRowAnimation.bottom)
+            
+        default:
+            break
+        }
+        
+    }
+    
+    
+    
+    /* called last
+     tells `UITableView` updates are complete */
+    public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.hk_tbl_extended.endUpdates()
+    }
+    
     
 }
 
