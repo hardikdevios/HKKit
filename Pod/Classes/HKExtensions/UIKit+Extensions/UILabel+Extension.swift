@@ -9,81 +9,52 @@
 import UIKit
 
 extension UILabel{
-        public func hk_setAppTextColor()->Void{
-            self.textColor = MAIN_COLOR
-        }
-    
-        public func hk_setDefaultText(_ defaultText:String!)->Void{
-            if self.text == "" ||  self.text == " " ||  self.text == nil{
-                self.text = defaultText
-            }
-            
-        }
-        public func hk_setHtmlText(_ string:String!){
-            
-            let attrStr = try! NSAttributedString(
-                data: string.data(using: .unicode, allowLossyConversion: true)!,
-                options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue],
-                documentAttributes: nil)
-            
-            
-            self.attributedText = attrStr
+    public func hk_setAppTextColor()->Void{
+        self.textColor = MAIN_COLOR
+    }
 
-    
+    public func hk_setDefaultText(_ defaultText:String!)->Void{
+        if self.text == "" ||  self.text == " " ||  self.text == nil{
+            self.text = defaultText
         }
-    
-        private func hk_setHtmlTextWithFont(_ string:String,font:String? = "HelveticaNeue",fontSize:CGFloat? = 17){
-            
-            let modifiedFont = String(format:"<span style=\"font-family: '-apple-system', 'HelveticaNeue'; font-size: \(17)\">%@</span>",string)
-            
-            
-            //process collection values
-            let attrStr = try! NSAttributedString(
-                data: modifiedFont.data(using: .unicode, allowLossyConversion: true)!,
-                options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue],
-                documentAttributes: nil)
-            
-            
-            self.attributedText = attrStr
-            
-        }
-    
-    func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[String:Any]){
         
-        let range = mainString.range(of: attributeString, options: NSString.CompareOptions.caseInsensitive)
-        let attrString: NSMutableAttributedString = NSMutableAttributedString(string:mainString)
+    }
+    private func getHtmlStrign(_ string:String)->NSAttributedString{
+        let attrStr = try! NSAttributedString(
+            data: string.data(using: .unicode, allowLossyConversion: true)!,
+            options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue],
+            documentAttributes: nil)
         
-        if range != nil {
-            
-            attrString.addAttributes(attributes, range: NSMakeRange((mainString.characters.distance(from: mainString.startIndex, to: range!.lowerBound)),attributeString.characters.count))
-            self.attributedText = attrString
-            
-        }else{
-            self.text = mainString
-        }
+        return attrStr
+        
+    }
+    public func hk_setHtmlText(_ string:String){
+    
+        self.attributedText = self.getHtmlStrign(string)
+    }
+    
+    private func hk_setHtmlTextWithFont(_ string:String,font:String? = "HelveticaNeue",fontSize:CGFloat? = 17){
+        
+        let modifiedStringFont = String(format:"<span style=\"font-family: '-apple-system', 'HelveticaNeue'; font-size: \(17)\">%@</span>",string)
+        
+        self.attributedText = self.getHtmlStrign(modifiedStringFont)
+        
+    }
+    
+    public func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[String:Any]){
+        
+        let result = hk_getAttributeString(mainString, attributeString: attributeString, attributes: attributes)
+        self.attributedText = result
         
     }
     
     
-    func hk_setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[String:Any]]) {
+    public func hk_setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[String:Any]]) {
         
-        let attrString: NSMutableAttributedString = NSMutableAttributedString(string:mainString)
         
-        for (index,string) in attributeStrings.enumerated() {
-            
-            let range = mainString.range(of: string, options: NSString.CompareOptions.caseInsensitive)
-            
-            if range != nil {
-                
-                attrString.addAttributes(total_attributes[index], range: NSMakeRange((mainString.characters.distance(from: mainString.startIndex, to: range!.lowerBound)),string.characters.count))
-                
-                
-            }else{
-                continue
-            }
-            
-        }
-        self.attributedText = attrString
+        let result = hk_getMultipleAttributesString(mainString, attributeStrings: attributeStrings, total_attributes: total_attributes)
+        self.attributedText = result
+        
         
     }
 

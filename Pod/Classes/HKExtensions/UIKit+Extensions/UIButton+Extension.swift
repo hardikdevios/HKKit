@@ -28,7 +28,7 @@ extension UIButton{
             self.alpha = 1.0
         }
     }
-    func hk_appleBootStrapTheme(_ color:UIColor = MAIN_COLOR){
+    public func hk_appleBootStrapTheme(_ color:UIColor = MAIN_COLOR){
         
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 2
@@ -36,21 +36,19 @@ extension UIButton{
         self.setTitleColor(color, for: UIControlState())
     }
     
-    func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[String:Any]){
+    public func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[String:Any]){
         
-        let range = mainString.range(of: attributeString, options: NSString.CompareOptions.caseInsensitive)
-        let attrString: NSMutableAttributedString = NSMutableAttributedString(string:mainString)
-        
-        if range != nil {
-            
-            attrString.addAttributes(attributes, range: NSMakeRange((mainString.characters.distance(from: mainString.startIndex, to: range!.lowerBound)),attributeString.characters.count))
-            self.setAttributedTitle(attrString, for: UIControlState())
-            
-        }else{
-            self.setTitle(mainString, for: UIControlState())
-            
-        }
+        let result = hk_getAttributeString(mainString, attributeString: attributeString, attributes: attributes)
+        self.setAttributedTitle(result, for: .normal)
         
     }
-
+    
+    public func hk_setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[String:Any]]) {
+        
+        
+        let result = hk_getMultipleAttributesString(mainString, attributeStrings: attributeStrings, total_attributes: total_attributes)
+        self.setAttributedTitle(result, for: .normal)
+        
+        
+    }
 }

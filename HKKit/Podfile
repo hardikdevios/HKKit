@@ -1,10 +1,18 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
+platform :ios, '9.0'
 
-
-target 'HKKit' do
+def shared_pod
     pod 'Alamofire'
     pod 'AlamofireImage'
     pod 'SwiftyJSON'
     pod 'MagicalRecord'
+    pod 'DZNEmptyDataSet'
+end
+
+target 'HKKit' do
+   shared_pod
+end
+target 'Example' do
+    shared_pod
 end
