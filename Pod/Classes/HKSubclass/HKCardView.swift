@@ -13,6 +13,7 @@ open class HKCardView: UIView {
     open var radius: CGFloat = 2
     
     override open func layoutSubviews() {
+        super.layoutSubviews()
         layer.cornerRadius = radius
         let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radius)
         

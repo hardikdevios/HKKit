@@ -20,11 +20,7 @@ class ViewController: UIViewController {
         }
         self.navigationItem.rightBarButtonItem = button
         
-        self.tableView.onRows = { table in
-            
-            
-            return 5
-        }
+       
     }
 
     override func didReceiveMemoryWarning() {
