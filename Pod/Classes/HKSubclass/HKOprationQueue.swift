@@ -7,7 +7,7 @@
 //
 
 import Foundation
-open class ConcurrentOperation : Operation {
+open class HKOprationQueue : Operation {
     
     override open var isAsynchronous: Bool {
         return true
