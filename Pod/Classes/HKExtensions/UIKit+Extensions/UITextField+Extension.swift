@@ -80,7 +80,7 @@ extension UITextField{
             return 0
         }
         
-        if let textfield = self as? HKFloatingTextField{
+        if let textfield = self as? HKTextField{
             textfield.hk_setPlaceHolderColor(textfield.validationErrorColor)
         }
         self.hk_shake()

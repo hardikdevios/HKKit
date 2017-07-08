@@ -7,14 +7,19 @@
 //
 
 import UIKit
-public typealias clouser = ((HKTextField,String,String)->Bool?)
-public typealias clouser2 = ((HKTextField)->Bool?)
+
+public typealias cl_textfield_text = ((HKTextField,String,String)->Bool?)
+public typealias cl_textfield = ((HKTextField)->Bool?)
 
 open class HKTextField: UITextField,UITextFieldDelegate {
     let padding = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 10);
     open var needBottomBorder:Bool = false
+    open var validationErrorColor:UIColor = UIColor.red.withAlphaComponent(0.5)
     var objDelegate:HKTextFieldDelegate = HKTextFieldDelegate()
-    open var textChanged:clouser?{
+    let animationDuration = 0.3
+    var title = UILabel()
+
+    open var textChanged:cl_textfield_text?{
         
         didSet{
             
@@ -22,7 +27,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
 
         }
     }
-    open var textEditigStart:clouser2?{
+    open var textEditigStart:cl_textfield?{
         
         didSet{
             
@@ -30,7 +35,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
             
         }
     }
-    open var textEditingEnd:clouser2?{
+    open var textEditingEnd:cl_textfield?{
         
         didSet{
             
@@ -38,24 +43,136 @@ open class HKTextField: UITextField,UITextFieldDelegate {
             
         }
     }
+    
+    override open var placeholder:String? {
+        didSet {
+            title.text = placeholder
+            title.sizeToFit()
+        }
+    }
+    
+    override open var attributedPlaceholder:NSAttributedString? {
+        didSet {
+            title.text = attributedPlaceholder?.string
+            title.sizeToFit()
+        }
+    }
+    
+    
+    @IBInspectable var isFloting:Bool = false {
+        
+        didSet{
+            self.title.isHidden = !self.isFloting
+            
+        }
+    }
+    @IBInspectable var hintYPadding:CGFloat = 0.0
+    
+    @IBInspectable var titleYPadding:CGFloat = 5.0 {
+        didSet {
+            var r = title.frame
+            r.origin.y = titleYPadding
+            title.frame = r
+        }
+    }
+    
+    
+    
+    @IBInspectable var titleTextColour:UIColor = UIColor.gray {
+        didSet {
+            if !isFirstResponder {
+                title.textColor = titleTextColour
+            }
+        }
+    }
+    
+    @IBInspectable var titleActiveTextColour:UIColor! {
+        didSet {
+            if isFirstResponder {
+                title.textColor = titleActiveTextColour
+            }
+        }
+    }
+    
+    
+    var titleFont:UIFont{
+        get{
+            
+            title.font = UIFont.systemFont(ofSize: self.font!.pointSize - CGFloat(4))
+            
+            return title.font
+        }
+        
+        
+    }
+    
     override open func awakeFromNib() {
         self.keyboardAppearance = .default
         objDelegate.delegate = self.delegate
         super.delegate = objDelegate
     }
+    // MARK:- Init
+    required public init?(coder aDecoder:NSCoder) {
+        super.init(coder:aDecoder)
+        setup()
+    }
     
-    open override func layoutSubviews() {
+    override init(frame:CGRect) {
+        super.init(frame:frame)
+        setup()
+    }
+    
+
+    
+    // MARK:- Overrides
+    override open func layoutSubviews() {
         super.layoutSubviews()
+        if isFloting {
+            
+            setTitlePositionForTextAlignment()
+            let isResp = isFirstResponder
+            if isResp && !text!.isEmpty {
+                title.textColor = MAIN_COLOR
+            } else {
+                title.textColor = titleTextColour
+            }
+            if text!.isEmpty {
+                hideTitle(isResp)
+            } else {
+                showTitle(isResp)
+            }
+            
+        }
+   
         if needBottomBorder == true {
             let _ = self.hk_addBottomBorderWithColor(UIColor.lightGray, width: 0.5)
         }
+        
     }
-    override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        if self.text?.isEmpty == true || self.clearButtonMode == .never{
-            return self.newBounds(bounds,extraPadding:0.0)
 
-        }
-        return self.newBounds(bounds)
+    
+    
+    
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        
+//        if isFloting {
+//            
+//            var r = super.textRect(forBounds: bounds)
+//            if !text!.isEmpty {
+//                var top = ceil(title.font.lineHeight + hintYPadding)
+//                top = min(top, maxTopInset())
+//                r = UIEdgeInsetsInsetRect(r, padding )
+//            }
+//            return r.integral
+//        }else {
+        
+            if self.text?.isEmpty == true || self.clearButtonMode == .never{
+                return self.newBounds(bounds,extraPadding:0.0)
+                
+            }
+            return self.newBounds(bounds)
+//        }
+        
     }
     
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
@@ -63,13 +180,41 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     }
     
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        if self.text?.isEmpty == true || self.clearButtonMode == .never{
-            return self.newBounds(bounds,extraPadding:0.0)
-            
-        }
-        return self.newBounds(bounds)
+        
+//        if isFloting {
+//            
+//            var r = super.editingRect(forBounds: bounds)
+//            if !text!.isEmpty {
+//                var top = ceil(title.font.lineHeight + hintYPadding)
+//                top = min(top, maxTopInset())
+//                r = UIEdgeInsetsInsetRect(r, padding)
+//            }
+//            return r.integral
+//
+//        }else {
+        
+            if self.text?.isEmpty == true || self.clearButtonMode == .never{
+                return self.newBounds(bounds,extraPadding:0.0)
+                
+            }
+            return self.newBounds(bounds)
+
+//        }
     }
-    
+//    open override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
+//        var r = super.clearButtonRect(forBounds: bounds)
+//        if isFloting {
+//            if !text!.isEmpty {
+//                var top = ceil(title.font.lineHeight + hintYPadding)
+//                top = min(top, maxTopInset())
+//                r = CGRect(x:r.origin.x, y:r.origin.y + (top * 0.5), width:r.size.width, height:r.size.height)
+//            }
+//            return r.integral
+//        }
+//        return r.integral
+//        
+//    }
+//    
     fileprivate func newBounds(_ bounds: CGRect,extraPadding:CGFloat = 25.0) -> CGRect {
         var newBounds = bounds
         let leftWidth = self.leftView?.frame.width ?? 0
@@ -84,8 +229,59 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     }
     
     
+    fileprivate func setup() {
+        borderStyle = UITextBorderStyle.none
+        titleActiveTextColour = tintColor
+        title.alpha = 0.0
+        title.font = titleFont
+        title.textColor = titleTextColour
+        if let str = placeholder {
+            if !str.isEmpty {
+                title.text = str
+                title.sizeToFit()
+            }
+        }
+        
+        self.addSubview(title)
+            
+    }
     
+    fileprivate func maxTopInset()->CGFloat {
+        return max(0, floor(bounds.size.height - font!.lineHeight - 4.0))
+    }
   
+    fileprivate func setTitlePositionForTextAlignment() {
+        let r = textRect(forBounds: bounds)
+        var x = r.origin.x
+        if textAlignment == NSTextAlignment.center {
+            x = r.origin.x + (r.size.width * 0.5) - title.frame.size.width
+        } else if textAlignment == NSTextAlignment.right {
+            x = r.origin.x + r.size.width - title.frame.size.width
+        }
+        title.frame = CGRect(x:x, y:title.frame.origin.y, width:title.frame.size.width, height:title.frame.size.height)
+    }
+    
+    fileprivate func showTitle(_ animated:Bool) {
+        let dur = animated ? animationDuration : 0
+        UIView.animate(withDuration: dur, delay:0, options: [.beginFromCurrentState, .curveEaseOut], animations:{
+            // Animation
+            self.title.alpha = 1.0
+            var r = self.title.frame
+            r.origin.y = self.titleYPadding
+            self.title.frame = r
+        }, completion:nil)
+    }
+    
+    fileprivate func hideTitle(_ animated:Bool) {
+        let dur = animated ? animationDuration : 0
+        UIView.animate(withDuration: dur, delay:0, options: [.beginFromCurrentState, .curveEaseIn], animations:{
+            // Animation
+            self.title.alpha = 0.0
+            var r = self.title.frame
+            r.origin.y = self.title.font.lineHeight + self.hintYPadding
+            self.title.frame = r
+        }, completion:nil)
+    }
 
     
    
@@ -94,9 +290,9 @@ open class HKTextField: UITextField,UITextFieldDelegate {
 
 open class HKTextFieldDelegate:NSObject,UITextFieldDelegate {
     
-    var textChangedClouser:clouser?
-    var textEditingStartClouser:clouser2?
-    var textEditingStopClouser:clouser2?
+    var textChangedClouser:cl_textfield_text?
+    var textEditingStartClouser:cl_textfield?
+    var textEditingStopClouser:cl_textfield?
 
     var delegate:UITextFieldDelegate?
     
