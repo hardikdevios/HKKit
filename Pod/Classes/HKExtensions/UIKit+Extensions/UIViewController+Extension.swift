@@ -205,6 +205,17 @@ extension UIViewController {
     
 }
 
+extension UIViewController{
+    
+    
+    public func hk_segue(_ identifire:String){
+        self.performSegue(withIdentifier: identifire, sender: self)
+    }
+    
+    public func hk_segue(_ identifire:String,sender:AnyObject?){
+        self.performSegue(withIdentifier: identifire, sender: sender)
+    }
+}
 
 extension UIViewController {
     class public func hk_currentViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
