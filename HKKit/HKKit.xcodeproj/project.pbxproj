@@ -35,6 +35,7 @@
 		5667C9F41ED59BAD00F930AD /* HKKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EBA9411ED06A3A00C743F7 /* HKKit.framework */; };
 		5667C9F61ED59E5400F930AD /* HKFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9F51ED59E5400F930AD /* HKFunctions.swift */; };
 		5667C9F81ED5A4C300F930AD /* HKBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9F71ED5A4C300F930AD /* HKBarButtonItem.swift */; };
+		56771D361EF7DD74005FB8EC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56771D351EF7DD74005FB8EC /* SecondViewController.swift */; };
 		56B1FF2A1ED437DF00779B57 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B1FF291ED437DF00779B57 /* NSObject+Extension.swift */; };
 		56EBA9461ED06A3A00C743F7 /* HKKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 56EBA9441ED06A3A00C743F7 /* HKKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56EBA9701ED06A7900C743F7 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 56EBA9501ED06A7900C743F7 /* .gitkeep */; };
@@ -81,6 +82,7 @@
 		5667C9EE1ED5829100F930AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5667C9F51ED59E5400F930AD /* HKFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKFunctions.swift; sourceTree = "<group>"; };
 		5667C9F71ED5A4C300F930AD /* HKBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKBarButtonItem.swift; sourceTree = "<group>"; };
+		56771D351EF7DD74005FB8EC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		56B1FF291ED437DF00779B57 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		56EBA9411ED06A3A00C743F7 /* HKKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HKKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EBA9441ED06A3A00C743F7 /* HKKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKKit.h; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				5667C9E91ED5829100F930AD /* Assets.xcassets */,
 				5667C9EB1ED5829100F930AD /* LaunchScreen.storyboard */,
 				5667C9EE1ED5829100F930AD /* Info.plist */,
+				56771D351EF7DD74005FB8EC /* SecondViewController.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56771D361EF7DD74005FB8EC /* SecondViewController.swift in Sources */,
 				5667C9E51ED5829100F930AD /* ViewController.swift in Sources */,
 				5667C9E31ED5829100F930AD /* AppDelegate.swift in Sources */,
 			);
