@@ -220,10 +220,17 @@ open class HKTextField: UITextField,UITextFieldDelegate {
         var newBounds = bounds
         let leftWidth = self.leftView?.frame.width ?? 0
         let rightWidth = self.rightView?.frame.width ?? 0
+        var top = padding.top
+        var bottom = padding.bottom
         
+        if !self.text!.isEmpty && self.isFloting {
+            top = ceil(title.font.lineHeight + hintYPadding)
+            top = min(top, maxTopInset())
+            bottom = 5
+        }
         newBounds.origin.x += padding.left + leftWidth  + rightWidth
-        newBounds.origin.y += padding.top
-        newBounds.size.height -= padding.top + padding.bottom
+        newBounds.origin.y += top
+        newBounds.size.height -= top + bottom
         newBounds.size.width -= padding.left + padding.right + leftWidth + rightWidth + extraPadding
         
         return newBounds
