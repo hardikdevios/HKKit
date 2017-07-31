@@ -160,7 +160,7 @@ extension UIView {
         
     }
     
-    func hk_onViewClick(_ block:@escaping (()->())){
+    public func hk_onViewClick(_ block:@escaping (()->())){
         
         self.isUserInteractionEnabled = true
         self.hk_actionHandleBlock(block)

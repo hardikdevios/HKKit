@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol ExcutableQueue {
+public protocol ExcutableQueue {
     var queue: DispatchQueue { get }
 }
 

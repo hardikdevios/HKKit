@@ -20,12 +20,28 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     let animationDuration = 0.3
     var title = UILabel()
     
+    open override var delegate: UITextFieldDelegate? {
+        
+        didSet{
+            objDelegate.delegate = self.delegate
+            super.delegate = objDelegate
+
+        }
+    }
+    open var noPadding = false {
+        
+        didSet{
+            
+            padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
+
+        }
+    }
     open var textChanged:cl_textfield_text?{
         
         didSet{
             
             objDelegate.textChangedClouser = textChanged
-            
+
         }
     }
     open var textEditigStart:cl_textfield?{
@@ -123,7 +139,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
         setup()
     }
     
-    
+
     
     // MARK:- Overrides
     override open func layoutSubviews() {
@@ -144,35 +160,23 @@ open class HKTextField: UITextField,UITextFieldDelegate {
             }
             
         }
-        
+   
         if needBottomBorder == true {
             let _ = self.hk_addBottomBorderWithColor(UIColor.lightGray, width: 0.5)
         }
         
     }
-    
+
     
     
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        
-        //        if isFloting {
-        //
-        //            var r = super.textRect(forBounds: bounds)
-        //            if !text!.isEmpty {
-        //                var top = ceil(title.font.lineHeight + hintYPadding)
-        //                top = min(top, maxTopInset())
-        //                r = UIEdgeInsetsInsetRect(r, padding )
-        //            }
-        //            return r.integral
-        //        }else {
         
         if self.text?.isEmpty == true || self.clearButtonMode == .never{
             return self.newBounds(bounds,extraPadding:0.0)
             
         }
         return self.newBounds(bounds)
-        //        }
         
     }
     
@@ -181,41 +185,16 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     }
     
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        
-        //        if isFloting {
-        //
-        //            var r = super.editingRect(forBounds: bounds)
-        //            if !text!.isEmpty {
-        //                var top = ceil(title.font.lineHeight + hintYPadding)
-        //                top = min(top, maxTopInset())
-        //                r = UIEdgeInsetsInsetRect(r, padding)
-        //            }
-        //            return r.integral
-        //
-        //        }else {
+    
         
         if self.text?.isEmpty == true || self.clearButtonMode == .never{
             return self.newBounds(bounds,extraPadding:0.0)
             
         }
         return self.newBounds(bounds)
-        
-        //        }
+
     }
-    //    open override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
-    //        var r = super.clearButtonRect(forBounds: bounds)
-    //        if isFloting {
-    //            if !text!.isEmpty {
-    //                var top = ceil(title.font.lineHeight + hintYPadding)
-    //                top = min(top, maxTopInset())
-    //                r = CGRect(x:r.origin.x, y:r.origin.y + (top * 0.5), width:r.size.width, height:r.size.height)
-    //            }
-    //            return r.integral
-    //        }
-    //        return r.integral
-    //
-    //    }
-    //
+ 
     fileprivate func newBounds(_ bounds: CGRect,extraPadding:CGFloat = 25.0) -> CGRect {
         var newBounds = bounds
         let leftWidth = self.leftView?.frame.width ?? 0
@@ -232,7 +211,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
         newBounds.origin.y += top
         newBounds.size.height -= top + bottom
         newBounds.size.width -= padding.left + padding.right + leftWidth + rightWidth + extraPadding
-        
+
         return newBounds
     }
     
@@ -249,15 +228,17 @@ open class HKTextField: UITextField,UITextFieldDelegate {
                 title.sizeToFit()
             }
         }
-        
+        if noPadding {
+            padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
+        }
         self.addSubview(title)
-        
+            
     }
     
     fileprivate func maxTopInset()->CGFloat {
         return max(0, floor(bounds.size.height - font!.lineHeight - 4.0))
     }
-    
+  
     fileprivate func setTitlePositionForTextAlignment() {
         let r = textRect(forBounds: bounds)
         var x = r.origin.x
@@ -290,9 +271,9 @@ open class HKTextField: UITextField,UITextFieldDelegate {
             self.title.frame = r
         }, completion:nil)
     }
+
     
-    
-    
+   
 }
 
 
@@ -301,20 +282,20 @@ open class HKTextFieldDelegate:NSObject,UITextFieldDelegate {
     var textChangedClouser:cl_textfield_text?
     var textEditingStartClouser:cl_textfield?
     var textEditingStopClouser:cl_textfield?
-    
+
     var delegate:UITextFieldDelegate?
     
     open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        let r = textField.text!.hk_range(from: range)
-        return textChangedClouser?(textField as! HKTextField,textField.text!.replacingCharacters(in: r!,with: string),string) ??
+            let r = textField.text!.hk_range(from: range)
+            return textChangedClouser?(textField as! HKTextField,textField.text!.replacingCharacters(in: r!,with: string),string) ??
             delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) ?? true
-        
+       
     }
     
     open func textFieldDidEndEditing(_ textField: UITextField) {
         guard let clouser = textEditingStopClouser else{
-            let _ = delegate?.textFieldShouldBeginEditing?(textField)
+            let _ = delegate?.textFieldDidEndEditing?(textField)
             return
         }
         let _ = clouser(textField as! HKTextField)
@@ -331,16 +312,16 @@ open class HKTextFieldDelegate:NSObject,UITextFieldDelegate {
         textField.isUserInteractionEnabled = true
     }
     open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+      
         return delegate?.textFieldShouldReturn?(textField) ?? true
     }
     open func textFieldDidBeginEditing(_ textField: UITextField) {
         delegate?.textFieldDidBeginEditing?(textField)
-        
+
     }
     open func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        return delegate?.textFieldShouldEndEditing?(textField) ?? true
-        
+       return delegate?.textFieldShouldEndEditing?(textField) ?? true
+
     }
     open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
