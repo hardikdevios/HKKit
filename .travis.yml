@@ -2,6 +2,6 @@ language: bash
 
 deploy:
   provider: script
-  script: sh ./Pod_trunk.sh
+  script: ./Pod_trunk.sh
   on:
     all_branches: true
