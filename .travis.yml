@@ -1,11 +1,8 @@
 # references:
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
-
-language: objective-c
-osx_image: xcode8.3
-cache: cocoapods
 deploy:
   provider: script
-  script: Pod_trunk.sh
-# - set -o pipefail && xcodebuild build -workspace Example/HKKit.xcworkspace -scheme HKKit -sdk iphonesimulator10.0 ONLY_ACTIVE_ARCH=NO | xcpretty
+  script: ./Pod_trunk.sh
+  on:
+    all_branches: true
