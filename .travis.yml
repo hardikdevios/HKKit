@@ -1,6 +1,5 @@
-# references:
-# * http://www.objc.io/issue-6/travis-ci.html
-# * https://github.com/supermarin/xcpretty#usage
+language: bash
+
 deploy:
   provider: script
   script: sh ./Pod_trunk.sh
