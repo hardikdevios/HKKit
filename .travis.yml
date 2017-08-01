@@ -1,7 +1,4 @@
-language: bash
+language: objective-c
 
-deploy:
-  provider: script
-  script: ./Pod_trunk.sh
-  on:
-    all_branches: true
+install:
+  - sh ./Pod_trunk.sh
