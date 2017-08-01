@@ -26,6 +26,7 @@
 		563025101ED42E5500194856 /* NSMangedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */; };
 		563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025111ED42F9300194856 /* UITableView+Extension.swift */; };
 		563025141ED4307C00194856 /* UIPickerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025131ED4307C00194856 /* UIPickerView+Extension.swift */; };
+		5662EA941F3054BC00A9D471 /* UIApplication+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662EA931F3054BC00A9D471 /* UIApplication+Notification.swift */; };
 		5667C9DB1ED57E2400F930AD /* HKTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9DA1ED57E2400F930AD /* HKTableView.swift */; };
 		5667C9E31ED5829100F930AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9E21ED5829100F930AD /* AppDelegate.swift */; };
 		5667C9E51ED5829100F930AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9E41ED5829100F930AD /* ViewController.swift */; };
@@ -72,6 +73,7 @@
 		5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMangedObject+Extension.swift"; sourceTree = "<group>"; };
 		563025111ED42F9300194856 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		563025131ED4307C00194856 /* UIPickerView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Extension.swift"; sourceTree = "<group>"; };
+		5662EA931F3054BC00A9D471 /* UIApplication+Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Notification.swift"; sourceTree = "<group>"; };
 		5667C9DA1ED57E2400F930AD /* HKTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKTableView.swift; sourceTree = "<group>"; };
 		5667C9E01ED5829100F930AD /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5667C9E21ED5829100F930AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5662EA921F30546A00A9D471 /* HKNotification */ = {
+			isa = PBXGroup;
+			children = (
+				5662EA931F3054BC00A9D471 /* UIApplication+Notification.swift */,
+			);
+			path = HKNotification;
+			sourceTree = "<group>";
+		};
 		5667C9E11ED5829100F930AD /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +210,7 @@
 		56EBA94F1ED06A7900C743F7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5662EA921F30546A00A9D471 /* HKNotification */,
 				56EBA9501ED06A7900C743F7 /* .gitkeep */,
 				56EBA9511ED06A7900C743F7 /* HKExtensions */,
 				56EBA9661ED06A7900C743F7 /* HKExtras */,
@@ -558,6 +569,7 @@
 				56EBA9781ED06A7900C743F7 /* UIColor+Extension.swift in Sources */,
 				56EBA9871ED06A7900C743F7 /* HKOprationQueue.swift in Sources */,
 				56EBA9841ED06A7900C743F7 /* HKAlamofireImageView.swift in Sources */,
+				5662EA941F3054BC00A9D471 /* UIApplication+Notification.swift in Sources */,
 				56EBA97C1ED06A7900C743F7 /* UINavigationController+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

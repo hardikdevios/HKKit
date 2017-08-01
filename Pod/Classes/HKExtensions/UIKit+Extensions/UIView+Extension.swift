@@ -16,6 +16,10 @@ extension UIView{
     public func hk_setAppBackGroundWithAlpha(_ alpha:CGFloat)->Void{
         self.backgroundColor = MAIN_COLOR.withAlphaComponent(alpha)
     }
+    
+    public func hk_setAppDisableColor()->Void{
+        self.backgroundColor = UIColor.lightGray
+    }
     public func hk_setAppRadius()->Void{
         self.layer.cornerRadius = 3.0
     }

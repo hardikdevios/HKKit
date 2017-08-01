@@ -9,12 +9,8 @@
 import UIKit
 
 extension UIButton{
-    public func hk_setAppBackGroundColor()->Void{
-        self.backgroundColor = MAIN_COLOR
-    }
-    public func hk_setAppDisableColor()->Void{
-        self.backgroundColor = UIColor.lightGray
-    }
+  
+    
     
     public func hk_toggleOnOff()->Void{
         self.isSelected = !self.isSelected;
@@ -44,7 +40,6 @@ extension UIButton{
     }
     
     public func hk_setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[String:Any]]) {
-        
         
         let result = hk_getMultipleAttributesString(mainString, attributeStrings: attributeStrings, total_attributes: total_attributes)
         self.setAttributedTitle(result, for: .normal)

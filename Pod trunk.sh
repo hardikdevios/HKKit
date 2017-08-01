@@ -1,2 +1,2 @@
 #!/bin/bash
-pod trunk push ./../HKKit.podspec --verbose
+pod trunk push HKKit.podspec --verbose
