@@ -5,13 +5,11 @@
 language: objective-c
 osx_image: xcode8.3
 cache: cocoapods
-podfile: Example/Podfile
-before_install:
-#- gem install cocoapods # Since Travis is not always on latest version
-#- pod install --project-directory=Example
-script:
-- set -o pipefail
-- xcodebuild -version
-- xcodebuild -showsdks
+deploy:
+  provider: script
 
+script:
+  script: Pod_trunk.sh
+  on:
+    tags: true
 # - set -o pipefail && xcodebuild build -workspace Example/HKKit.xcworkspace -scheme HKKit -sdk iphonesimulator10.0 ONLY_ACTIVE_ARCH=NO | xcpretty
