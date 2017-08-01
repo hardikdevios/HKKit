@@ -10,7 +10,7 @@ import Foundation
 import UserNotifications
 
 
-public class HKMain: UIResponder, UNUserNotificationCenterDelegate {
+public class HKNotificaitonManager: UIResponder, UNUserNotificationCenterDelegate {
     
     
     typealias clouserforRegister = (String?,Error?)->Swift.Void
