@@ -3,6 +3,6 @@
 # * https://github.com/supermarin/xcpretty#usage
 deploy:
   provider: script
-  script: ./Pod_trunk.sh
+  script: sh ./Pod_trunk.sh
   on:
     all_branches: true
