@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
+#! /bin/sh
 echo "Hardik"
-source ~/.rvm/scripts/rvm
-rvm use default
+
 pod trunk push HKKit.podspec --verbose
