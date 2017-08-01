@@ -23,9 +23,9 @@ public class HKNotificaitonManager: UIResponder, UNUserNotificationCenterDelegat
     public var willPresent:clouserforPresent?
 
     public var deviceToken:String = ""
-    static var `default`:HKMain {
+    static var `default`:HKNotificaitonManager {
     
-        return HKMain()
+        return HKNotificaitonManager()
     }
     
     
