@@ -1,4 +1,5 @@
 language: objective-c
 
 install:
+  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
   - sh ./Pod_trunk.sh
