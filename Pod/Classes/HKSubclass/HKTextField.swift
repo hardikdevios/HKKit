@@ -85,7 +85,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     }
     @IBInspectable var hintYPadding:CGFloat = 0.0
     
-    @IBInspectable var titleYPadding:CGFloat = 5.0 {
+    @IBInspectable var titleYPadding:CGFloat = 0.0 {
         didSet {
             var r = title.frame
             r.origin.y = titleYPadding

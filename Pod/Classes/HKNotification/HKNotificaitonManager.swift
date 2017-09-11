@@ -10,28 +10,63 @@ import Foundation
 import UserNotifications
 
 
-public class HKNotificaitonManager: UIResponder, UNUserNotificationCenterDelegate {
+public class HKNotificaitonManager:NSObject, UNUserNotificationCenterDelegate {
     
     
-    typealias clouserforRegister = (String?,Error?)->Swift.Void
-    public typealias clouserforReceive = (Any)->Swift.Void
-    public typealias clouserforPresent = (Any)->Swift.Void
-
-    var didRegister:clouserforRegister?
     
-    public var didRecieve:clouserforReceive?
-    public var willPresent:clouserforPresent?
-
     public var deviceToken:String = ""
-    static var `default`:HKNotificaitonManager {
-    
+    public var delegate = UIApplication.shared.delegate!
+    public static var `default`:HKNotificaitonManager {
         return HKNotificaitonManager()
+    }
+    override init() {
+        super.init()
+        self.swizzleSetUp()
+    }
+    
+    func swizzleSetUp(){
+        let main = UIApplication.shared.delegate!
+        self.swizzle(selector: #selector(main.application(_:didRegisterForRemoteNotificationsWithDeviceToken:)) ,
+                     replaceSelector: #selector(self.hk_application(_:didRegisterForRemoteNotificationsWithDeviceToken:)))
+        
+        self.swizzle(selector: #selector(main.application(_:didFailToRegisterForRemoteNotificationsWithError:)) ,
+                     replaceSelector: #selector(self.hk_application(_:didFailToRegisterForRemoteNotificationsWithError:)))
+        
+        self.swizzle(selector: #selector(main.application(_:didReceiveRemoteNotification:)) ,
+                     replaceSelector: #selector(self.hk_application(_:didReceiveRemoteNotification:)))
+        
+        self.swizzle(selector: #selector(main.application(_:didReceiveRemoteNotification:fetchCompletionHandler:)) ,
+                     replaceSelector: #selector(self.hk_application(_:didReceiveRemoteNotification:fetchCompletionHandler:)))
+        
+        
     }
     
     
-    func registerForRemoteNotificaiton(handler: @escaping(clouserforRegister)){
+    func swizzle(selector:Selector,replaceSelector:Selector){
         
-        self.didRegister = handler
+        
+        let originalClass:AnyClass =  NSClassFromString(NSStringFromClass(type(of: UIApplication.shared.delegate!)))!
+        
+        let originalMethod = class_getInstanceMethod(originalClass, selector)
+        let swizzledMethod = class_getInstanceMethod(self.classForCoder, replaceSelector)
+        
+        let didAdd = class_addMethod(originalClass, selector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+        
+        if didAdd {
+            
+            class_replaceMethod(originalClass,
+                                selector,
+                                method_getImplementation(originalMethod),
+                                method_getTypeEncoding(originalMethod))
+        }else{
+            method_exchangeImplementations(originalMethod, swizzledMethod)
+        }
+        
+        
+    }
+    
+    public func registerForRemoteNotificaiton(handler:((String?,Error?)->())?){
+        
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
             UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) {
@@ -45,48 +80,51 @@ public class HKNotificaitonManager: UIResponder, UNUserNotificationCenterDelegat
             UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
             UIApplication.shared.registerForRemoteNotifications()
         }
+        
+        
     }
     
     
     
     
-
     
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
+    
+    @objc public func hk_application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        self.delegate.application?(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
         self.deviceToken = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        self.didRegister?(self.deviceToken,nil)
         
     }
     // Called when APNs failed to register the device for push notifications
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        self.didRegister?(nil,error)
-    }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
-        self.didRecieve?(data)
+    public func hk_application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        
         
     }
-
     
-    
-    
-
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    @objc func hk_application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
+        self.delegate.application?(application, didReceiveRemoteNotification: data)
         
-        self.didRecieve?(userInfo)
+    }
+    
+    
+    
+    
+    
+    
+    @objc func hk_application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        self.delegate.application?(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
         completionHandler(UIBackgroundFetchResult.newData);
-
-
+        
+        
     }
     
     // MARK UNNotificationCenter Delegate Methods
     
     @available(iOS 10.0, *)
     public func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+                                       willPresent notification: UNNotification,
+                                       withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        
         
         /**
          If your app is in the foreground when a notification arrives, the notification center calls this method to deliver the notification directly to your app. If you implement this method, you can take whatever actions are necessary to process the notification and update your app. When you finish, execute the completionHandler block and specify how you want the system to alert the user, if at all.
@@ -96,15 +134,14 @@ public class HKNotificaitonManager: UIResponder, UNUserNotificationCenterDelegat
          see https://developer.apple.com/reference/usernotifications/unusernotificationcenterdelegate/1649518-usernotificationcenter
          
          **/
-        self.willPresent?(notification.request.content.userInfo)
         
     }
     
     
     @available(iOS 10.0, *)
     public func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
+                                       didReceive response: UNNotificationResponse,
+                                       withCompletionHandler completionHandler: @escaping () -> Void) {
         
         /**
          Use this method to perform the tasks associated with your app’s custom actions. When the user responds to a notification, the system calls this method with the results. You use this method to perform the task associated with that action, if at all. At the end of your implementation, you must call the completionHandler block to let the system know that you are done processing the notification.
@@ -117,11 +154,10 @@ public class HKNotificaitonManager: UIResponder, UNUserNotificationCenterDelegat
          
          **/
         
-        self.didRecieve?(response.notification.request.content.userInfo)
         completionHandler()
         
     }
-
+    
     
     
     

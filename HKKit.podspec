@@ -22,4 +22,6 @@ Pod::Spec.new do |s|
   s.dependency 'AlamofireImage'
   s.dependency 'MagicalRecord'
   s.dependency 'DZNEmptyDataSet'
+  s.dependency 'Cartography'
+
 end

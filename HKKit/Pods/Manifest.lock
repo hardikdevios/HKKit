@@ -1,7 +1,8 @@
 PODS:
-  - Alamofire (4.4.0)
-  - AlamofireImage (3.2.0):
-    - Alamofire (~> 4.1)
+  - Alamofire (4.5.1)
+  - AlamofireImage (3.3.0):
+    - Alamofire (~> 4.5)
+  - Cartography (1.1.0)
   - DZNEmptyDataSet (1.8.1)
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
@@ -11,17 +12,19 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - Cartography
   - DZNEmptyDataSet
   - MagicalRecord
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  Cartography: 0538ccb4044acbbda2266335fc58cb4228794d90
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 3f550f0df68b74fe7aff6aefee3aed1b8f9f254b
+PODFILE CHECKSUM: 1934428e8ccd31eecada57bdea6f78b8c37c8c35
 
 COCOAPODS: 1.2.1
