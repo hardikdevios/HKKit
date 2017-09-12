@@ -26,6 +26,7 @@
 		563025101ED42E5500194856 /* NSMangedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */; };
 		563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025111ED42F9300194856 /* UITableView+Extension.swift */; };
 		563025141ED4307C00194856 /* UIPickerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025131ED4307C00194856 /* UIPickerView+Extension.swift */; };
+		565B80D41F67B99300ED0A97 /* HKCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565B80D31F67B99300ED0A97 /* HKCalendar.swift */; };
 		5662EA941F3054BC00A9D471 /* HKNotificaitonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662EA931F3054BC00A9D471 /* HKNotificaitonManager.swift */; };
 		56631A9F1F628EA7007CAE4C /* HKEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56631A9B1F628EA7007CAE4C /* HKEmptyCell.swift */; };
 		56631AA01F628EA7007CAE4C /* HKEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56631A9C1F628EA7007CAE4C /* HKEmptyCell.xib */; };
@@ -80,6 +81,7 @@
 		5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMangedObject+Extension.swift"; sourceTree = "<group>"; };
 		563025111ED42F9300194856 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		563025131ED4307C00194856 /* UIPickerView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Extension.swift"; sourceTree = "<group>"; };
+		565B80D31F67B99300ED0A97 /* HKCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKCalendar.swift; sourceTree = "<group>"; };
 		5662EA931F3054BC00A9D471 /* HKNotificaitonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKNotificaitonManager.swift; sourceTree = "<group>"; };
 		56631A9B1F628EA7007CAE4C /* HKEmptyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKEmptyCell.swift; sourceTree = "<group>"; };
 		56631A9C1F628EA7007CAE4C /* HKEmptyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKEmptyCell.xib; sourceTree = "<group>"; };
@@ -159,6 +161,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		565B80D21F67B96000ED0A97 /* HKCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				565B80D31F67B99300ED0A97 /* HKCalendar.swift */,
+			);
+			path = HKCalendar;
+			sourceTree = "<group>";
+		};
 		5662EA921F30546A00A9D471 /* HKNotification */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +200,7 @@
 		5667C9E11ED5829100F930AD /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				565B80D21F67B96000ED0A97 /* HKCalendar */,
 				5667C9E21ED5829100F930AD /* AppDelegate.swift */,
 				5667C9E41ED5829100F930AD /* ViewController.swift */,
 				5667C9E61ED5829100F930AD /* Main.storyboard */,
@@ -565,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				565B80D41F67B99300ED0A97 /* HKCalendar.swift in Sources */,
 				56771D361EF7DD74005FB8EC /* SecondViewController.swift in Sources */,
 				5667C9E51ED5829100F930AD /* ViewController.swift in Sources */,
 				5667C9E31ED5829100F930AD /* AppDelegate.swift in Sources */,
