@@ -9,6 +9,8 @@ def shared_pod
     pod 'MagicalRecord'
     pod 'DZNEmptyDataSet'
     pod 'Cartography'
+    pod 'AFDateHelper'
+
 end
 
 target 'HKKit' do

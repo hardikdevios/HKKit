@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ktx-Mi-uXe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ktx-Mi-uXe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,28 +20,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JkE-je-KoB" customClass="HKTextField" customModule="HKKit">
-                                <rect key="frame" x="16" y="106" width="343" height="52"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuX-Hd-ebh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JT4-3i-mvb">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <connections>
+                                            <segue destination="neL-uh-sLs" kind="embed" id="KyV-Ja-CLJ"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="5jd-nu-oZh"/>
+                                    <constraint firstAttribute="trailing" secondItem="JT4-3i-mvb" secondAttribute="trailing" id="5AJ-WS-P2i"/>
+                                    <constraint firstAttribute="height" constant="50" id="B84-SA-hvc"/>
+                                    <constraint firstItem="JT4-3i-mvb" firstAttribute="leading" secondItem="EuX-Hd-ebh" secondAttribute="leading" id="W91-dZ-Dda"/>
+                                    <constraint firstItem="JT4-3i-mvb" firstAttribute="top" secondItem="EuX-Hd-ebh" secondAttribute="top" id="gXX-O9-7Ti"/>
+                                    <constraint firstAttribute="bottom" secondItem="JT4-3i-mvb" secondAttribute="bottom" id="sNR-Qk-tMR"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isFloting" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="hintYPadding">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="JkE-je-KoB" secondAttribute="trailing" constant="16" id="rnW-d4-CN5"/>
-                            <constraint firstItem="JkE-je-KoB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="sQl-Sa-Ig8"/>
-                            <constraint firstItem="JkE-je-KoB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="x0a-nm-fdk"/>
+                            <constraint firstAttribute="trailing" secondItem="EuX-Hd-ebh" secondAttribute="trailing" id="H3X-l7-Ta3"/>
+                            <constraint firstItem="EuX-Hd-ebh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ci1-CN-7bb"/>
+                            <constraint firstItem="EuX-Hd-ebh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yF4-IO-ZO0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Frv-l3-GVr"/>
@@ -53,7 +56,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8uG-ys-Ub1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ktx-Mi-uXe" sceneMemberID="viewController">
+                <navigationController id="ktx-Mi-uXe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pCF-6I-krw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -67,6 +70,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hc-4Y-PYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="120.8" y="-560.86956521739137"/>
+        </scene>
+        <!--Calendar Controller-->
+        <scene sceneID="8rs-gZ-kEd">
+            <objects>
+                <viewController id="neL-uh-sLs" customClass="HKCalendarController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="epR-RD-wxW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xFT-uH-vUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>

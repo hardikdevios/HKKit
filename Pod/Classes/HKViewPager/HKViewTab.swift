@@ -13,6 +13,7 @@ public class HKViewTab:HKCardView {
     
     
     fileprivate weak var selectedView:WeekView?
+   
     let containerView:UIView = {
         
         let containerView = UIView()
@@ -31,12 +32,15 @@ public class HKViewTab:HKCardView {
         return stackview
     } ()
 
-    
+    open var font:UIFont = UIFont.systemFont(ofSize: 11, weight: UIFontWeightMedium) {
+        
+        didSet{
+      //      self.reloadData()
+        }
+    }
     open var data: [ViewPager]! {
         didSet {
-            self.cleanUp()
-            self.setUp()
-            self.constraintSetup()
+           self.reloadData()
         }
         
     }
@@ -44,11 +48,11 @@ public class HKViewTab:HKCardView {
     
     var onSelect:((ViewPager)->())?
     
-    convenience init() {
+    convenience public init() {
         self.init(frame:.zero)
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     }
     
@@ -56,7 +60,13 @@ public class HKViewTab:HKCardView {
         super.init(coder: aDecoder)
         
     }
-    
+    func reloadData(){
+        
+        self.cleanUp()
+        self.setUp()
+        self.constraintSetup()
+        
+    }
  
     func cleanUp() {
         
@@ -90,7 +100,7 @@ public class HKViewTab:HKCardView {
         addSubview(containerView)
         containerView.addSubview(stackView)
         for (index,obj) in data.enumerated() {
-            let weekView = WeekView(obj: obj)
+            let weekView = WeekView(obj: obj, font: font)
             if index == 0 {
                 weekView.isSelected = true
                 selectedView = weekView
@@ -141,13 +151,13 @@ fileprivate class WeekView:UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    convenience init(obj:ViewPager) {
+    convenience init(obj:ViewPager,font:UIFont) {
         self.init(frame: CGRect.zero)
         self.obj = obj
         lbl.textAlignment = .center
         lbl.textColor = MAIN_COLOR
         lbl.text = obj.title
-        lbl.font = UIFont.systemFont(ofSize: 11, weight: UIFontWeightMedium)
+        lbl.font = font
         
         constraintSetup()
         gestureSetup()
