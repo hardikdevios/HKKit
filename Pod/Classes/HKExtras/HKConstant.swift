@@ -18,7 +18,7 @@ class HKConstant:NSObject {
     }
     
 }
-public var MAIN_COLOR:UIColor!
+public var MAIN_COLOR:UIColor = UIColor.black
 public var MAIN_LOGO:String!
 public var MAIN_URL:String = ""
 

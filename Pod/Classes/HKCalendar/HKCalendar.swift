@@ -7,15 +7,19 @@
 //
 
 import Foundation
-import HKKit
 import UIKit
 import Cartography
 import AFDateHelper
 
 open class HKCalendarController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    var viewDayTab: HKViewTab = HKViewTab()
-    var containerView: UIView = UIView()
+    public var viewDayTab: HKViewTab = HKViewTab()
+    public var containerView: UIView = UIView()
+    public var lblFulldate:UILabel = UILabel()
+    public var selectedDay:Date = Date().dateFor(.startOfDay)
+    
     let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    public var dateChangeHandler: ((Date) -> Void)?
+
     override open func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -28,33 +32,45 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
         view.backgroundColor = .white
         view.addSubview(viewDayTab)
         view.addSubview(containerView)
+        view.addSubview(lblFulldate)
+
         containerView.addSubview(pageController.view)
 
-        constrain(viewDayTab, containerView) { (first, second) in
+        constrain(viewDayTab, containerView,lblFulldate) { (first, second, third) in
             
             first.width == first.superview!.width
-            first.height == 20
+            first.height == 16
             first.top == first.superview!.top
             first.centerX == first.superview!.centerX
             
             second.centerX == second.superview!.centerX
             second.top == first.bottom
             second.width == first.width
-            second.bottom == second.superview!.bottom
+            
+            
+            
+            third.top == second.bottom + 5
+            third.width == third.superview!.width
+            third.centerX == third.centerX
+            third.bottom == third.superview!.bottom - 7
             
             
             
             
         }
+
         
         constrain(pageController.view) { (view) in
             
             view.edges == view.superview!.edges
             
         }
-
-        viewDayTab.font = UIFont.systemFont(ofSize: 9, weight: UIFontWeightMedium)
-        viewDayTab.data = ENUM_WEEKDAY.days
+        lblFulldate.textAlignment = .center
+        lblFulldate.text = self.getDayString()
+        lblFulldate.font = UIFont.systemFont(ofSize: 11, weight: UIFontWeightMedium)
+        viewDayTab.font = UIFont.systemFont(ofSize: 8, weight: UIFontWeightRegular)
+        
+        viewDayTab.data = HK_ENUM_WEEKDAY.days
         
         pageController.dataSource = self
         pageController.delegate = self
@@ -84,33 +100,34 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
     public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         if completed {
-//            guard let controller = pageViewController.viewControllers?.first as? HKCalendarContentController, let diaryViewer = controller.selectedDayView?.objDiaryViewer else {
-//                return
-//            }
-//            self.dateChangeHandler(diaryViewer)
-//            
-//            guard let previous = previousViewControllers.last as? HKCalendarContentController, controller != previous else {
-//                return
-//            }
-//            controller.selectedDayView?.setSelected(true)
-//            previous.selectedDayView?.setSelected(false)
-//            controller.refreshColors()
-            
+            guard let controller = pageViewController.viewControllers?.first as? HKCalendarContentController, let day = controller.selectedDayView?.day else {
+                return
+            }
+            self.selectedDay = day
+            self.dateChangeHandler?(day)
+            self.lblFulldate.text = self.getDayString(day: day)
+            guard let previous = previousViewControllers.last as? HKCalendarContentController, controller != previous else {
+                return
+            }
+            controller.selectedDayView?.setSelected(true)
+            previous.selectedDayView?.setSelected(false)
+
         }
         
     }
 
     
-    fileprivate func getViewController(_ week: Date, selectedDay: Date? = nil) -> HKCalendarContentController? {
+    fileprivate func getViewController(_ week: Date,day:Date? = nil ) -> HKCalendarContentController? {
         
         let obj = HKCalendarContentController()
         obj.selectedWeek = week
-        obj.selectedDay = selectedDay
-//        obj.dateChangeHandler = { diaryViewer in
-//            
-//            self.dateChangeHandler(diaryViewer)
-//            
-//        }
+        obj.selectedDay = day
+        obj.dateChangeHandler = { day in
+            
+            self.lblFulldate.text = self.getDayString(day: day)
+            self.dateChangeHandler?(day)
+            
+        }
         
         return obj
     
@@ -118,17 +135,14 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
     
     func updateWithDay(_ day: Date = Date().dateFor(.startOfDay), animated: Bool = false) {
         
-        pageController.setViewControllers([getViewController(day.dateFor(.startOfWeek), selectedDay: day)!], direction: .forward, animated: animated, completion: nil)
+        pageController.setViewControllers([getViewController(day.dateFor(.startOfWeek), day:selectedDay)!], direction: .forward, animated: animated, completion: nil)
     }
     
-    func refreshTickColors() {
+  
+    func getDayString(day:Date = Date())->String{
         
-        guard let controller = pageController.viewControllers?.last as? HKCalendarContentController else {
-            return
-        }
-        controller.refreshColors()
+        return day.toString(format: DateFormatType.custom("EEEE MMMM dd, yyyy"))
     }
-
     
 }
 class HKCalendarContentController: UIViewController {
@@ -137,7 +151,8 @@ class HKCalendarContentController: UIViewController {
     fileprivate var selectedWeek: Date!
     fileprivate var selectedDay: Date?
     fileprivate var arrayViews: [HKCalenderDayView] = []
-    
+    var dateChangeHandler: ((Date) -> Void)?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,16 +191,7 @@ class HKCalendarContentController: UIViewController {
         self.setUpConstraints(arrayViews)
     }
     
-    func refreshColors() {
-        
-//        arrayViews.forEach { (dayView) in
-//            dayView.objDiaryViewer = DiaryFunctions.getDiaryForTheDay(dayView.objDiaryViewer.date)
-//            dayView.updateColors()
-//            
-//        }
-        
-    }
-    
+ 
     func setUpConstraints(_ arrayViews: [UIView]) {
         
         constrain(arrayViews) { (layoutViews) in
@@ -215,7 +221,10 @@ class HKCalendarContentController: UIViewController {
         guard let dayView = gesture.view as? HKCalenderDayView, dayView != selectedDayView  else {
             return
         }
+        self.selectedDay = dayView.day
         self.updateSelection(dayView)
+        self.dateChangeHandler?(dayView.day)
+
         
     }
     
@@ -230,7 +239,7 @@ class HKCalendarContentController: UIViewController {
 
 private class HKCalenderDayView: UIView {
     
-    let lableWeek = UILabel()
+    let lblday = UILabel()
     var day: Date!
     let backView:UIView = UIView()
     var isSelected:Bool = false
@@ -261,12 +270,12 @@ private class HKCalenderDayView: UIView {
     
     func setUp() {
         
-        lableWeek.text = String(self.day.component(.day)!)
-        lableWeek.textAlignment = .center
-        lableWeek.numberOfLines = 0
-        lableWeek.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)
+        lblday.text = String(self.day.component(.day)!)
+        lblday.textAlignment = .center
+        lblday.numberOfLines = 0
+        lblday.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)
         addSubview(backView)
-        addSubview(lableWeek)
+        addSubview(lblday)
 
         self.setUpConstraints()
         self.updateColors()
@@ -275,12 +284,12 @@ private class HKCalenderDayView: UIView {
     
     func setUpConstraints() {
         
-        constrain(lableWeek,backView) { (lableWeek,backView) in
+        constrain(lblday,backView) { (lblday,backView) in
             
-            lableWeek.top == lableWeek.superview!.top
-            lableWeek.leading == lableWeek.superview!.leading
-            lableWeek.trailing == lableWeek.superview!.trailing
-            lableWeek.bottom >= lableWeek.superview!.bottom
+            lblday.top == lblday.superview!.top
+            lblday.leading == lblday.superview!.leading
+            lblday.trailing == lblday.superview!.trailing
+            lblday.bottom >= lblday.superview!.bottom
             backView.center == backView.superview!.center
             backView.height == 30
             backView.width == 30
@@ -294,33 +303,35 @@ private class HKCalenderDayView: UIView {
     }
     
     func updateColors() {
-//        if objDiaryViewer.date.compare(.isInTheFuture) {
-//            
-//            self.alpha = 0.1
-//            self.imgView.isHidden = true
-//            
-//        } else {
-//            
-//            let objAttribute = objDiaryViewer.attribute
-//            
-//            self.lableWeek.textColor = objAttribute.color
-//            self.imgView.image = objAttribute.image
-//            self.imgView.tintColor = objAttribute.color
-//            
-//        }
+        
+        if self.day.compare(.isToday) {
+            
+            
+        }else{
+            
+        }
+
     }
     
     func setSelected(_ selected: Bool) {
         self.isSelected = selected
         if selected {
-            lableWeek.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightSemibold)
-            lableWeek.textColor = .white
-            backView.backgroundColor = .blue
+            lblday.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightSemibold)
+            lblday.textColor = .white
+            backView.backgroundColor = MAIN_COLOR
+            if self.day.compare(.isToday) {
+                self.backView.backgroundColor = UIColor.red.withAlphaComponent(0.7)
+            }
+            
         } else {
             
-            lableWeek.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)
-            lableWeek.textColor = .black
+            lblday.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)
+            lblday.textColor = .black
             backView.backgroundColor = .clear
+            if self.day.compare(.isToday) {
+                self.lblday.textColor = UIColor.red.withAlphaComponent(0.7)
+            }
+
         }
         
     }

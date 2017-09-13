@@ -12,11 +12,20 @@ import AVFoundation
 
 
 class ViewController: UIViewController {
-    @IBOutlet var tableView:HKTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     
+        
+        if let controller = self.childViewControllers.first as? HKCalendarController {
+            
+            
+            controller.dateChangeHandler = { day in
+                
+                
+                print(day.toString())
+            }
+            
+        }
         
         
     }

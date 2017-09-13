@@ -21,12 +21,14 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0A0D82C31F69B863006333BE /* HKCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D82C01F69B863006333BE /* HKCalendar.swift */; };
+		0A0D82C41F69B863006333BE /* HKCalender.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0D82C11F69B863006333BE /* HKCalender.xib */; };
+		0A0D82C71F69B8DF006333BE /* HKEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D82C61F69B8DF006333BE /* HKEnums.swift */; };
 		0C7BDE6EB37AA2515B2707E8 /* Pods_HKKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993B90264185297ACF793BF4 /* Pods_HKKit.framework */; };
 		439BA880E03987CEBFF2AC7B /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD2341DD447BC4E8770CB06 /* Pods_Example.framework */; };
 		563025101ED42E5500194856 /* NSMangedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */; };
 		563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025111ED42F9300194856 /* UITableView+Extension.swift */; };
 		563025141ED4307C00194856 /* UIPickerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025131ED4307C00194856 /* UIPickerView+Extension.swift */; };
-		565B80D41F67B99300ED0A97 /* HKCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565B80D31F67B99300ED0A97 /* HKCalendar.swift */; };
 		5662EA941F3054BC00A9D471 /* HKNotificaitonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662EA931F3054BC00A9D471 /* HKNotificaitonManager.swift */; };
 		56631A9F1F628EA7007CAE4C /* HKEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56631A9B1F628EA7007CAE4C /* HKEmptyCell.swift */; };
 		56631AA01F628EA7007CAE4C /* HKEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56631A9C1F628EA7007CAE4C /* HKEmptyCell.xib */; };
@@ -45,8 +47,6 @@
 		5667C9F41ED59BAD00F930AD /* HKKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EBA9411ED06A3A00C743F7 /* HKKit.framework */; };
 		5667C9F61ED59E5400F930AD /* HKFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9F51ED59E5400F930AD /* HKFunctions.swift */; };
 		5667C9F81ED5A4C300F930AD /* HKBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9F71ED5A4C300F930AD /* HKBarButtonItem.swift */; };
-		566BC05A1F6910EF0001DC63 /* HKCalender.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566BC0591F6910EF0001DC63 /* HKCalender.xib */; };
-		566BC05C1F69138B0001DC63 /* HKEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BC05B1F69138B0001DC63 /* HKEnums.swift */; };
 		56771D361EF7DD74005FB8EC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56771D351EF7DD74005FB8EC /* SecondViewController.swift */; };
 		56B1FF2A1ED437DF00779B57 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B1FF291ED437DF00779B57 /* NSObject+Extension.swift */; };
 		56EBA9461ED06A3A00C743F7 /* HKKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 56EBA9441ED06A3A00C743F7 /* HKKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -79,11 +79,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0D82C01F69B863006333BE /* HKCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKCalendar.swift; sourceTree = "<group>"; };
+		0A0D82C11F69B863006333BE /* HKCalender.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKCalender.xib; sourceTree = "<group>"; };
+		0A0D82C61F69B8DF006333BE /* HKEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKEnums.swift; sourceTree = "<group>"; };
 		537DEE886C964EE9775D3BC5 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMangedObject+Extension.swift"; sourceTree = "<group>"; };
 		563025111ED42F9300194856 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		563025131ED4307C00194856 /* UIPickerView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Extension.swift"; sourceTree = "<group>"; };
-		565B80D31F67B99300ED0A97 /* HKCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKCalendar.swift; sourceTree = "<group>"; };
 		5662EA931F3054BC00A9D471 /* HKNotificaitonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKNotificaitonManager.swift; sourceTree = "<group>"; };
 		56631A9B1F628EA7007CAE4C /* HKEmptyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKEmptyCell.swift; sourceTree = "<group>"; };
 		56631A9C1F628EA7007CAE4C /* HKEmptyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKEmptyCell.xib; sourceTree = "<group>"; };
@@ -103,8 +105,6 @@
 		5667C9EE1ED5829100F930AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5667C9F51ED59E5400F930AD /* HKFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKFunctions.swift; sourceTree = "<group>"; };
 		5667C9F71ED5A4C300F930AD /* HKBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKBarButtonItem.swift; sourceTree = "<group>"; };
-		566BC0591F6910EF0001DC63 /* HKCalender.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKCalender.xib; sourceTree = "<group>"; };
-		566BC05B1F69138B0001DC63 /* HKEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKEnums.swift; sourceTree = "<group>"; };
 		56771D351EF7DD74005FB8EC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		56B1FF291ED437DF00779B57 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		56EBA9411ED06A3A00C743F7 /* HKKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HKKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,12 +165,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		565B80D21F67B96000ED0A97 /* HKCalendar */ = {
+		0A0D82BF1F69B863006333BE /* HKCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				565B80D31F67B99300ED0A97 /* HKCalendar.swift */,
-				566BC0591F6910EF0001DC63 /* HKCalender.xib */,
-				566BC05B1F69138B0001DC63 /* HKEnums.swift */,
+				0A0D82C01F69B863006333BE /* HKCalendar.swift */,
+				0A0D82C11F69B863006333BE /* HKCalender.xib */,
 			);
 			path = HKCalendar;
 			sourceTree = "<group>";
@@ -206,7 +205,6 @@
 		5667C9E11ED5829100F930AD /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				565B80D21F67B96000ED0A97 /* HKCalendar */,
 				5667C9E21ED5829100F930AD /* AppDelegate.swift */,
 				5667C9E41ED5829100F930AD /* ViewController.swift */,
 				5667C9E61ED5829100F930AD /* Main.storyboard */,
@@ -261,6 +259,7 @@
 		56EBA94F1ED06A7900C743F7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0A0D82BF1F69B863006333BE /* HKCalendar */,
 				56631A9A1F628EA7007CAE4C /* HKEmpty */,
 				56631A991F628DF8007CAE4C /* HKViewPager */,
 				5662EA921F30546A00A9D471 /* HKNotification */,
@@ -321,6 +320,7 @@
 		56EBA9661ED06A7900C743F7 /* HKExtras */ = {
 			isa = PBXGroup;
 			children = (
+				0A0D82C61F69B8DF006333BE /* HKEnums.swift */,
 				56631AA91F62937B007CAE4C /* HKNibView.swift */,
 				56EBA9671ED06A7900C743F7 /* HKConstant.swift */,
 				5667C9F51ED59E5400F930AD /* HKFunctions.swift */,
@@ -469,7 +469,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				566BC05A1F6910EF0001DC63 /* HKCalender.xib in Resources */,
 				5667C9ED1ED5829100F930AD /* LaunchScreen.storyboard in Resources */,
 				5667C9EA1ED5829100F930AD /* Assets.xcassets in Resources */,
 				5667C9E81ED5829100F930AD /* Main.storyboard in Resources */,
@@ -480,6 +479,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0D82C41F69B863006333BE /* HKCalender.xib in Resources */,
 				56631AA01F628EA7007CAE4C /* HKEmptyCell.xib in Resources */,
 				56631AA21F628EA7007CAE4C /* HKEmptyView.xib in Resources */,
 			);
@@ -583,10 +583,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				565B80D41F67B99300ED0A97 /* HKCalendar.swift in Sources */,
 				56771D361EF7DD74005FB8EC /* SecondViewController.swift in Sources */,
 				5667C9E51ED5829100F930AD /* ViewController.swift in Sources */,
-				566BC05C1F69138B0001DC63 /* HKEnums.swift in Sources */,
 				5667C9E31ED5829100F930AD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,11 +616,13 @@
 				56EBA9CD1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift in Sources */,
 				56EBA9811ED06A7900C743F7 /* UIView+Extension.swift in Sources */,
 				56EBA9791ED06A7900C743F7 /* UIImage+Extension.swift in Sources */,
+				0A0D82C71F69B8DF006333BE /* HKEnums.swift in Sources */,
 				56EBA97E1ED06A7900C743F7 /* UITableViewCell+Extension.swift in Sources */,
 				56631A9F1F628EA7007CAE4C /* HKEmptyCell.swift in Sources */,
 				56EBA9731ED06A7900C743F7 /* Float+Extension.swift in Sources */,
 				563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */,
 				56EBA9761ED06A7900C743F7 /* String+Extension.swift in Sources */,
+				0A0D82C31F69B863006333BE /* HKCalendar.swift in Sources */,
 				56EBA9891ED06A7900C743F7 /* HKTextField.swift in Sources */,
 				56EBA9801ED06A7900C743F7 /* UITextView+Extension.swift in Sources */,
 				56EBA9721ED06A7900C743F7 /* Dictionary+Extension.swift in Sources */,

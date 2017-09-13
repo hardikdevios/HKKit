@@ -8,9 +8,8 @@
 
 import Foundation
 import AFDateHelper
-import HKKit
 
-public enum ENUM_WEEKDAY: String,ViewPager {
+public enum HK_ENUM_WEEKDAY: String,ViewPager {
     case ALL = "All Day"
     case Sunday = "Sunday"
     case Monday = "Monday"
@@ -47,9 +46,9 @@ public enum ENUM_WEEKDAY: String,ViewPager {
         
     }
     
-    public static func getWeek(fromInt:Int)->ENUM_WEEKDAY {
+    public static func getWeek(fromInt:Int)->HK_ENUM_WEEKDAY {
         
-        return self.days.filter({$0.mainValue == fromInt}).first ?? ENUM_WEEKDAY.Monday
+        return self.days.filter({$0.mainValue == fromInt}).first ?? HK_ENUM_WEEKDAY.Monday
     }
     public var stringValue: String {
         get {
@@ -70,10 +69,10 @@ public enum ENUM_WEEKDAY: String,ViewPager {
         
     }
     
-    public static var today:ENUM_WEEKDAY {
+    public static var today:HK_ENUM_WEEKDAY {
         get{
             
-            return self.days.filter({ $0.mainValue == Date().component(.weekday)! - 1}).first ?? ENUM_WEEKDAY.Monday
+            return self.days.filter({ $0.mainValue == Date().component(.weekday)! - 1}).first ?? HK_ENUM_WEEKDAY.Monday
             
         }
         
