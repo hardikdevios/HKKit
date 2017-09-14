@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="62" id="KGk-i7-Jjw" customClass="PlanCell" customModule="Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="422" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="422" height="62"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="08:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMe-AF-SuJ">
+                        <rect key="frame" x="16" y="5" width="32.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afG-P1-7DD">
+                        <rect key="frame" x="56.5" y="4.5" width="365.5" height="0.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="DGa-rb-oNt"/>
+                        </constraints>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="H96-GU-13i">
+                        <rect key="frame" x="56.5" y="5" width="365.5" height="46.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="RFU-S6-ir2"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="H96-GU-13i" firstAttribute="top" secondItem="afG-P1-7DD" secondAttribute="bottom" id="AKZ-mr-8eB"/>
+                    <constraint firstItem="dMe-AF-SuJ" firstAttribute="top" secondItem="H96-GU-13i" secondAttribute="top" id="SBE-eY-ZAO"/>
+                    <constraint firstItem="dMe-AF-SuJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="W6T-D8-bEF"/>
+                    <constraint firstAttribute="trailing" secondItem="afG-P1-7DD" secondAttribute="trailing" id="WOm-YX-PVC"/>
+                    <constraint firstAttribute="bottom" secondItem="H96-GU-13i" secondAttribute="bottom" constant="10" id="X3t-wg-8Fg"/>
+                    <constraint firstItem="H96-GU-13i" firstAttribute="leading" secondItem="afG-P1-7DD" secondAttribute="leading" id="bqL-vL-uMc"/>
+                    <constraint firstItem="H96-GU-13i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="56.5" id="esw-81-Fsh"/>
+                    <constraint firstItem="H96-GU-13i" firstAttribute="trailing" secondItem="afG-P1-7DD" secondAttribute="trailing" id="nGT-8W-VI8"/>
+                    <constraint firstItem="H96-GU-13i" firstAttribute="width" secondItem="afG-P1-7DD" secondAttribute="width" id="riT-Ve-PwN"/>
+                    <constraint firstItem="afG-P1-7DD" firstAttribute="leading" secondItem="dMe-AF-SuJ" secondAttribute="trailing" constant="8" id="vGS-GR-Czf"/>
+                    <constraint firstItem="dMe-AF-SuJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="zol-11-uVb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblTime" destination="dMe-AF-SuJ" id="Jog-dB-dHs"/>
+                <outlet property="mainStackView" destination="H96-GU-13i" id="hUW-sm-GX8"/>
+                <outlet property="seprator" destination="afG-P1-7DD" id="Zvg-IQ-wPU"/>
+            </connections>
+            <point key="canvasLocation" x="81" y="88"/>
+        </tableViewCell>
+    </objects>
+</document>

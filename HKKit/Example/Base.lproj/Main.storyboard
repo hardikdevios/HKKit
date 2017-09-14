@@ -39,15 +39,30 @@
                                     <constraint firstAttribute="bottom" secondItem="JT4-3i-mvb" secondAttribute="bottom" id="sNR-Qk-tMR"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1nd-wJ-qNy">
+                                <rect key="frame" x="0.0" y="141" width="375" height="526"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ezT-A2-xmG"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="grP-YW-bZX"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="1nd-wJ-qNy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BvN-yS-K8q"/>
                             <constraint firstAttribute="trailing" secondItem="EuX-Hd-ebh" secondAttribute="trailing" id="H3X-l7-Ta3"/>
+                            <constraint firstAttribute="trailing" secondItem="1nd-wJ-qNy" secondAttribute="trailing" id="NkG-k3-qgl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1nd-wJ-qNy" secondAttribute="bottom" id="Xez-0V-373"/>
                             <constraint firstItem="EuX-Hd-ebh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ci1-CN-7bb"/>
+                            <constraint firstItem="1nd-wJ-qNy" firstAttribute="top" secondItem="EuX-Hd-ebh" secondAttribute="bottom" constant="2" id="neQ-gF-tKI"/>
                             <constraint firstItem="EuX-Hd-ebh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yF4-IO-ZO0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Frv-l3-GVr"/>
+                    <connections>
+                        <outlet property="tableView" destination="1nd-wJ-qNy" id="lIX-Zn-Mcj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

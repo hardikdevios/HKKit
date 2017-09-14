@@ -278,7 +278,6 @@ private class HKCalenderDayView: UIView {
         addSubview(lblday)
 
         self.setUpConstraints()
-        self.updateColors()
         
     }
     
@@ -302,16 +301,7 @@ private class HKCalenderDayView: UIView {
         backView.layer.cornerRadius = backView.frame.width / 2
     }
     
-    func updateColors() {
-        
-        if self.day.compare(.isToday) {
-            
-            
-        }else{
-            
-        }
-
-    }
+  
     
     func setSelected(_ selected: Bool) {
         self.isSelected = selected
