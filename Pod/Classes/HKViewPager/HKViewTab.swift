@@ -32,12 +32,8 @@ public class HKViewTab:HKCardView {
         return stackview
     } ()
 
-    open var font:UIFont = UIFont.systemFont(ofSize: 11, weight: UIFontWeightMedium) {
-        
-        didSet{
-      //      self.reloadData()
-        }
-    }
+    open var font:UIFont = UIFont.systemFont(ofSize: 11, weight: UIFontWeightMedium)     
+    open var textColor:UIColor = MAIN_COLOR
     open var data: [ViewPager]! {
         didSet {
            self.reloadData()
@@ -100,7 +96,7 @@ public class HKViewTab:HKCardView {
         addSubview(containerView)
         containerView.addSubview(stackView)
         for (index,obj) in data.enumerated() {
-            let weekView = WeekView(obj: obj, font: font)
+            let weekView = WeekView(obj: obj, font: font, textColor:textColor)
             if index == 0 {
                 weekView.isSelected = true
                 selectedView = weekView
@@ -151,11 +147,11 @@ fileprivate class WeekView:UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    convenience init(obj:ViewPager,font:UIFont) {
+    convenience init(obj:ViewPager,font:UIFont,textColor:UIColor) {
         self.init(frame: CGRect.zero)
         self.obj = obj
         lbl.textAlignment = .center
-        lbl.textColor = MAIN_COLOR
+        lbl.textColor = textColor
         lbl.text = obj.title
         lbl.font = font
         

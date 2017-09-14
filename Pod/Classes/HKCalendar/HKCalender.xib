@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HKCalendarController" customModule="Example" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="pxE-Ky-XXK" id="hLV-j3-e3O"/>
+                <outlet property="viewDayTab" destination="h7G-UI-zMg" id="i5v-RH-Wqz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="62"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7G-UI-zMg" customClass="HKViewTab" customModule="HKKit">
+                    <rect key="frame" x="0.0" y="0.0" width="372" height="16"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="Wxi-x9-D6W"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxE-Ky-XXK">
+                    <rect key="frame" x="0.0" y="16" width="372" height="46"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="pxE-Ky-XXK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Gi-yq-8V7"/>
+                <constraint firstAttribute="trailing" secondItem="h7G-UI-zMg" secondAttribute="trailing" id="C8G-4g-oZH"/>
+                <constraint firstAttribute="bottom" secondItem="pxE-Ky-XXK" secondAttribute="bottom" id="FEc-Bv-ekz"/>
+                <constraint firstItem="h7G-UI-zMg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LgI-26-7oL"/>
+                <constraint firstAttribute="trailing" secondItem="pxE-Ky-XXK" secondAttribute="trailing" id="TLs-ca-BMe"/>
+                <constraint firstItem="h7G-UI-zMg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Tdc-b6-EbA"/>
+                <constraint firstItem="pxE-Ky-XXK" firstAttribute="top" secondItem="h7G-UI-zMg" secondAttribute="bottom" id="vM7-07-bVc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-91" y="-130"/>
+        </view>
+    </objects>
+</document>

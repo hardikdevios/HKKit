@@ -29,6 +29,7 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
 
     fileprivate func setUp() {
         
+        
         view.backgroundColor = .white
         view.addSubview(viewDayTab)
         view.addSubview(containerView)
@@ -69,7 +70,7 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
         lblFulldate.text = self.getDayString()
         lblFulldate.font = UIFont.systemFont(ofSize: 11, weight: UIFontWeightMedium)
         viewDayTab.font = UIFont.systemFont(ofSize: 8, weight: UIFontWeightRegular)
-        
+        viewDayTab.textColor = .black
         viewDayTab.data = HK_ENUM_WEEKDAY.days
         
         pageController.dataSource = self
@@ -273,11 +274,11 @@ private class HKCalenderDayView: UIView {
         lblday.text = String(self.day.component(.day)!)
         lblday.textAlignment = .center
         lblday.numberOfLines = 0
-        lblday.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)
         addSubview(backView)
         addSubview(lblday)
 
         self.setUpConstraints()
+        self.updateColors()
         
     }
     
@@ -301,12 +302,21 @@ private class HKCalenderDayView: UIView {
         backView.layer.cornerRadius = backView.frame.width / 2
     }
     
-  
+    func updateColors() {
+        
+        if self.day.compare(.isToday) {
+            
+            
+        }else{
+            
+        }
+
+    }
     
     func setSelected(_ selected: Bool) {
         self.isSelected = selected
         if selected {
-            lblday.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightSemibold)
+            lblday.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
             lblday.textColor = .white
             backView.backgroundColor = MAIN_COLOR
             if self.day.compare(.isToday) {
@@ -315,13 +325,20 @@ private class HKCalenderDayView: UIView {
             
         } else {
             
-            lblday.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)
+            lblday.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
             lblday.textColor = .black
+            
             backView.backgroundColor = .clear
             if self.day.compare(.isToday) {
                 self.lblday.textColor = UIColor.red.withAlphaComponent(0.7)
             }
+            
+            if self.day.compare(.isWeekend) {
+                
+                lblday.textColor = UIColor.black.withAlphaComponent(0.3)
 
+            }
+            
         }
         
     }

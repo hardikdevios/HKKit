@@ -23,6 +23,8 @@
 /* Begin PBXBuildFile section */
 		0A0D82C31F69B863006333BE /* HKCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D82C01F69B863006333BE /* HKCalendar.swift */; };
 		0A0D82C71F69B8DF006333BE /* HKEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D82C61F69B8DF006333BE /* HKEnums.swift */; };
+		0AC4DEBA1F6AE7B80005D5C5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4DEB81F6AE7B80005D5C5 /* TableViewController.swift */; };
+		0AC4DEBB1F6AE7B80005D5C5 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AC4DEB91F6AE7B80005D5C5 /* TableViewController.xib */; };
 		0C7BDE6EB37AA2515B2707E8 /* Pods_HKKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993B90264185297ACF793BF4 /* Pods_HKKit.framework */; };
 		439BA880E03987CEBFF2AC7B /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD2341DD447BC4E8770CB06 /* Pods_Example.framework */; };
 		561DC8041F6A615D00BE66E5 /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561DC8021F6A615D00BE66E5 /* PlanCell.swift */; };
@@ -82,6 +84,8 @@
 /* Begin PBXFileReference section */
 		0A0D82C01F69B863006333BE /* HKCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKCalendar.swift; sourceTree = "<group>"; };
 		0A0D82C61F69B8DF006333BE /* HKEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKEnums.swift; sourceTree = "<group>"; };
+		0AC4DEB81F6AE7B80005D5C5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		0AC4DEB91F6AE7B80005D5C5 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
 		537DEE886C964EE9775D3BC5 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		561DC8021F6A615D00BE66E5 /* PlanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCell.swift; sourceTree = "<group>"; };
 		561DC8031F6A615D00BE66E5 /* PlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanCell.xib; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				56771D351EF7DD74005FB8EC /* SecondViewController.swift */,
 				561DC8021F6A615D00BE66E5 /* PlanCell.swift */,
 				561DC8031F6A615D00BE66E5 /* PlanCell.xib */,
+				0AC4DEB81F6AE7B80005D5C5 /* TableViewController.swift */,
+				0AC4DEB91F6AE7B80005D5C5 /* TableViewController.xib */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -475,6 +481,7 @@
 				561DC8051F6A615D00BE66E5 /* PlanCell.xib in Resources */,
 				5667C9ED1ED5829100F930AD /* LaunchScreen.storyboard in Resources */,
 				5667C9EA1ED5829100F930AD /* Assets.xcassets in Resources */,
+				0AC4DEBB1F6AE7B80005D5C5 /* TableViewController.xib in Resources */,
 				5667C9E81ED5829100F930AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,6 +596,7 @@
 				561DC8041F6A615D00BE66E5 /* PlanCell.swift in Sources */,
 				56771D361EF7DD74005FB8EC /* SecondViewController.swift in Sources */,
 				5667C9E51ED5829100F930AD /* ViewController.swift in Sources */,
+				0AC4DEBA1F6AE7B80005D5C5 /* TableViewController.swift in Sources */,
 				5667C9E31ED5829100F930AD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
