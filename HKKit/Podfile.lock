@@ -3,11 +3,17 @@ PODS:
   - Alamofire (4.5.1)
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
-  - Cartography (1.1.0)
+  - Cartography (2.0.0)
   - DZNEmptyDataSet (1.8.1)
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
+  - ReactiveSwift (2.0.1):
+    - Result (~> 3.2)
+  - Result (3.2.3)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxSwift (3.6.1)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -17,17 +23,24 @@ DEPENDENCIES:
   - Cartography
   - DZNEmptyDataSet
   - MagicalRecord
+  - ReactiveSwift (~> 2.0)
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   AFDateHelper: fbbf706fc7ef3b12efb8c25493c8dc5b9d18f86a
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
-  Cartography: 0538ccb4044acbbda2266335fc58cb4228794d90
+  Cartography: d295eb25ab54bb57eecd8c2f04e9648c850f1281
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  ReactiveSwift: 60a29ff35988a964fd2bb759755cb6594de523fc
+  Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 64ecf5f03c88d1e3e38d93f031a8c4915a11f7c3
+PODFILE CHECKSUM: 3d9a031a1443d4afba1f2e6f1b12405309449efd
 
 COCOAPODS: 1.2.1
