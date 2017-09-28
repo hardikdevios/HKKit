@@ -10,7 +10,9 @@ def shared_pod
     pod 'DZNEmptyDataSet'
     pod 'Cartography'
     pod 'AFDateHelper'
-
+    pod 'ReactiveSwift', '~> 2.0'
+    pod 'RxSwift',    '~> 3.0'
+    pod 'RxCocoa',    '~> 3.0'
 end
 
 target 'HKKit' do
