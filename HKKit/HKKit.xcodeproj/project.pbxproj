@@ -51,6 +51,7 @@
 		5667C9F61ED59E5400F930AD /* HKFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9F51ED59E5400F930AD /* HKFunctions.swift */; };
 		5667C9F81ED5A4C300F930AD /* HKBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9F71ED5A4C300F930AD /* HKBarButtonItem.swift */; };
 		56771D361EF7DD74005FB8EC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56771D351EF7DD74005FB8EC /* SecondViewController.swift */; };
+		5678BBC41F7CD4DE000012D1 /* HKOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5678BBC31F7CD4DE000012D1 /* HKOperation.swift */; };
 		56B1FF2A1ED437DF00779B57 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B1FF291ED437DF00779B57 /* NSObject+Extension.swift */; };
 		56EBA9461ED06A3A00C743F7 /* HKKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 56EBA9441ED06A3A00C743F7 /* HKKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56EBA9711ED06A7900C743F7 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9531ED06A7900C743F7 /* Array+Extension.swift */; };
@@ -74,7 +75,6 @@
 		56EBA9831ED06A7900C743F7 /* HKConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9671ED06A7900C743F7 /* HKConstant.swift */; };
 		56EBA9841ED06A7900C743F7 /* HKAlamofireImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9691ED06A7900C743F7 /* HKAlamofireImageView.swift */; };
 		56EBA9851ED06A7900C743F7 /* HKCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA96A1ED06A7900C743F7 /* HKCardView.swift */; };
-		56EBA9871ED06A7900C743F7 /* HKOprationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA96C1ED06A7900C743F7 /* HKOprationQueue.swift */; };
 		56EBA9881ED06A7900C743F7 /* HKQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA96D1ED06A7900C743F7 /* HKQueue.swift */; };
 		56EBA9891ED06A7900C743F7 /* HKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA96E1ED06A7900C743F7 /* HKTextField.swift */; };
 		56EBA9CD1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBA9CC1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift */; };
@@ -113,6 +113,7 @@
 		5667C9F51ED59E5400F930AD /* HKFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKFunctions.swift; sourceTree = "<group>"; };
 		5667C9F71ED5A4C300F930AD /* HKBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKBarButtonItem.swift; sourceTree = "<group>"; };
 		56771D351EF7DD74005FB8EC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		5678BBC31F7CD4DE000012D1 /* HKOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKOperation.swift; sourceTree = "<group>"; };
 		56B1FF291ED437DF00779B57 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		56EBA9411ED06A3A00C743F7 /* HKKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HKKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EBA9441ED06A3A00C743F7 /* HKKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKKit.h; sourceTree = "<group>"; };
@@ -138,7 +139,6 @@
 		56EBA9671ED06A7900C743F7 /* HKConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKConstant.swift; sourceTree = "<group>"; };
 		56EBA9691ED06A7900C743F7 /* HKAlamofireImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKAlamofireImageView.swift; sourceTree = "<group>"; };
 		56EBA96A1ED06A7900C743F7 /* HKCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKCardView.swift; sourceTree = "<group>"; };
-		56EBA96C1ED06A7900C743F7 /* HKOprationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKOprationQueue.swift; sourceTree = "<group>"; };
 		56EBA96D1ED06A7900C743F7 /* HKQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKQueue.swift; sourceTree = "<group>"; };
 		56EBA96E1ED06A7900C743F7 /* HKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKTextField.swift; sourceTree = "<group>"; };
 		56EBA9CA1ED0729200C743F7 /* HKKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = HKKit.podspec; path = ../HKKit.podspec; sourceTree = "<group>"; };
@@ -343,10 +343,10 @@
 		56EBA9681ED06A7900C743F7 /* HKSubclass */ = {
 			isa = PBXGroup;
 			children = (
+				5678BBC31F7CD4DE000012D1 /* HKOperation.swift */,
 				56EBA9691ED06A7900C743F7 /* HKAlamofireImageView.swift */,
 				56EBA96A1ED06A7900C743F7 /* HKCardView.swift */,
 				56EBA96E1ED06A7900C743F7 /* HKTextField.swift */,
-				56EBA96C1ED06A7900C743F7 /* HKOprationQueue.swift */,
 				56EBA96D1ED06A7900C743F7 /* HKQueue.swift */,
 				5667C9DA1ED57E2400F930AD /* HKTableView.swift */,
 				5667C9F71ED5A4C300F930AD /* HKBarButtonItem.swift */,
@@ -625,6 +625,7 @@
 				56EBA97D1ED06A7900C743F7 /* UISwitch+Extension.swift in Sources */,
 				5667C9F61ED59E5400F930AD /* HKFunctions.swift in Sources */,
 				563025101ED42E5500194856 /* NSMangedObject+Extension.swift in Sources */,
+				5678BBC41F7CD4DE000012D1 /* HKOperation.swift in Sources */,
 				56631AA51F628F06007CAE4C /* HKViewPager.swift in Sources */,
 				563025141ED4307C00194856 /* UIPickerView+Extension.swift in Sources */,
 				56EBA9CD1ED0778F00C743F7 /* UIBarButtonItem+Extension.swift in Sources */,
@@ -645,7 +646,6 @@
 				56631AA11F628EA7007CAE4C /* HKEmptyView.swift in Sources */,
 				56B1FF2A1ED437DF00779B57 /* NSObject+Extension.swift in Sources */,
 				56EBA9781ED06A7900C743F7 /* UIColor+Extension.swift in Sources */,
-				56EBA9871ED06A7900C743F7 /* HKOprationQueue.swift in Sources */,
 				56EBA9841ED06A7900C743F7 /* HKAlamofireImageView.swift in Sources */,
 				5662EA941F3054BC00A9D471 /* HKNotificaitonManager.swift in Sources */,
 				56EBA97C1ED06A7900C743F7 /* UINavigationController+Extension.swift in Sources */,
