@@ -32,14 +32,14 @@ extension UIButton{
         self.setTitleColor(color, for: UIControlState())
     }
     
-    public func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[String:Any]){
+    public func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[NSAttributedStringKey:Any]){
         
         let result = hk_getAttributeString(mainString, attributeString: attributeString, attributes: attributes)
         self.setAttributedTitle(result, for: .normal)
         
     }
     
-    public func hk_setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[String:Any]]) {
+    public func hk_setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[NSAttributedStringKey:Any]]) {
         
         let result = hk_getMultipleAttributesString(mainString, attributeStrings: attributeStrings, total_attributes: total_attributes)
         self.setAttributedTitle(result, for: .normal)

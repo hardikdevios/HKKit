@@ -19,7 +19,7 @@ open class HKViewPager: HKCardView {
     open var onSelected: ((ViewPager) -> Void)?
     open var isUpperCase: Bool = false
 
-    open var font =  UIFont.systemFont(ofSize: 11, weight: UIFontWeightRegular)
+    open var font =  UIFont.systemFont(ofSize: 11, weight: UIFont.Weight.regular)
 
     let stackView:UIStackView = {
         
@@ -185,11 +185,11 @@ private class TabView: UIView {
                 if selected {
 
                     lbl.textColor = MAIN_COLOR
-                    lbl.font = UIFont.systemFont(ofSize: self.font.pointSize, weight: UIFontWeightBold)
+                    lbl.font = UIFont.systemFont(ofSize: self.font.pointSize, weight: UIFont.Weight.bold)
 
                 } else {
                     lbl.textColor = .black
-                    lbl.font = UIFont.systemFont(ofSize: self.font.pointSize, weight: UIFontWeightRegular)
+                    lbl.font = UIFont.systemFont(ofSize: self.font.pointSize, weight: UIFont.Weight.regular)
 
                 }
             }

@@ -22,7 +22,7 @@ extension UILabel{
     private func getHtmlStrign(_ string:String)->NSAttributedString{
         let attrStr = try! NSAttributedString(
             data: string.data(using: .unicode, allowLossyConversion: true)!,
-            options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue],
+            options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html, NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue],
             documentAttributes: nil)
         
         return attrStr
@@ -41,7 +41,7 @@ extension UILabel{
         
     }
     
-    public func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[String:Any]){
+    public func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[NSAttributedStringKey:Any]){
         
         let result = hk_getAttributeString(mainString, attributeString: attributeString, attributes: attributes)
         self.attributedText = result
@@ -49,7 +49,7 @@ extension UILabel{
     }
     
     
-    public func hk_setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[String:Any]]) {
+    public func hk_setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[NSAttributedStringKey:Any]]) {
         
         
         let result = hk_getMultipleAttributesString(mainString, attributeStrings: attributeStrings, total_attributes: total_attributes)

@@ -66,7 +66,7 @@ extension UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: action)
     }
     
-    open func hk_cancelClick(_ sender:AnyObject?){
+    @objc open func hk_cancelClick(_ sender:AnyObject?){
         self.dismiss(animated: true, completion: { () -> Void in
             
         })
@@ -373,7 +373,7 @@ extension UIViewController  {
         
     }
     
-    public func hk_addClick(){
+    @objc public func hk_addClick(){
         
     }
     

@@ -57,7 +57,7 @@ extension UITextField{
     public func hk_setPlaceHolderColor(_ color:UIColor){
         
         self.attributedPlaceholder = NSAttributedString(string:self.placeholder ?? "",
-            attributes:[NSForegroundColorAttributeName:color])
+            attributes:[NSAttributedStringKey.foregroundColor:color])
         
     }
     

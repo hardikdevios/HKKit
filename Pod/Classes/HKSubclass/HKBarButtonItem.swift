@@ -43,7 +43,7 @@ open class HKBarButtonItem: UIBarButtonItem {
 
     }
     
-    func buttonPressed()  {
+    @objc func buttonPressed()  {
         self.onClick?(self)
     }
 }

@@ -32,7 +32,7 @@ public class HKViewTab:HKCardView {
         return stackview
     } ()
 
-    open var font:UIFont = UIFont.systemFont(ofSize: 11, weight: UIFontWeightMedium)     
+    open var font:UIFont = UIFont.systemFont(ofSize: 11, weight: UIFont.Weight.medium)     
     open var textColor:UIColor = MAIN_COLOR
     open var data: [ViewPager]! {
         didSet {
@@ -180,7 +180,7 @@ fileprivate class WeekView:UIView {
         self.addGestureRecognizer(gesture)
     }
     
-    func onClick(){
+    @objc func onClick(){
         
         self.isSelected = !self.isSelected
         onSelect?(self)

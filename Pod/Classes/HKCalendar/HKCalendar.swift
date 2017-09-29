@@ -68,8 +68,8 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
         }
         lblFulldate.textAlignment = .center
         lblFulldate.text = self.getDayString()
-        lblFulldate.font = UIFont.systemFont(ofSize: 11, weight: UIFontWeightMedium)
-        viewDayTab.font = UIFont.systemFont(ofSize: 8, weight: UIFontWeightRegular)
+        lblFulldate.font = UIFont.systemFont(ofSize: 11, weight: UIFont.Weight.medium)
+        viewDayTab.font = UIFont.systemFont(ofSize: 8, weight: UIFont.Weight.regular)
         viewDayTab.textColor = .black
         viewDayTab.data = HK_ENUM_WEEKDAY.days
         
@@ -217,7 +217,7 @@ class HKCalendarContentController: UIViewController {
         
     }
     
-    func daySelect(_ gesture: UITapGestureRecognizer) {
+    @objc func daySelect(_ gesture: UITapGestureRecognizer) {
         
         guard let dayView = gesture.view as? HKCalenderDayView, dayView != selectedDayView  else {
             return
@@ -316,7 +316,7 @@ private class HKCalenderDayView: UIView {
     func setSelected(_ selected: Bool) {
         self.isSelected = selected
         if selected {
-            lblday.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
+            lblday.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
             lblday.textColor = .white
             backView.backgroundColor = MAIN_COLOR
             if self.day.compare(.isToday) {
@@ -325,7 +325,7 @@ private class HKCalenderDayView: UIView {
             
         } else {
             
-            lblday.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
+            lblday.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.regular)
             lblday.textColor = .black
             
             backView.backgroundColor = .clear

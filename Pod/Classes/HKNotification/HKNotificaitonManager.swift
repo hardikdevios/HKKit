@@ -50,16 +50,16 @@ public class HKNotificaitonManager:NSObject, UNUserNotificationCenterDelegate {
         let originalMethod = class_getInstanceMethod(originalClass, selector)
         let swizzledMethod = class_getInstanceMethod(self.classForCoder, replaceSelector)
         
-        let didAdd = class_addMethod(originalClass, selector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+        let didAdd = class_addMethod(originalClass, selector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
         
         if didAdd {
             
             class_replaceMethod(originalClass,
                                 selector,
-                                method_getImplementation(originalMethod),
-                                method_getTypeEncoding(originalMethod))
+                                method_getImplementation(originalMethod!),
+                                method_getTypeEncoding(originalMethod!))
         }else{
-            method_exchangeImplementations(originalMethod, swizzledMethod)
+            method_exchangeImplementations(originalMethod!, swizzledMethod!)
         }
         
         
@@ -95,7 +95,7 @@ public class HKNotificaitonManager:NSObject, UNUserNotificationCenterDelegate {
         
     }
     // Called when APNs failed to register the device for push notifications
-    public func hk_application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    @objc public func hk_application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         
         
     }
