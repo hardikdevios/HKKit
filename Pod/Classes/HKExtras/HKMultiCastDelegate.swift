@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class HKMulticastDelegate <T> {
+open class HKMulticastDelegate <T> {
     private let delegates: NSHashTable<AnyObject> = NSHashTable.weakObjects()
     
     public func add(delegate: T) {
@@ -29,10 +29,10 @@ class HKMulticastDelegate <T> {
     }
 }
 
-func += <T: AnyObject> (left: HKMulticastDelegate<T>, right: T) {
+public func += <T: AnyObject> (left: HKMulticastDelegate<T>, right: T) {
     left.add(delegate: right)
 }
 
-func -= <T: AnyObject> (left: HKMulticastDelegate<T>, right: T) {
+public func -= <T: AnyObject> (left: HKMulticastDelegate<T>, right: T) {
     left.remove(delegate: right)
 }

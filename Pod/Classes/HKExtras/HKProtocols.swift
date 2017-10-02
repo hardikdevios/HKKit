@@ -15,7 +15,7 @@ public protocol ViewPager{
 }
 
 
-protocol HKQueueConfirmation {
+public protocol HKQueueConfirmation {
     
     func completed(operation:HKOperation)
 }

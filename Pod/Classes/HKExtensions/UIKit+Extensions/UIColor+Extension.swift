@@ -10,55 +10,30 @@ import UIKit
 
 extension UIColor {
     
-    convenience public init(haxString:String) {
+    convenience public init(hexString:String) {
         
-        var red:   CGFloat = 0.0
-        var green: CGFloat = 0.0
-        var blue:  CGFloat = 0.0
-        var alpha: CGFloat = 1.0
+        let r, g, b, a: CGFloat
         
-        if haxString.hasPrefix("#") {
-            let index   = haxString.characters.index(haxString.startIndex, offsetBy: 1)
-            let hex     = String(haxString[..<index])
-            let scanner = Scanner(string: hex)
-            var hexValue: CUnsignedLongLong = 0
-            if scanner.scanHexInt64(&hexValue) {
-                switch (hex.characters.count) {
-                case 3:
-                    red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
-                    green = CGFloat((hexValue & 0x0F0) >> 4)       / 15.0
-                    blue  = CGFloat(hexValue & 0x00F)              / 15.0
-                    break
-                case 4:
-                    red   = CGFloat((hexValue & 0xF000) >> 12)     / 15.0
-                    green = CGFloat((hexValue & 0x0F00) >> 8)      / 15.0
-                    blue  = CGFloat((hexValue & 0x00F0) >> 4)      / 15.0
-                    alpha = CGFloat(hexValue & 0x000F)             / 15.0
-                    break
-                case 6:
-                    red   = CGFloat((hexValue & 0xFF0000) >> 16)   / 255.0
-                    green = CGFloat((hexValue & 0x00FF00) >> 8)    / 255.0
-                    blue  = CGFloat(hexValue & 0x0000FF)           / 255.0
-                    break
-                case 8:
-                    red   = CGFloat((hexValue & 0xFF000000) >> 24) / 255.0
-                    green = CGFloat((hexValue & 0x00FF0000) >> 16) / 255.0
-                    blue  = CGFloat((hexValue & 0x0000FF00) >> 8)  / 255.0
-                    alpha = CGFloat(hexValue & 0x000000FF)         / 255.0
-                    break
-                default:
-                    print("Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8", terminator: "")
-                    break
+        if hexString.hasPrefix("#") {
+            let start = hexString.index(hexString.startIndex, offsetBy: 1)
+            let hexColor = String(hexString[start...])
+            
+            if hexColor.count <= 8 {
+                let scanner = Scanner(string: hexColor)
+                var hexNumber: UInt64 = 0
+                
+                if scanner.scanHexInt64(&hexNumber) {
+                    r = CGFloat((hexNumber & 0xff0000) >> 16) / 255
+                    g = CGFloat((hexNumber & 0xff00) >> 8) / 255
+                    b = CGFloat(hexNumber & 0xff) / 255
+                    
+                    self.init(red: r, green: g, blue: b, alpha: 1)
+                    return
                 }
-            } else {
-                print("Scan hex error")
             }
-        } else {
-            print("Invalid RGB string, missing '#' as prefix", terminator: "")
         }
+        self.init(red: 0, green: 0, blue: 0, alpha: 1)
         
-        
-        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
     
     public class func getRandomColor() -> UIColor{

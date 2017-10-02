@@ -8,7 +8,7 @@
 
 import Foundation
 open class HKOperation : Operation {
-    static var delegate:HKMulticastDelegate<HKQueueConfirmation> =  HKMulticastDelegate<HKQueueConfirmation>()
+    public static var delegate:HKMulticastDelegate<HKQueueConfirmation> =  HKMulticastDelegate<HKQueueConfirmation>()
 
     override open var isAsynchronous: Bool {
         return true

@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "HKKit"
-  s.version          = "3.0.1"
+  s.version          = "3.0.2"
   s.summary          = "Perosnal repo"
   s.description      = "Faster app development use for my personal use only in order to import and maintain my Global functions and exetensons"
 
