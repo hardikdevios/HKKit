@@ -19,7 +19,7 @@ extension UIColor {
         
         if haxString.hasPrefix("#") {
             let index   = haxString.characters.index(haxString.startIndex, offsetBy: 1)
-            let hex     = haxString.substring(from: index)
+            let hex     = String(haxString[..<index])
             let scanner = Scanner(string: hex)
             var hexValue: CUnsignedLongLong = 0
             if scanner.scanHexInt64(&hexValue) {

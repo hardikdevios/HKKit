@@ -54,7 +54,7 @@ class PlanCell: UITableViewCell {
         
         let lbl = UILabel()
         lbl.textAlignment = .left
-        lbl.font = UIFont.systemFont(ofSize: 11, weight: UIFontWeightMedium)
+        lbl.font = UIFont.systemFont(ofSize: 11, weight: UIFont.Weight.medium)
         lbl.textColor = .white
         lbl.text = "Pre Workout Meal"
         return lbl

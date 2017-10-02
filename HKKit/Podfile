@@ -15,7 +15,7 @@ end
 target 'HKKit' do
    shared_pod
 end
-#target 'Example' do
-#    shared_pod
-#end
+target 'Example' do
+    shared_pod
+end
 
