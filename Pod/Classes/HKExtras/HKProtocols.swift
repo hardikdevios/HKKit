@@ -13,3 +13,9 @@ public protocol ViewPager{
     var title:String { get }
     
 }
+
+
+protocol HKQueueConfirmation {
+    
+    func completed(operation:HKOperation)
+}

@@ -8,7 +8,8 @@
 
 import Foundation
 open class HKOperation : Operation {
-    
+    static var delegate:HKMulticastDelegate<HKQueueConfirmation> =  HKMulticastDelegate<HKQueueConfirmation>()
+
     override open var isAsynchronous: Bool {
         return true
     }
@@ -44,6 +45,9 @@ open class HKOperation : Operation {
    open func completeOperation() {
         isExecuting = false
         isFinished  = true
+        HKOperation.delegate.invoke { (queue) in
+            queue.completed(operation: self)
+        }
     }
     
     override open func start() {

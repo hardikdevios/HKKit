@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		0A02D8761F82852B002C213C /* HKNetworkOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A02D8751F82852B002C213C /* HKNetworkOperationQueue.swift */; };
+		0A02D8781F82B62E002C213C /* HKMultiCastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A02D8771F82B62E002C213C /* HKMultiCastDelegate.swift */; };
 		0A0D82C31F69B863006333BE /* HKCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D82C01F69B863006333BE /* HKCalendar.swift */; };
 		0A0D82C71F69B8DF006333BE /* HKEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D82C61F69B8DF006333BE /* HKEnums.swift */; };
 		0AC4DEBA1F6AE7B80005D5C5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4DEB81F6AE7B80005D5C5 /* TableViewController.swift */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		0A02D8751F82852B002C213C /* HKNetworkOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKNetworkOperationQueue.swift; sourceTree = "<group>"; };
+		0A02D8771F82B62E002C213C /* HKMultiCastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKMultiCastDelegate.swift; sourceTree = "<group>"; };
 		0A0D82C01F69B863006333BE /* HKCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKCalendar.swift; sourceTree = "<group>"; };
 		0A0D82C61F69B8DF006333BE /* HKEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKEnums.swift; sourceTree = "<group>"; };
 		0A490E041F6EF7C200AD706D /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -338,6 +340,7 @@
 				56EBA9671ED06A7900C743F7 /* HKConstant.swift */,
 				5667C9F51ED59E5400F930AD /* HKFunctions.swift */,
 				56631AA71F62923B007CAE4C /* HKProtocols.swift */,
+				0A02D8771F82B62E002C213C /* HKMultiCastDelegate.swift */,
 			);
 			path = HKExtras;
 			sourceTree = "<group>";
@@ -515,7 +518,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "pod trunk push ./../HKKit.podspec --verbose";
+			shellScript = "pod trunk push ./../HKKit.podspec --allow-warnings --verbose\n";
 		};
 		8D8949869CE43537BF91D8DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -660,6 +663,7 @@
 				56EBA97E1ED06A7900C743F7 /* UITableViewCell+Extension.swift in Sources */,
 				56631A9F1F628EA7007CAE4C /* HKEmptyCell.swift in Sources */,
 				56EBA9731ED06A7900C743F7 /* Float+Extension.swift in Sources */,
+				0A02D8781F82B62E002C213C /* HKMultiCastDelegate.swift in Sources */,
 				0A02D8761F82852B002C213C /* HKNetworkOperationQueue.swift in Sources */,
 				563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */,
 				56EBA9761ED06A7900C743F7 /* String+Extension.swift in Sources */,
