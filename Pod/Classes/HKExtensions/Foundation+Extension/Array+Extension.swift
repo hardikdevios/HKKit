@@ -37,7 +37,7 @@ extension Array {
     
 }
 
-extension Collection where Indices.Iterator.Element == Index {
+extension Collection {
     
     
     public subscript (safe index: Index) -> Iterator.Element? {

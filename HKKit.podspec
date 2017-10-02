@@ -1,9 +1,9 @@
 
 Pod::Spec.new do |s|
   s.name             = "HKKit"
-  s.version          = "2.9"
+  s.version          = "3.0.1"
   s.summary          = "Perosnal repo"
-  s.description      = "Faster app development use for my personal use only in order to import and maintain my gloabal funcations"
+  s.description      = "Faster app development use for my personal use only in order to import and maintain my Global functions and exetensons"
 
   s.homepage         = "https://github.com/hardikdevios/HKKit"
   s.license          = 'MIT'
@@ -14,9 +14,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  # s.resource_bundles = {
-  #   'HKKit' => ['Pod/Assets/*.png']
-  # }
+
   s.dependency 'Alamofire'
   s.dependency 'SwiftyJSON'
   s.dependency 'AlamofireImage'

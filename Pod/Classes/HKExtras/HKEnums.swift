@@ -20,11 +20,11 @@ public enum HK_ENUM_WEEKDAY: String,ViewPager {
     case Saturday = "Saturday"
     
     
-    public var mainValue:Int{
+  public var mainValue:Int{
         
         switch self {
         case .Sunday:
-            return 0
+            return 7
             
         case .Monday:
             return 1
@@ -43,6 +43,16 @@ public enum HK_ENUM_WEEKDAY: String,ViewPager {
         default:
             return -1
         }
+        
+    }
+    public static func getDay(fromInt:Int)->HK_ENUM_WEEKDAY {
+        
+        return self.days.filter({$0.mainValue == fromInt}).first ?? HK_ENUM_WEEKDAY.ALL
+    }
+    public func getShortName(characters:Int = 2,capital:Bool = true ) -> String {
+        
+        let string = String(self.rawValue.characters.prefix(characters))
+        return string.uppercased()
         
     }
     
