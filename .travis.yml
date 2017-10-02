@@ -2,8 +2,7 @@ language: objective-c
 osx_image: xcode9
 
 install:
-  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+  - gem install cocoapods
+  - pod --version
   - sh ./Pod_trunk.sh
 skip_cleanup: true
-on:
-    tags: true

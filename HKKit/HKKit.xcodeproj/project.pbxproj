@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0A02D8761F82852B002C213C /* HKNetworkOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A02D8751F82852B002C213C /* HKNetworkOperationQueue.swift */; };
 		0A0D82C31F69B863006333BE /* HKCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D82C01F69B863006333BE /* HKCalendar.swift */; };
 		0A0D82C71F69B8DF006333BE /* HKEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D82C61F69B8DF006333BE /* HKEnums.swift */; };
 		0AC4DEBA1F6AE7B80005D5C5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4DEB81F6AE7B80005D5C5 /* TableViewController.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A02D8751F82852B002C213C /* HKNetworkOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKNetworkOperationQueue.swift; sourceTree = "<group>"; };
 		0A0D82C01F69B863006333BE /* HKCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKCalendar.swift; sourceTree = "<group>"; };
 		0A0D82C61F69B8DF006333BE /* HKEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKEnums.swift; sourceTree = "<group>"; };
 		0A490E041F6EF7C200AD706D /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -339,6 +341,7 @@
 		56EBA9681ED06A7900C743F7 /* HKSubclass */ = {
 			isa = PBXGroup;
 			children = (
+				0A02D8751F82852B002C213C /* HKNetworkOperationQueue.swift */,
 				5678BBC31F7CD4DE000012D1 /* HKOperation.swift */,
 				56EBA9691ED06A7900C743F7 /* HKAlamofireImageView.swift */,
 				56EBA96A1ED06A7900C743F7 /* HKCardView.swift */,
@@ -582,6 +585,7 @@
 				56EBA97E1ED06A7900C743F7 /* UITableViewCell+Extension.swift in Sources */,
 				56631A9F1F628EA7007CAE4C /* HKEmptyCell.swift in Sources */,
 				56EBA9731ED06A7900C743F7 /* Float+Extension.swift in Sources */,
+				0A02D8761F82852B002C213C /* HKNetworkOperationQueue.swift in Sources */,
 				563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */,
 				56EBA9761ED06A7900C743F7 /* String+Extension.swift in Sources */,
 				0A0D82C31F69B863006333BE /* HKCalendar.swift in Sources */,
