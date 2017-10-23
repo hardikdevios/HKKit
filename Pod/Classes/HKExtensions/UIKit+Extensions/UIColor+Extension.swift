@@ -12,7 +12,7 @@ extension UIColor {
     
     convenience public init(hexString:String) {
         
-        let r, g, b, a: CGFloat
+        let r, g, b: CGFloat
         
         if hexString.hasPrefix("#") {
             let start = hexString.index(hexString.startIndex, offsetBy: 1)

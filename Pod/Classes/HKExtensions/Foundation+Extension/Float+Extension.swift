@@ -12,11 +12,11 @@ extension Float{
     
     public func hk_getTwoDecimal() -> String{
         
-        return String(format: "%.2f",self)
+        return self.hk_decimalPoint(2)
     }
     public func hk_getOneDecimal() -> String{
         
-        return String(format: "%.f",self)
+        return self.hk_decimalPoint(1)
     }
 }
 
