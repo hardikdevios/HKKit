@@ -89,7 +89,7 @@ extension UITextField{
     
     public func hk_isEmail() -> Bool {
         let regex = try? NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2}", options: .caseInsensitive)
-        return regex?.firstMatch(in: self.text!.hk_trimWhiteSpace()!, options: [], range: NSMakeRange(0, self.text!.hk_trimWhiteSpace()!.characters.count)) != nil
+        return regex?.firstMatch(in: self.text!.hk_trimWhiteSpace()!, options: [], range: NSMakeRange(0, self.text!.hk_trimWhiteSpace()!.count)) != nil
     }
     
     public func hk_shake(){

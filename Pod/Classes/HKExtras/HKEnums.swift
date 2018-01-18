@@ -51,7 +51,7 @@ public enum HK_ENUM_WEEKDAY: String,ViewPager {
     }
     public func getShortName(characters:Int = 2,capital:Bool = true ) -> String {
         
-        let string = String(self.rawValue.characters.prefix(characters))
+        let string = String(self.rawValue.prefix(characters))
         return string.uppercased()
         
     }
@@ -65,7 +65,7 @@ public enum HK_ENUM_WEEKDAY: String,ViewPager {
             if self == .ALL {
                 return "ALL"
             }
-            return String(self.rawValue[self.rawValue.characters.index(self.rawValue.startIndex, offsetBy: 0)])
+            return String(self.rawValue[self.rawValue.index(self.rawValue.startIndex, offsetBy: 0)])
         }
     }
     public var title:String{
@@ -73,7 +73,7 @@ public enum HK_ENUM_WEEKDAY: String,ViewPager {
             if self == .ALL {
                 return "ALL"
             }
-            let string = String(self.rawValue.characters.prefix(3))
+            let string = String(self.rawValue.prefix(3))
             return string.uppercased()
         }
         

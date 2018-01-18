@@ -17,7 +17,7 @@ internal func hk_getAttributeString(_ mainString:String,attributeString:String,a
     guard let range = value else {
         return attrString
     }
-    attrString.addAttributes(attributes, range: NSMakeRange((mainString.characters.distance(from: mainString.startIndex, to: range.lowerBound)),attributeString.characters.count))
+    attrString.addAttributes(attributes, range: NSMakeRange((mainString.distance(from: mainString.startIndex, to: range.lowerBound)),attributeString.count))
     return attrString
         
 
@@ -32,7 +32,7 @@ internal func hk_getMultipleAttributesString(_ mainString:String,attributeString
         
         if range != nil {
             
-            attrString.addAttributes(total_attributes[index], range: NSMakeRange((mainString.characters.distance(from: mainString.startIndex, to: range!.lowerBound)),string.characters.count))
+            attrString.addAttributes(total_attributes[index], range: NSMakeRange((mainString.distance(from: mainString.startIndex, to: range!.lowerBound)),string.count))
             
             
         }else{

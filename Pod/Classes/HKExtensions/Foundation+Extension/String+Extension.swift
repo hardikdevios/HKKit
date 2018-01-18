@@ -49,7 +49,7 @@ extension String {
      
         let range = self.range(of: self)
         
-       return NSMakeRange(self.characters.distance(from: self.startIndex, to: range!.lowerBound),self.characters.count)
+       return NSMakeRange(self.distance(from: self.startIndex, to: range!.lowerBound),self.count)
 
     }
     
@@ -92,7 +92,7 @@ extension String {
     public func hk_isEmailValid()-> Bool {
         
         let regex = try? NSRegularExpression(pattern: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", options: .caseInsensitive)
-        return regex?.firstMatch(in: self.hk_trimWhiteSpace()!, options: [], range: NSMakeRange(0, self.hk_trimWhiteSpace()!.characters.count)) != nil
+        return regex?.firstMatch(in: self.hk_trimWhiteSpace()!, options: [], range: NSMakeRange(0, self.hk_trimWhiteSpace()!.count)) != nil
         
         
     }
