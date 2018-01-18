@@ -24,7 +24,7 @@ extension String {
         return (self as NSString).floatValue
     }
     
-    public static var hk_uniqueGUID:String {
+    static var hk_uniqueGUID:String {
         get {
             return UUID().uuidString
         }
