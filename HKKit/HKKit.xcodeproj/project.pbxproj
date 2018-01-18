@@ -43,6 +43,7 @@
 		56631AA61F628F06007CAE4C /* HKViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56631AA41F628F06007CAE4C /* HKViewTab.swift */; };
 		56631AA81F62923B007CAE4C /* HKProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56631AA71F62923B007CAE4C /* HKProtocols.swift */; };
 		56631AAA1F62937B007CAE4C /* HKNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56631AA91F62937B007CAE4C /* HKNibView.swift */; };
+		566320062010D334000271F5 /* HKDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566320052010D334000271F5 /* HKDevice.swift */; };
 		5667C9DB1ED57E2400F930AD /* HKTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9DA1ED57E2400F930AD /* HKTableView.swift */; };
 		5667C9E31ED5829100F930AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9E21ED5829100F930AD /* AppDelegate.swift */; };
 		5667C9E51ED5829100F930AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667C9E41ED5829100F930AD /* ViewController.swift */; };
@@ -105,6 +106,7 @@
 		56631AA41F628F06007CAE4C /* HKViewTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKViewTab.swift; sourceTree = "<group>"; };
 		56631AA71F62923B007CAE4C /* HKProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKProtocols.swift; sourceTree = "<group>"; };
 		56631AA91F62937B007CAE4C /* HKNibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKNibView.swift; sourceTree = "<group>"; };
+		566320052010D334000271F5 /* HKDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKDevice.swift; sourceTree = "<group>"; };
 		5667C9DA1ED57E2400F930AD /* HKTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKTableView.swift; sourceTree = "<group>"; };
 		5667C9E01ED5829100F930AD /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5667C9E21ED5829100F930AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				5667C9F51ED59E5400F930AD /* HKFunctions.swift */,
 				56631AA71F62923B007CAE4C /* HKProtocols.swift */,
 				0A02D8771F82B62E002C213C /* HKMultiCastDelegate.swift */,
+				566320052010D334000271F5 /* HKDevice.swift */,
 			);
 			path = HKExtras;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */,
 				56EBA9761ED06A7900C743F7 /* String+Extension.swift in Sources */,
 				0A0D82C31F69B863006333BE /* HKCalendar.swift in Sources */,
+				566320062010D334000271F5 /* HKDevice.swift in Sources */,
 				56EBA9891ED06A7900C743F7 /* HKTextField.swift in Sources */,
 				56EBA9801ED06A7900C743F7 /* UITextView+Extension.swift in Sources */,
 				56EBA9721ED06A7900C743F7 /* Dictionary+Extension.swift in Sources */,

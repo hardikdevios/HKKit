@@ -51,7 +51,18 @@ extension RangeReplaceableCollection where Iterator.Element : Equatable {
 }
 
 
-
+extension UIDevice {
+    
+    
+    public var hk_deviceUUID:String {
+        
+        guard let uuid = self.identifierForVendor?.uuidString else {
+            return ""
+        }
+        return uuid
+    }
+    
+}
 public func ==(lhs: Date, rhs: Date) -> Bool {
     return lhs.compare(rhs) == .orderedSame
 }
