@@ -20,7 +20,7 @@ extension Alamofire.SessionManager
             guard let string = task.currentRequest?.url?.description else{
                 continue
             }
-            if string.hasPrefix(MAIN_URL + url)
+            if string.hasPrefix(HKConstant.sharedInstance.main_url + url)
             {
                 task.cancel()
             }

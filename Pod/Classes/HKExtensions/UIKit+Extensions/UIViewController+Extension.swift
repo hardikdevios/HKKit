@@ -14,7 +14,7 @@ extension UIViewController {
     
     public func hk_setAppLogo(){
         
-        let imgView:UIImageView = UIImageView(image: UIImage(named: MAIN_LOGO))
+        let imgView:UIImageView = UIImageView(image: UIImage(named: HKConstant.sharedInstance.main_logo))
         imgView.contentMode = .scaleAspectFit
         // let barbutton:UIBarButtonItem = UIBarButtonItem(customView: imgView)
         self.navigationItem.titleView = imgView
@@ -22,7 +22,7 @@ extension UIViewController {
     
     public func hk_setAppLogoLeft(){
         
-        let imgView:UIImageView = UIImageView(image: UIImage(named: MAIN_LOGO))
+        let imgView:UIImageView = UIImageView(image: UIImage(named: HKConstant.sharedInstance.main_logo))
         imgView.contentMode = .center
         let barbutton:UIBarButtonItem = UIBarButtonItem(customView: imgView)
         self.navigationItem.leftBarButtonItem = barbutton
@@ -125,7 +125,7 @@ extension UIViewController {
         activity.isHidden = false
         let barbuttonActivity = UIBarButtonItem(customView: activity)
         activity.startAnimating()
-        activity.color = MAIN_COLOR
+        activity.color = HKConstant.sharedInstance.main_color
         self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),barbuttonActivity,UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)]
         
     }

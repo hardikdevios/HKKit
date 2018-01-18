@@ -26,7 +26,7 @@ extension UITextField{
         let border = CALayer()
         
         let width = CGFloat(1)
-        border.borderColor = MAIN_COLOR.cgColor
+        border.borderColor = HKConstant.sharedInstance.main_color.cgColor
         border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
         
         border.borderWidth = width

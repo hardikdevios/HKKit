@@ -96,7 +96,7 @@ open class HKViewPager: HKCardView {
 
     func setUp() {
 
-        indicator.backgroundColor = MAIN_COLOR
+        indicator.backgroundColor = HKConstant.sharedInstance.main_color
         addSubview(indicator)
         addSubview(stackView)
         
@@ -184,7 +184,7 @@ private class TabView: UIView {
 
                 if selected {
 
-                    lbl.textColor = MAIN_COLOR
+                    lbl.textColor = HKConstant.sharedInstance.main_color
                     lbl.font = UIFont.systemFont(ofSize: self.font.pointSize, weight: UIFont.Weight.bold)
 
                 } else {

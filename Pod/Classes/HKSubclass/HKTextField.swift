@@ -149,7 +149,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
             setTitlePositionForTextAlignment()
             let isResp = isFirstResponder
             if isResp && !text!.isEmpty {
-                title.textColor = MAIN_COLOR
+                title.textColor = HKConstant.sharedInstance.main_color
             } else {
                 title.textColor = titleTextColour
             }

@@ -33,7 +33,7 @@ public class HKViewTab:HKCardView {
     } ()
 
     open var font:UIFont = UIFont.systemFont(ofSize: 11, weight: UIFont.Weight.medium)     
-    open var textColor:UIColor = MAIN_COLOR
+    open var textColor:UIColor = HKConstant.sharedInstance.main_color
     open var data: [ViewPager]! {
         didSet {
            self.reloadData()

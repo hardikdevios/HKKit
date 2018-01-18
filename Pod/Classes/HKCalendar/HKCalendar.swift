@@ -19,14 +19,14 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
     
     let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     public var dateChangeHandler: ((Date) -> Void)?
-
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         setUp()
     }
     
     
-
+    
     fileprivate func setUp() {
         
         
@@ -34,9 +34,9 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
         view.addSubview(viewDayTab)
         view.addSubview(containerView)
         view.addSubview(lblFulldate)
-
+        
         containerView.addSubview(pageController.view)
-
+        
         constrain(viewDayTab, containerView,lblFulldate) { (first, second, third) in
             
             first.width == first.superview!.width
@@ -59,7 +59,7 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
             
             
         }
-
+        
         
         constrain(pageController.view) { (view) in
             
@@ -81,8 +81,8 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
         
         self.updateWithDay(animated:true)
     }
-   
-   
+    
+    
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         guard let obj = viewController as? HKCalendarContentController else {
@@ -112,18 +112,18 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
             }
             controller.selectedDayView?.setSelected(true)
             previous.selectedDayView?.setSelected(false)
-
+            
         }
         
     }
-
+    
     
     fileprivate func getViewController(_ week: Date,day:Date? = nil ) -> HKCalendarContentController? {
         
         let obj = HKCalendarContentController()
         obj.selectedWeek = week
         obj.selectedDay = day
-        obj.dateChangeHandler = { day in
+        obj.dateChangeHandler = { [unowned self] day in
             
             self.lblFulldate.text = self.getDayString(day: day)
             self.dateChangeHandler?(day)
@@ -131,7 +131,7 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
         }
         
         return obj
-    
+        
     }
     
     func updateWithDay(_ day: Date = Date().dateFor(.startOfDay), animated: Bool = false) {
@@ -139,7 +139,7 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
         pageController.setViewControllers([getViewController(day.dateFor(.startOfWeek), day:selectedDay)!], direction: .forward, animated: animated, completion: nil)
     }
     
-  
+    
     func getDayString(day:Date = Date())->String{
         
         return day.toString(format: DateFormatType.custom("EEEE MMMM dd, yyyy"))
@@ -153,7 +153,7 @@ class HKCalendarContentController: UIViewController {
     fileprivate var selectedDay: Date?
     fileprivate var arrayViews: [HKCalenderDayView] = []
     var dateChangeHandler: ((Date) -> Void)?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,7 +192,7 @@ class HKCalendarContentController: UIViewController {
         self.setUpConstraints(arrayViews)
     }
     
- 
+    
     func setUpConstraints(_ arrayViews: [UIView]) {
         
         constrain(arrayViews) { (layoutViews) in
@@ -200,7 +200,7 @@ class HKCalendarContentController: UIViewController {
             for (index, aView) in layoutViews.enumerated() {
                 
                 aView.height == aView.superview!.height
-                aView.width == aView.superview!.width / 7 
+                aView.width == aView.superview!.width / 7
                 aView.top == aView.superview!.top
                 aView.centerY == aView.superview!.centerY
                 
@@ -225,7 +225,7 @@ class HKCalendarContentController: UIViewController {
         self.selectedDay = dayView.day
         self.updateSelection(dayView)
         self.dateChangeHandler?(dayView.day)
-
+        
         
     }
     
@@ -249,7 +249,7 @@ private class HKCalenderDayView: UIView {
         self.init(frame:CGRect.zero)
         self.day = day
         self.isSelected = isSelected
-    
+        
         self.setUp()
         self.setSelected(isSelected)
         
@@ -276,7 +276,7 @@ private class HKCalenderDayView: UIView {
         lblday.numberOfLines = 0
         addSubview(backView)
         addSubview(lblday)
-
+        
         self.setUpConstraints()
         self.updateColors()
         
@@ -310,7 +310,7 @@ private class HKCalenderDayView: UIView {
         }else{
             
         }
-
+        
     }
     
     func setSelected(_ selected: Bool) {
@@ -318,7 +318,7 @@ private class HKCalenderDayView: UIView {
         if selected {
             lblday.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
             lblday.textColor = .white
-            backView.backgroundColor = MAIN_COLOR
+            backView.backgroundColor = HKConstant.sharedInstance.main_color
             if self.day.compare(.isToday) {
                 self.backView.backgroundColor = UIColor.red.withAlphaComponent(0.7)
             }
@@ -336,12 +336,13 @@ private class HKCalenderDayView: UIView {
             if self.day.compare(.isWeekend) {
                 
                 lblday.textColor = UIColor.black.withAlphaComponent(0.3)
-
+                
             }
             
         }
         
     }
- 
+    
     
 }
+

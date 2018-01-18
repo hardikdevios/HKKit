@@ -24,7 +24,7 @@ extension UIButton{
             self.alpha = 1.0
         }
     }
-    public func hk_appleBootStrapTheme(_ color:UIColor = MAIN_COLOR){
+    public func hk_appleBootStrapTheme(_ color:UIColor = HKConstant.sharedInstance.main_color){
         
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 2

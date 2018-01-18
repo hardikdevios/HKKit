@@ -11,10 +11,10 @@ import AlamofireImage
 
 extension UIView{
     public func hk_setAppBackGround()->Void{
-        self.backgroundColor = MAIN_COLOR
+        self.backgroundColor = HKConstant.sharedInstance.main_color
     }
     public func hk_setAppBackGroundWithAlpha(_ alpha:CGFloat)->Void{
-        self.backgroundColor = MAIN_COLOR.withAlphaComponent(alpha)
+        self.backgroundColor = HKConstant.sharedInstance.main_color.withAlphaComponent(alpha)
     }
     
     public func hk_setAppDisableColor()->Void{
@@ -140,7 +140,7 @@ extension UIView {
     
     public func hk_setAppTintColor(){
         
-        self.tintColor = MAIN_COLOR
+        self.tintColor = HKConstant.sharedInstance.main_color
     }
     
     

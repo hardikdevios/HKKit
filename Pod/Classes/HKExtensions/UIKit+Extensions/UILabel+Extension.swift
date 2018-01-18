@@ -10,7 +10,7 @@ import UIKit
 
 extension UILabel{
     public func hk_setAppTextColor()->Void{
-        self.textColor = MAIN_COLOR
+        self.textColor = HKConstant.sharedInstance.main_color
     }
 
     public func hk_setDefaultText(_ defaultText:String!)->Void{
