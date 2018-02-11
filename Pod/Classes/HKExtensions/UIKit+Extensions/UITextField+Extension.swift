@@ -75,17 +75,18 @@ extension UITextField {
 extension UITextField{
     
     
-    public func hk_isEmpty()->Int{
+    public func hk_isEmpty()->Bool{
         if self.text!.hk_trimWhiteSpace() != "" {
-            return 0
+            return false
         }
         
         if let textfield = self as? HKTextField{
             textfield.hk_setPlaceHolderColor(textfield.validationErrorColor)
         }
         self.hk_shake()
-        return 1
+        return true
     }
+    
     
     public func hk_isEmail() -> Bool {
         let regex = try? NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2}", options: .caseInsensitive)

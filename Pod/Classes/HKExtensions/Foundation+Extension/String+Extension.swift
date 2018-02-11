@@ -102,6 +102,8 @@ extension String {
         let regx = "\\d{0,5}(\\.\\d{0,2})?"
         return NSPredicate(format: "SELF MATCHES %@", regx).evaluate(with: self)
     }
+    
+    
 
     
     
