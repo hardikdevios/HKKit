@@ -22,7 +22,7 @@ pod "HKKit"
 
 ## Author
 
-Hardik, hardik@praxinfo.com
+Hardik, hardik@thetatechnolabs.com
 
 ## License
 
