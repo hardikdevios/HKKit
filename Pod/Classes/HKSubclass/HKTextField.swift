@@ -12,14 +12,14 @@ public typealias cl_textfield_text = ((HKTextField,String,String)->Bool?)
 public typealias cl_textfield = ((HKTextField)->Bool?)
 
 open class HKTextField: UITextField,UITextFieldDelegate {
-    var padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 10);
+    open var padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 10);
     open var needBottomBorder:Bool = false
     open var bottomBorder:CALayer?
     open var validationErrorColor:UIColor = UIColor.red.withAlphaComponent(0.5)
     var objDelegate:HKTextFieldDelegate = HKTextFieldDelegate()
     let animationDuration = 0.3
     var title = UILabel()
-    
+    open var onBackWardclick:((HKTextField)->())?
     open override var delegate: UITextFieldDelegate? {
         
         didSet{
@@ -76,7 +76,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     }
     
     
-    @IBInspectable var isFloting:Bool = false {
+    @IBInspectable open var isFloting:Bool = false {
         
         didSet{
             self.title.isHidden = !self.isFloting
@@ -194,7 +194,11 @@ open class HKTextField: UITextField,UITextFieldDelegate {
         return self.newBounds(bounds)
 
     }
- 
+    
+    override open func deleteBackward() {
+        super.deleteBackward()
+        self.onBackWardclick?(self)
+    }
     fileprivate func newBounds(_ bounds: CGRect,extraPadding:CGFloat = 25.0) -> CGRect {
         var newBounds = bounds
         let leftWidth = self.leftView?.frame.width ?? 0

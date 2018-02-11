@@ -10,21 +10,21 @@ import Foundation
 
 public class HKDevice {
     
-    public static let appname = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
-    public static let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+    static let appname = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
+    static let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+
     
-    
-    public static let device_id = UIDevice.current.hk_deviceUUID
-    public static let device_deviceLocalizedModel = UIDevice.current.localizedModel
-    public static let device_name = UIDevice.current.name
-    public static let device_model = UIDevice.current.model
-    public static let device_system_version = UIDevice.current.systemVersion
-    public static let device_system_name = UIDevice.current.systemName
-    public static let device_platform = platform()
-    public static let device_os = "iOS"
-    public static let current_appname = appname
-    public static let current_appversion = version
-    
+    static let device_id = UIDevice.current.hk_deviceUUID
+    static let device_deviceLocalizedModel = UIDevice.current.localizedModel
+    static let device_name = UIDevice.current.name
+    static let device_model = UIDevice.current.model
+    static let device_system_version = UIDevice.current.systemVersion
+    static let device_system_name = UIDevice.current.systemName
+    static let device_platform = platform()
+    static let device_os = "iOS"
+    static let current_appname = appname
+    static let current_appversion = version
+
     
     class func platform() -> String {
         var sysinfo = utsname()
@@ -36,4 +36,3 @@ public class HKDevice {
     
     
 }
-

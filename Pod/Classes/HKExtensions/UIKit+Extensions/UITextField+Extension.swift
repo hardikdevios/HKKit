@@ -75,16 +75,16 @@ extension UITextField {
 extension UITextField{
     
     
-    public func hk_isEmpty()->Bool{
+    public func hk_isEmpty()->Int{
         if self.text!.hk_trimWhiteSpace() != "" {
-            return false
+            return 0
         }
         
         if let textfield = self as? HKTextField{
             textfield.hk_setPlaceHolderColor(textfield.validationErrorColor)
         }
         self.hk_shake()
-        return true
+        return 1
     }
     
     public func hk_isEmail() -> Bool {

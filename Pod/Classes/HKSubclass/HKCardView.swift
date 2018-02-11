@@ -9,7 +9,7 @@
 import UIKit
 
 open class HKCardView: UIView {
-    
+
     open var radius: CGFloat = 2
     open var shadowOpacity: Float = 0.3
     open var shadowRadius: CGFloat = 3.0
@@ -27,7 +27,7 @@ open class HKCardView: UIView {
             layer.shadowRadius = shadowRadius
             layer.shadowPath = shadowPath.cgPath
         }
-        
+       
     }
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +35,5 @@ open class HKCardView: UIView {
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
-    
-}
 
+}
