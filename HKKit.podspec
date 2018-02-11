@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = "https://github.com/hardikdevios/HKKit"
   s.license          = 'MIT'
-  s.author           = { "Hardik" => "hardik@praxinfo.com" }
+  s.author           = { "Hardik" => "hardik@thetatechnolabs.com" }
   s.source           = { :git => "https://github.com/hardikdevios/HKKit.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '9.0'
