@@ -30,6 +30,7 @@ open class HKAlamofireImageView: UIImageView {
     public func downloadImage(url:URL?,placeHolder:UIImage,imageType:HKAlamofireImageType = .normal,clouser:(()->())? = nil) {
         self.image = placeHolder
         guard let url = url else {
+            clouser?()
             return
         }
         

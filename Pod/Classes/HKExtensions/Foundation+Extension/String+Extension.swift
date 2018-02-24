@@ -128,9 +128,9 @@ extension String {
         return URLRequest(url: URL(string:self.hk_encodeURL)!)
     }
     
-    public var hk_toURL:URL{
+    public var hk_toURL:URL?{
         
-        return URL(string:self.hk_encodeURL)!
+        return URL(string:self.hk_encodeURL)
     }
     
     public func hk_htmlNormalString()->String{

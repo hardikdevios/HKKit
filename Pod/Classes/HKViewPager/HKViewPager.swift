@@ -12,7 +12,7 @@ import Cartography
 
 open class HKViewPager: HKCardView {
 
-    let indicator = UIView()
+    open let indicator = UIView()
     open var group: ConstraintGroup!
     open var leading: NSLayoutConstraint!
 
@@ -20,7 +20,7 @@ open class HKViewPager: HKCardView {
     open var isUpperCase: Bool = false
 
     open var font =  UIFont.systemFont(ofSize: 11, weight: UIFont.Weight.regular)
-
+    open var indicatorColor = HKConstant.sharedInstance.main_color
     let stackView:UIStackView = {
         
         let stackview = UIStackView()
@@ -89,14 +89,14 @@ open class HKViewPager: HKCardView {
             view.width == view.superview!.width
             view.top == view.superview!.top
             view.bottom == view.superview!.bottom - 3
-            view.center == view.superview!.center
+            view.centerX == view.superview!.centerX
         }
 
     }
 
     func setUp() {
 
-        indicator.backgroundColor = HKConstant.sharedInstance.main_color
+        indicator.backgroundColor = indicatorColor
         addSubview(indicator)
         addSubview(stackView)
         
