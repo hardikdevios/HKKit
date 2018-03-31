@@ -10,10 +10,12 @@ import UIKit
 
 open class HKCardView: UIView {
 
-    open var radius: CGFloat = 2
+    open var radius: CGFloat = 3
     open var shadowOpacity: Float = 0.3
     open var shadowRadius: CGFloat = 3.0
     open var isShadowVisible:Bool = true
+    open var shadowColor: UIColor = UIColor.black
+    
     override open func layoutSubviews() {
         super.layoutSubviews()
         if isShadowVisible {
@@ -21,7 +23,7 @@ open class HKCardView: UIView {
             let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radius)
             
             layer.masksToBounds = false
-            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowColor = shadowColor.cgColor
             layer.shadowOffset = CGSize(width: 0, height: 0);
             layer.shadowOpacity = shadowOpacity
             layer.shadowRadius = shadowRadius

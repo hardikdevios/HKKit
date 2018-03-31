@@ -19,6 +19,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     var objDelegate:HKTextFieldDelegate = HKTextFieldDelegate()
     let animationDuration = 0.3
     var title = UILabel()
+    open var onBackWardclick:((HKTextField)->())?
     
     open override var delegate: UITextFieldDelegate? {
         
@@ -273,6 +274,11 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     }
 
     
+    override open func deleteBackward() {
+        super.deleteBackward()
+        self.onBackWardclick?(self)
+    }
+
    
 }
 
