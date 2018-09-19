@@ -133,7 +133,7 @@ public protocol RelativeCompoundInequality : Compound { }
     ///
 
     @discardableResult public func >= <P: RelativeEquality>(lhs: P, rhs: LayoutSupport) -> NSLayoutConstraint {
-        return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutRelation.greaterThanOrEqual)
+        return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutConstraint.Relation.greaterThanOrEqual)
     }
     
     /// Declares a property less than or equal to a layout support.
@@ -146,7 +146,7 @@ public protocol RelativeCompoundInequality : Compound { }
     ///
 
     @discardableResult public func <= <P: RelativeEquality>(lhs: P, rhs: LayoutSupport) -> NSLayoutConstraint {
-        return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutRelation.lessThanOrEqual)
+        return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutConstraint.Relation.lessThanOrEqual)
     }
 
     /// Declares a property greater than or equal to the result of a layout support expression.
@@ -159,7 +159,7 @@ public protocol RelativeCompoundInequality : Compound { }
     ///
 
     @discardableResult public func >= <P: RelativeEquality>(lhs: P, rhs: Expression<LayoutSupport>) -> NSLayoutConstraint {
-        return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients[0], relation: NSLayoutRelation.greaterThanOrEqual)
+        return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients[0], relation: NSLayoutConstraint.Relation.greaterThanOrEqual)
     }
 
     /// Declares a property less than or equal to the result of a layout support expression.
@@ -172,7 +172,7 @@ public protocol RelativeCompoundInequality : Compound { }
     ///
 
     @discardableResult public func <= <P: RelativeEquality>(lhs: P, rhs: Expression<LayoutSupport>) -> NSLayoutConstraint {
-        return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients[0], relation: NSLayoutRelation.lessThanOrEqual)
+        return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients[0], relation: NSLayoutConstraint.Relation.lessThanOrEqual)
     }
     
 #endif

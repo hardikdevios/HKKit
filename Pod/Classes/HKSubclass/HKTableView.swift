@@ -13,7 +13,7 @@ open class HKTableView: UITableView {
 
     public var onLoadMore:(()->())?
 
-    override init(frame: CGRect, style: UITableViewStyle) {
+    override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         setUp()
     }
@@ -27,7 +27,7 @@ open class HKTableView: UITableView {
     public func setUp(){
         
         self.keyboardDismissMode = .onDrag
-        self.rowHeight = UITableViewAutomaticDimension
+        self.rowHeight = UITableView.automaticDimension
         self.estimatedRowHeight = 50
         setEmptyData()
 

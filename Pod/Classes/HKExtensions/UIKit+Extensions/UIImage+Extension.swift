@@ -10,7 +10,7 @@ import UIKit
 extension UIImage {
     
     public func hk_base64() -> String {
-        let imageData = UIImageJPEGRepresentation(self, 1.0)
+        let imageData = self.jpegData(compressionQuality: 1.0)
         
         return imageData!.base64EncodedString(options: [])
     }

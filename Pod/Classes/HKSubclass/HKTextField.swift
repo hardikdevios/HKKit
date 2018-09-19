@@ -218,7 +218,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     
     
     fileprivate func setup() {
-        borderStyle = UITextBorderStyle.none
+        borderStyle = UITextField.BorderStyle.none
         titleActiveTextColour = tintColor
         title.alpha = 0.0
         title.font = titleFont
