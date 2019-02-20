@@ -20,18 +20,18 @@ open class HKBarButtonItem: UIBarButtonItem {
         setup()
     }
     
-    public convenience init(systemItem: UIBarButtonSystemItem) {
+    public convenience init(systemItem: UIBarButtonItem.SystemItem) {
         self.init(barButtonSystemItem: systemItem, target: nil, action: nil)
         setup()
 
     }
-    public convenience init(title: String,style: UIBarButtonItemStyle = .done) {
+    public convenience init(title: String,style: UIBarButtonItem.Style = .done) {
         self.init(title: title, style: style, target: nil, action: nil)
         setup()
         
     }
     
-    public convenience init(image: UIImage,style: UIBarButtonItemStyle = .done) {
+    public convenience init(image: UIImage,style: UIBarButtonItem.Style = .done) {
         self.init(image: image, style: style, target: nil, action: nil)
         setup()
         

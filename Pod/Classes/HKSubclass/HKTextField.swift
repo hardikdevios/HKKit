@@ -19,6 +19,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     var objDelegate:HKTextFieldDelegate = HKTextFieldDelegate()
     let animationDuration = 0.3
     var title = UILabel()
+    open var onBackWardclick:((HKTextField)->())?
     
     weak open override var delegate: UITextFieldDelegate? {
         
@@ -217,7 +218,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     
     
     fileprivate func setup() {
-        borderStyle = UITextBorderStyle.none
+        borderStyle = UITextField.BorderStyle.none
         titleActiveTextColour = tintColor
         title.alpha = 0.0
         title.font = titleFont
@@ -273,6 +274,11 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     }
 
     
+    override open func deleteBackward() {
+        super.deleteBackward()
+        self.onBackWardclick?(self)
+    }
+
    
 }
 

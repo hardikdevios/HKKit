@@ -75,9 +75,9 @@ open class HKCalendarController: UIViewController, UIPageViewControllerDelegate,
         
         pageController.dataSource = self
         pageController.delegate = self
-        addChildViewController(pageController)
+        addChild(pageController)
         
-        pageController.didMove(toParentViewController: self)
+        pageController.didMove(toParent: self)
         
         self.updateWithDay(animated:true)
     }

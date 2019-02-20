@@ -9,7 +9,7 @@
 import Foundation
 
 
-internal func hk_getAttributeString(_ mainString:String,attributeString:String,attributes:[NSAttributedStringKey:Any])->NSAttributedString{
+internal func hk_getAttributeString(_ mainString:String,attributeString:String,attributes:[NSAttributedString.Key:Any])->NSAttributedString{
     
     let value = mainString.range(of: attributeString, options: NSString.CompareOptions.caseInsensitive)
     let attrString: NSMutableAttributedString = NSMutableAttributedString(string:mainString)
@@ -22,7 +22,7 @@ internal func hk_getAttributeString(_ mainString:String,attributeString:String,a
         
 
 }
-internal func hk_getMultipleAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[NSAttributedStringKey:Any]]) -> NSAttributedString{
+internal func hk_getMultipleAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[NSAttributedString.Key:Any]]) -> NSAttributedString{
     
     let attrString: NSMutableAttributedString = NSMutableAttributedString(string:mainString)
     

@@ -40,7 +40,7 @@ extension UITextField{
         
     }
     
-    public func hk_setLeftImgView(_ imgName:String!,contentMode:UIViewContentMode = .center)->Void{
+    public func hk_setLeftImgView(_ imgName:String!,contentMode:UIView.ContentMode = .center)->Void{
         
         self.layoutIfNeeded()
         let leftViewForImg = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: self.frame.size.height))
@@ -57,7 +57,7 @@ extension UITextField{
     public func hk_setPlaceHolderColor(_ color:UIColor){
         
         self.attributedPlaceholder = NSAttributedString(string:self.placeholder ?? "",
-            attributes:[NSAttributedStringKey.foregroundColor:color])
+            attributes:[NSAttributedString.Key.foregroundColor:color])
         
     }
     

@@ -29,17 +29,17 @@ extension UIButton{
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 2
         self.layer.borderColor = color.cgColor
-        self.setTitleColor(color, for: UIControlState())
+        self.setTitleColor(color, for: UIControl.State())
     }
     
-    public func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[NSAttributedStringKey:Any]){
+    public func hk_setAttributeString(_ mainString:String,attributeString:String,attributes:[NSAttributedString.Key:Any]){
         
         let result = hk_getAttributeString(mainString, attributeString: attributeString, attributes: attributes)
         self.setAttributedTitle(result, for: .normal)
         
     }
     
-    public func hk_setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[NSAttributedStringKey:Any]]) {
+    public func hk_setAttributesString(_ mainString:String,attributeStrings:[String],total_attributes:[[NSAttributedString.Key:Any]]) {
         
         let result = hk_getMultipleAttributesString(mainString, attributeStrings: attributeStrings, total_attributes: total_attributes)
         self.setAttributedTitle(result, for: .normal)

@@ -34,7 +34,7 @@ extension UIViewController {
     
     public func hk_remvoeAllObserver(_ isForcefully:Bool = false){
         
-        if self.isMovingFromParentViewController || isForcefully{
+        if self.isMovingFromParent || isForcefully{
             NotificationCenter.default.removeObserver(self)
         }
     }
@@ -59,11 +59,11 @@ extension UIViewController {
     }
   
     public func hk_setCancelButton()->Void{
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action:#selector(UIViewController.hk_cancelClick(_:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action:#selector(UIViewController.hk_cancelClick(_:)))
     }
     
     public func hk_setSaveButton(_ action:Selector)->Void{
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: action)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.save, target: self, action: action)
     }
     
     @objc open func hk_cancelClick(_ sender:AnyObject?){
@@ -91,7 +91,7 @@ extension UIViewController {
     }
     
     public func hk_setEmptyView(_ text:String!){
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.tag = 9999
@@ -121,19 +121,19 @@ extension UIViewController {
     
     public func hk_setToolbarWithActivity(){
         
-        let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        let activity = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         activity.isHidden = false
         let barbuttonActivity = UIBarButtonItem(customView: activity)
         activity.startAnimating()
         activity.color = HKConstant.sharedInstance.main_color
-        self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil),barbuttonActivity,UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)]
+        self.toolbarItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil),barbuttonActivity,UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)]
         
     }
     public func hk_removeWithAnimation(){
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.view.alpha = 0
             }, completion: { (sucess) -> Void in
-                self.removeFromParentViewController()
+                self.removeFromParent()
                 self.view.removeFromSuperview()
                 
         })
@@ -146,14 +146,14 @@ extension UIViewController {
     }
     
     public func hk_setCustomBackbutton(_ methodName:Selector){
-        let myBackButton:UIButton = UIButton(type: UIButtonType.custom)
-        myBackButton.addTarget(self, action: methodName, for: UIControlEvents.touchUpInside)
-        myBackButton.setTitle(" ", for: UIControlState())
-        myBackButton.setImage(UIImage(named: "back"), for: UIControlState())
+        let myBackButton:UIButton = UIButton(type: UIButton.ButtonType.custom)
+        myBackButton.addTarget(self, action: methodName, for: UIControl.Event.touchUpInside)
+        myBackButton.setTitle(" ", for: UIControl.State())
+        myBackButton.setImage(UIImage(named: "back"), for: UIControl.State())
         
-        myBackButton.imageEdgeInsets = UIEdgeInsetsMake(0,-20, 0, 0)
-        myBackButton.titleEdgeInsets = UIEdgeInsetsMake(0,-30, 0, 0)
-        myBackButton.setTitleColor(UIColor.gray, for: UIControlState())
+        myBackButton.imageEdgeInsets = UIEdgeInsets.init(top: 0,left: -20, bottom: 0, right: 0)
+        myBackButton.titleEdgeInsets = UIEdgeInsets.init(top: 0,left: -30, bottom: 0, right: 0)
+        myBackButton.setTitleColor(UIColor.gray, for: UIControl.State())
         myBackButton.sizeToFit()
         myBackButton.tintColor = UIColor.gray
         
@@ -165,7 +165,7 @@ extension UIViewController {
     
     public func hk_setUpActivityIndicator(){
         
-        let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        let activity = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         activity.hidesWhenStopped = true
         let barbuttonActivity = UIBarButtonItem(customView: activity)
         if self.navigationItem.rightBarButtonItem != nil {

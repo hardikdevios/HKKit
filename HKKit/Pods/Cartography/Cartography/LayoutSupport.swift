@@ -13,7 +13,7 @@ import Foundation
 
     public struct LayoutSupport {
         let layoutGuide : UILayoutSupport
-        let attribute : NSLayoutAttribute
+        let attribute : NSLayoutConstraint.Attribute
     }
 
     public extension UIViewController {

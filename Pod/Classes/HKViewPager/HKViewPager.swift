@@ -12,7 +12,7 @@ import Cartography
 
 open class HKViewPager: HKCardView {
 
-    open let indicator = UIView()
+    public let indicator = UIView()
     open var group: ConstraintGroup!
     open var leading: NSLayoutConstraint!
 
@@ -31,7 +31,7 @@ open class HKViewPager: HKCardView {
         return stackview
     } ()
 
-    public var distribution:UIStackViewDistribution = .fillEqually {
+    public var distribution:UIStackView.Distribution = .fillEqually {
         
         didSet{
             self.stackView.distribution = self.distribution

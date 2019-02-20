@@ -436,7 +436,7 @@ open class ImageDownloader {
         completion: CompletionHandler? = nil)
         -> [RequestReceipt]
     {
-        return urlRequests.flatMap {
+        return urlRequests.compactMap {
             download($0, filter: filter, progress: progress, progressQueue: progressQueue, completion: completion)
         }
     }

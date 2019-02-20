@@ -21,7 +21,7 @@ extension UITableView {
         headerView.setNeedsLayout()
         headerView.layoutIfNeeded()
         
-        let height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         var frame = headerView.frame
         frame.size.height = height + padding
         headerView.frame = frame
@@ -37,7 +37,7 @@ extension UITableView {
         headerView.setNeedsLayout()
         headerView.layoutIfNeeded()
         
-        let height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         var frame = headerView.frame
         frame.size.height = height
         headerView.frame = frame
@@ -48,7 +48,7 @@ extension UITableView {
         self.tableHeaderView = header
         header.setNeedsLayout()
         header.layoutIfNeeded()
-        let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let height = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         var frame = header.frame
         frame.size.height = height
         header.frame = frame
