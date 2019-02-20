@@ -20,7 +20,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
     let animationDuration = 0.3
     var title = UILabel()
     
-    open override var delegate: UITextFieldDelegate? {
+    weak open override var delegate: UITextFieldDelegate? {
         
         didSet{
             objDelegate.delegate = self.delegate
