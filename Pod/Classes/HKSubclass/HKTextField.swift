@@ -289,7 +289,7 @@ open class HKTextFieldDelegate:NSObject,UITextFieldDelegate {
     var textEditingStartClouser:cl_textfield?
     var textEditingStopClouser:cl_textfield?
 
-    var delegate:UITextFieldDelegate?
+    weak var delegate:UITextFieldDelegate?
     
     open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
