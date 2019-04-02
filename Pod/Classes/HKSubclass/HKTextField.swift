@@ -13,19 +13,21 @@ public typealias cl_textfield = ((HKTextField)->Bool?)
 
 open class HKTextField: UITextField,UITextFieldDelegate {
     public var padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 10);
-    open var needBottomBorder:Bool = false
+    var needBottomBorder:Bool = false
     open var bottomBorder:CALayer?
     open var validationErrorColor:UIColor = UIColor.red.withAlphaComponent(0.5)
     var objDelegate:HKTextFieldDelegate = HKTextFieldDelegate()
     let animationDuration = 0.3
     var title = UILabel()
     open var onBackWardclick:((HKTextField)->())?
+    var bottomBorderColor:UIColor = .white
+    var bottomBorderWidth:CGFloat = 1
     
     open override var delegate: UITextFieldDelegate? {
         
         didSet{
             objDelegate.delegate = self.delegate
-            super.delegate = objDelegate
+          //  super.delegate = objDelegate
 
         }
     }
@@ -163,9 +165,16 @@ open class HKTextField: UITextField,UITextFieldDelegate {
         }
    
         if needBottomBorder == true {
-            let _ = self.hk_addBottomBorderWithColor(UIColor.lightGray, width: 0.5)
+            let _ = self.hk_addBottomBorderWithColor(bottomBorderColor,
+                                                     width: bottomBorderWidth)
         }
         
+    }
+    
+    public func setBottomBorder(color:UIColor = UIColor.white, width:CGFloat = 1.0) {
+        needBottomBorder = true
+        self.bottomBorderColor = color
+        self.bottomBorderWidth = width
     }
 
     
@@ -208,7 +217,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
             top = min(top, maxTopInset())
             bottom = 5
         }
-        newBounds.origin.x += padding.left + leftWidth  + rightWidth
+        newBounds.origin.x += padding.left + rightWidth
         newBounds.origin.y += top
         newBounds.size.height -= top + bottom
         newBounds.size.width -= padding.left + padding.right + leftWidth + rightWidth + extraPadding
