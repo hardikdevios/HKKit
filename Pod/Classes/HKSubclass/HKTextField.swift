@@ -217,7 +217,7 @@ open class HKTextField: UITextField,UITextFieldDelegate {
             top = min(top, maxTopInset())
             bottom = 5
         }
-        newBounds.origin.x += padding.left + rightWidth
+        newBounds.origin.x += padding.left + leftWidth
         newBounds.origin.y += top
         newBounds.size.height -= top + bottom
         newBounds.size.width -= padding.left + padding.right + leftWidth + rightWidth + extraPadding
