@@ -1,7 +1,7 @@
 //
 //  UIImage+AlamofireImage.swift
 //
-//  Copyright (c) 2015-2017 Alamofire Software Foundation (http://alamofire.org/)
+//  Copyright (c) 2015-2018 Alamofire Software Foundation (http://alamofire.org/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -298,12 +298,19 @@ extension UIImage {
 
         guard let coreImage = image else { return nil }
 
-        let context = CIContext(options: convertToOptionalCIContextOptionDictionary([convertFromCIContextOption(CIContextOption.priorityRequestLow): true]))
+        #if swift(>=4.2)
+        let context = CIContext(options: [.priorityRequestLow: true])
+        #else
+        let context = CIContext(options: [kCIContextPriorityRequestLow: true])
+        #endif
 
         var parameters: [String: Any] = parameters ?? [:]
         parameters[kCIInputImageKey] = coreImage
-
+        #if swift(>=4.2)
         guard let filter = CIFilter(name: name, parameters: parameters) else { return nil }
+        #else
+        guard let filter = CIFilter(name: name, withInputParameters: parameters) else { return nil }
+        #endif
         guard let outputImage = filter.outputImage else { return nil }
 
         let cgImageRef = context.createCGImage(outputImage, from: outputImage.extent)
@@ -313,14 +320,3 @@ extension UIImage {
 }
 
 #endif
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalCIContextOptionDictionary(_ input: [String: Any]?) -> [CIContextOption: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (CIContextOption(rawValue: key), value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromCIContextOption(_ input: CIContextOption) -> String {
-	return input.rawValue
-}

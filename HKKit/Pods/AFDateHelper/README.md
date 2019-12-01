@@ -48,6 +48,13 @@ let startOfWeek = date.dateFor(.startOfWeek)
 let nearest5Hours = date.dateFor(.nearestHour(hour:5))
 ```
 
+Forcing a week to start on monday
+```Swift
+var calendar = Calendar(identifier: .gregorian)
+calendar = 2 // sets the week to start on the second day.. monday
+now.dateFor(.startOfWeek, calendar: calendar)
+```
+
 Time since...
 
 ```Swift
@@ -393,14 +400,16 @@ date.lastDayofWeek()
 
 ## Requirements
 
-Language: Swift 4.0
-Minimum: iOS 9, tvOS 9, watchOS 2, macOS 10.06
+Language: Swift 5.0
+Minimum: iOS 11, tvOS 12, watchOS 4, macOS 10.14
 
 
 ## Installation
 
-**Carthage** github "melvitax/DateHelper"  
-**Cocoapods** pod 'AFDateHelper', '~> 4.2.2'  
+
+**Carthage** github "melvitax/DateHelper"   
+**Swift Package Manager** https://github.com/melvitax/DateHelper.git   
+**Cocoapods** pod 'AFDateHelper', '~> 4.3.0'   
 **Manually**  Include DateHelper.swift in your project
 
 

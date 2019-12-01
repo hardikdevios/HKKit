@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "HKKit"
-  s.version          = "3.0.12"
+  s.version          = "3.0.13"
   s.summary          = "Perosnal repo"
   s.description      = "Faster app development use for my personal use only in order to import and maintain my Global functions and extensions"
 
@@ -19,7 +19,6 @@ Pod::Spec.new do |s|
   s.dependency 'SwiftyJSON'
   s.dependency 'AlamofireImage'
   s.dependency 'MagicalRecord'
-  s.dependency 'DZNEmptyDataSet'
   s.dependency 'Cartography'
   s.dependency 'AFDateHelper'
 
