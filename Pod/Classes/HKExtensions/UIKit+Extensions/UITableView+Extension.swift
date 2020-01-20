@@ -9,7 +9,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 extension UITableView {
     
     public func hk_headerSizeFit(padding:CGFloat = 0){

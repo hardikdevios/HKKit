@@ -8,9 +8,7 @@
 //
 
 import Foundation
-
-
-
+import UIKit
 extension UIPickerView {
     
     public func hk_stopScrolling() {
