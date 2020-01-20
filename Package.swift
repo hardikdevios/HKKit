@@ -14,11 +14,12 @@ let package = Package(
             targets: ["HKKit"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/robb/Cartography", .upToNextMinor(from: "4.0.0")),
     ],
     targets: [
         .target(
             name: "HKKit",
-            path: "Pod/Classes"),
+            dependencies: ["Cartography"], path: "Pod/Classes"),
     
     ],
     swiftLanguageVersions: [.v5]
