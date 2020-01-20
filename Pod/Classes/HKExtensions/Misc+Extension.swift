@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 extension RangeReplaceableCollection where Iterator.Element : Equatable {
     
     // Remove first collection element that is equal to the given `object`:
