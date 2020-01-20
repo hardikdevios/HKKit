@@ -7,6 +7,7 @@
 //
 
 import Foundation
+#if canImport(AFDateHelper)
 import AFDateHelper
 
 public enum HK_ENUM_WEEKDAY: String,ViewPager {
@@ -100,4 +101,4 @@ public enum HK_ENUM_WEEKDAY: String,ViewPager {
     public static let days_with_All = [ALL,Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
     
 }
-
+#endif

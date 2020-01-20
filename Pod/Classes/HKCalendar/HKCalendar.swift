@@ -6,6 +6,7 @@
 //  Copyright © 2017 Hardik. All rights reserved.
 //
 
+#if canImport(Cartography)
 import Foundation
 import UIKit
 import Cartography
@@ -345,4 +346,4 @@ private class HKCalenderDayView: UIView {
     
     
 }
-
+#endif

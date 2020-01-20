@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
+#if canImport(Cartography)
 import Cartography
-
 open class HKNibView: UIView {
 
     weak var view: UIView!
@@ -55,3 +55,4 @@ open class HKNibView: UIView {
     }
 
 }
+#endif

@@ -7,44 +7,13 @@
 //
 
 import Foundation
-import Alamofire
 import CoreData
-
-extension Alamofire.SessionManager
-{
-    fileprivate func hk_cancelTasksByUrl(_ tasks: [URLSessionTask], url: String)
-    {
-        
-        for task in tasks
-        {
-            guard let string = task.currentRequest?.url?.description else{
-                continue
-            }
-            if string.hasPrefix(HKConstant.sharedInstance.main_url + url)
-            {
-                task.cancel()
-            }
-        }
-    }
-    
-    open func hk_cancelRequests(_ url: String)
-    {
-        self.session.getTasksWithCompletionHandler
-            {
-                (dataTasks, uploadTasks, downloadTasks) -> Void in
-                
-                self.hk_cancelTasksByUrl(dataTasks     as [URLSessionTask], url: url)
-                self.hk_cancelTasksByUrl(uploadTasks   as [URLSessionTask], url: url)
-                self.hk_cancelTasksByUrl(downloadTasks as [URLSessionTask], url: url)
-        }
-    }
-}
 
 extension RangeReplaceableCollection where Iterator.Element : Equatable {
     
     // Remove first collection element that is equal to the given `object`:
     mutating public func hk_removeObject(_ object : Iterator.Element) {
-        if let index = self.index(of: object) {
+        if let index = self.firstIndex(of: object) {
             self.remove(at: index)
         }
     }

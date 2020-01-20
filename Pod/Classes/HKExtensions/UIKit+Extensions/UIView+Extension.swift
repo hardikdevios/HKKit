@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AlamofireImage
 
 extension UIView{
     public func hk_setAppBackGround()->Void{
@@ -128,12 +127,6 @@ extension UIView {
     
     
     public func hk_makeOval(){
-        
-        if let imgView = self as? UIImageView {
-            imgView.image = imgView.image?.af_imageRoundedIntoCircle()
-            return
-        }
-        
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
     }

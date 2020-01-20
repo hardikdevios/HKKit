@@ -7,6 +7,7 @@
 //
 
 import UIKit
+#if canImport(Cartography)
 import Cartography
 
 public class HKViewTab:HKCardView {
@@ -191,5 +192,6 @@ fileprivate class WeekView:UIView {
 }
 
 
+#endif
 
 

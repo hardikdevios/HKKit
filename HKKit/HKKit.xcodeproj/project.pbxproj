@@ -34,7 +34,6 @@
 		563025101ED42E5500194856 /* NSMangedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */; };
 		563025121ED42F9300194856 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025111ED42F9300194856 /* UITableView+Extension.swift */; };
 		563025141ED4307C00194856 /* UIPickerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563025131ED4307C00194856 /* UIPickerView+Extension.swift */; };
-		5662EA941F3054BC00A9D471 /* HKNotificaitonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662EA931F3054BC00A9D471 /* HKNotificaitonManager.swift */; };
 		56631A9F1F628EA7007CAE4C /* HKEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56631A9B1F628EA7007CAE4C /* HKEmptyCell.swift */; };
 		56631AA01F628EA7007CAE4C /* HKEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56631A9C1F628EA7007CAE4C /* HKEmptyCell.xib */; };
 		56631AA11F628EA7007CAE4C /* HKEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56631A9D1F628EA7007CAE4C /* HKEmptyView.swift */; };
@@ -97,7 +96,6 @@
 		5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMangedObject+Extension.swift"; sourceTree = "<group>"; };
 		563025111ED42F9300194856 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		563025131ED4307C00194856 /* UIPickerView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Extension.swift"; sourceTree = "<group>"; };
-		5662EA931F3054BC00A9D471 /* HKNotificaitonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKNotificaitonManager.swift; sourceTree = "<group>"; };
 		56631A9B1F628EA7007CAE4C /* HKEmptyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKEmptyCell.swift; sourceTree = "<group>"; };
 		56631A9C1F628EA7007CAE4C /* HKEmptyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HKEmptyCell.xib; sourceTree = "<group>"; };
 		56631A9D1F628EA7007CAE4C /* HKEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKEmptyView.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 		5662EA921F30546A00A9D471 /* HKNotification */ = {
 			isa = PBXGroup;
 			children = (
-				5662EA931F3054BC00A9D471 /* HKNotificaitonManager.swift */,
 			);
 			path = HKNotification;
 			sourceTree = "<group>";
@@ -405,7 +402,6 @@
 				5667C9DC1ED5829100F930AD /* Sources */,
 				5667C9DD1ED5829100F930AD /* Frameworks */,
 				5667C9DE1ED5829100F930AD /* Resources */,
-				E66D57364F60316880039827 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -465,10 +461,9 @@
 			};
 			buildConfigurationList = 56EBA93B1ED06A3A00C743F7 /* Build configuration list for PBXProject "HKKit" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -538,34 +533,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E66D57364F60316880039827 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFDateHelper/AFDateHelper.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
-				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFDateHelper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F971ECAF2CD1B7EED3A7DA9C /* [CP] Check Pods Manifest.lock */ = {
@@ -648,7 +615,6 @@
 				56B1FF2A1ED437DF00779B57 /* NSObject+Extension.swift in Sources */,
 				56EBA9781ED06A7900C743F7 /* UIColor+Extension.swift in Sources */,
 				56EBA9841ED06A7900C743F7 /* HKAlamofireImageView.swift in Sources */,
-				5662EA941F3054BC00A9D471 /* HKNotificaitonManager.swift in Sources */,
 				56EBA97C1ED06A7900C743F7 /* UINavigationController+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

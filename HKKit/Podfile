@@ -3,12 +3,7 @@ use_frameworks!
 platform :ios, '11.0'
 
 def shared_pod
-    pod 'Alamofire'
-    pod 'AlamofireImage'
-    pod 'SwiftyJSON'
-    pod 'MagicalRecord'
-    pod 'Cartography'
-    pod 'AFDateHelper'
+ 
 end
 
 target 'HKKit' do

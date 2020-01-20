@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+#if canImport(Cartography)
 import Cartography
 
 open class HKViewPager: HKCardView {
@@ -242,3 +243,4 @@ private class TabView: UIView {
         }
 
 }
+#endif

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+#if canImport(AlamofireImage)
 import Alamofire
 import AlamofireImage
 open class HKAlamofireImageView: UIImageView {
@@ -64,3 +65,4 @@ public enum HKAlamofireImageType{
     case rounded
     case normal
 }
+#endif

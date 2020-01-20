@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+#if canImport(Cartography)
 open class HKEmptyView: HKNibView {
 
     @IBOutlet public weak var lblTitle: UILabel!
@@ -34,3 +34,4 @@ open class HKEmptyView: HKNibView {
     }
 
 }
+#endif
