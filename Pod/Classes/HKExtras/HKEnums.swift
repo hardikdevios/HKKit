@@ -7,8 +7,8 @@
 //
 
 import Foundation
-#if canImport(AFDateHelper)
-import AFDateHelper
+#if canImport(DateHelper)
+import DateHelper
 
 public enum HK_ENUM_WEEKDAY: String,ViewPager {
     case ALL = "All Day"
