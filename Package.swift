@@ -18,7 +18,7 @@ let package = Package(
     targets: [
         .target(
             name: "HKKit",
-            path: "HKKit/Pod/Classes"),
+            path: "Pod/Classes"),
     
     ],
     swiftLanguageVersions: [.v5]
