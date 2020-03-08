@@ -7,7 +7,6 @@
 //
 
 import UIKit
-#if canImport(Carto)
 public class HKEmptyCell: UITableViewCell {
 
     @IBOutlet public weak var emotyView: HKEmptyView!
@@ -23,4 +22,3 @@ public class HKEmptyCell: UITableViewCell {
     }
 
 }
-#endif
