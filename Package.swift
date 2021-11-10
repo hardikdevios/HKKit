@@ -18,7 +18,7 @@ let package = Package(
         .package(url: "https://github.com/melvitax/DateHelper", .upToNextMinor(from: "4.3.0"))
     ],
     targets: [
-        .target(name: "HKKit",dependencies: ["Cartography","AFDateHelper"], path: "Pod/Classes"),
+        .target(name: "HKKit",dependencies: ["Cartography","DateHelper"], path: "Pod/Classes"),
     ],
     swiftLanguageVersions: [.v5]
 
