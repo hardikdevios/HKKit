@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "HKKit",
     platforms: [
-        .iOS(.v10)
+        .iOS(.v13)
     ],
     products: [
         .library(
@@ -15,12 +15,11 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/robb/Cartography", .upToNextMinor(from: "4.0.0")),
+        .package(url: "https://github.com/melvitax/DateHelper", .upToNextMinor(from: "4.3.0"))
     ],
     targets: [
-        .target(
-            name: "HKKit",
-            dependencies: ["Cartography"], path: "Pod/Classes"),
-    
+        .target(name: "HKKit",dependencies: ["Cartography"], path: "Pod/Classes"),
+        .target(name: "HKKit",dependencies: ["AFDateHelper"], path: "Pod/Classes")
     ],
     swiftLanguageVersions: [.v5]
 

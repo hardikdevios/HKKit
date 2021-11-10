@@ -91,6 +91,7 @@
 		0A490E041F6EF7C200AD706D /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0AC4DEB81F6AE7B80005D5C5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0AC4DEB91F6AE7B80005D5C5 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
+		0ADFF9C8273BDACC00796F32 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		561DC8021F6A615D00BE66E5 /* PlanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCell.swift; sourceTree = "<group>"; };
 		561DC8031F6A615D00BE66E5 /* PlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanCell.xib; sourceTree = "<group>"; };
 		5630250F1ED42E5500194856 /* NSMangedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMangedObject+Extension.swift"; sourceTree = "<group>"; };
@@ -233,6 +234,7 @@
 		56EBA9371ED06A3A00C743F7 = {
 			isa = PBXGroup;
 			children = (
+				0ADFF9C8273BDACC00796F32 /* Package.swift */,
 				56EBA9431ED06A3A00C743F7 /* HKKit */,
 				5667C9E11ED5829100F930AD /* Example */,
 				56EBA9421ED06A3A00C743F7 /* Products */,

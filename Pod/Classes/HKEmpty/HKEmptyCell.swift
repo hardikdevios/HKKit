@@ -9,7 +9,6 @@
 import UIKit
 public class HKEmptyCell: UITableViewCell {
 
-    @IBOutlet public weak var emotyView: HKEmptyView!
     override public func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
